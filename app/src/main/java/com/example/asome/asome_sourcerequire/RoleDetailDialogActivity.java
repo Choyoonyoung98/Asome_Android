@@ -1,84 +1,130 @@
 package com.example.asome.asome_sourcerequire;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class RoleDetailDialogActivity extends Activity {
     AutoCompleteTextView testTag;
-    TextView showTag,showStartDate,showEndDate;
-    DatePicker datePicker;
-    LinearLayout datePage;
-    String day, month, year;
-    Boolean startD=false;
-    Boolean endD=false;
+    TextView showTag, showStartDate, showEndDate, textStart, textEnd;
+    DatePicker datePicker, datePicker2;
+    LinearLayout datePage, datePage2;
+    String day, month, year, day2, month2, year2;
+    LinearLayout rolePage;
+    roleSub layout;
+    Button setStartBtn, setEndBtn, selectBtn, selectBtn2, showBtn;
+    Boolean startD = false;
+    Boolean endD = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_role_detail_dialog);
-        showTag = findViewById(R.id.resultUser);
 
-        testTag = findViewById(R.id.test_tag);
-        ArrayAdapter<String> Tadapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, USER_TAG);
-        testTag.setAdapter(Tadapter);
-        datePicker = findViewById(R.id.datePicker);
-        datePage = findViewById(R.id.datePage);
 
-        showStartDate = findViewById(R.id.resultStartDay);
-        showEndDate = findViewById(R.id.resultEndDay);
+        rolePage = findViewById(R.id.rolePage);
 
-        day =""+datePicker.getDayOfMonth();
-        month = ""+datePicker.getMonth();
-        year = ""+datePicker.getYear();
 
     }
-    private static final String[] USER_TAG = new String[] {
-            "@조윤영","@김연지","@황은선","@이경연"
+
+    private static final String[] USER_TAG = new String[]{
+            "@조윤영", "@김연지", "@황은선", "@이경연"
     };
+
     public void onBackClicked(View view) {
         finish();
     }
-    public void userUploadClicked(View view) {
-        showTag.setVisibility(view.VISIBLE);
-        String textTag = testTag.getText().toString();
-        String tag =textTag.substring(1,textTag.length())+":";
-        showTag.setText(tag);
 
 
-    }
+    public void onAddClicked(View view) {
+        layout = new roleSub(getApplicationContext());
+        rolePage.addView(layout);
 
-    public void setStartDateClicked(View view) {
-        datePage.setVisibility(view.VISIBLE);
-        startD=true;
+        showTag = layout.findViewById(R.id.resultUser);
 
-    }
-
-    public void setEndDateClicked(View view) {
-        datePage.setVisibility(view.VISIBLE);
-        endD=true;
-
-    }
-
-    public void onDateSelectClickd(View view) {
-        datePage.setVisibility(view.GONE);
-        if(startD==true){
-            showStartDate.setVisibility(view.VISIBLE);
-            showStartDate.setText(year+"-"+month+"-"+day);
-        }
-        if(endD==true) {
-            showEndDate.setVisibility(view.INVISIBLE);
-            showEndDate.setText(year+"-"+month+"-"+day);
-        }
+        testTag = layout.findViewById(R.id.test_tag);
+        ArrayAdapter<String> Tadapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, USER_TAG);
+        testTag.setAdapter(Tadapter);
+        datePicker = layout.findViewById(R.id.datePicker);
+        datePage = layout.findViewById(R.id.datePage);
+        datePicker2 = layout.findViewById(R.id.datePicker2);
+        datePage2 = layout.findViewById(R.id.datePage2);
 
 
+        showStartDate = layout.findViewById(R.id.resultStartDay);
+        showEndDate = layout.findViewById(R.id.resultEndDay);
+
+        textStart = layout.findViewById(R.id.textStart);
+        textEnd = layout.findViewById(R.id.textEnd);
+
+
+        setStartBtn = (Button) layout.findViewById(R.id.setStartBtn);
+        setEndBtn = (Button) layout.findViewById(R.id.setEndBtn);
+        selectBtn = (Button) layout.findViewById(R.id.selectBtn);
+        selectBtn2 = (Button) layout.findViewById(R.id.selectBtn2);
+        showBtn = (Button) layout.findViewById(R.id.showBtn);
+
+        setStartBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                datePage.setVisibility(v.VISIBLE);
+            }
+        });
+        setEndBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                datePage2.setVisibility(v.VISIBLE);
+            }
+        });
+        selectBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                datePage.setVisibility(v.GONE);
+
+                day = "" + datePicker.getDayOfMonth();
+                int m1 = datePicker.getMonth() + 1;
+                month = "" + m1;
+                year = "" + datePicker.getYear();
+                String sd = year + "-" + month + "-" + day;
+                showStartDate.setText(sd);
+                textStart.setText(sd);
+            }
+        });
+        selectBtn2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                datePage2.setVisibility(v.GONE);
+
+                day2 = "" + datePicker2.getDayOfMonth();
+                int m2 = datePicker2.getMonth() + 1;
+                month2 = "" + m2;
+                year2 = "" + datePicker2.getYear();
+                String ed = year2 + "-" + month2 + "-" + day2;
+                showEndDate.setText(ed);
+                textEnd.setText(ed);
+            }
+        });
+        showBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showTag.setVisibility(v.VISIBLE);
+                String textTag = testTag.getText().toString();
+                String tag = textTag.substring(1, textTag.length());
+                String show_tag = tag + ":";
+                showTag.setText(show_tag);
+
+                showStartDate.setVisibility(v.VISIBLE);
+                showEndDate.setVisibility(v.VISIBLE);
+            }
+        });
     }
 }
+
+
+
