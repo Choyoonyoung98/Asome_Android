@@ -1,10 +1,12 @@
-package com.example.asome.asome_sourcerequire;
+package com.example.asome.asome_sourcerequire.Login;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.asome.asome_sourcerequire.Main.MainActivity;
+import com.example.asome.asome_sourcerequire.R;
 
 public class LogInActivity extends AppCompatActivity {
 

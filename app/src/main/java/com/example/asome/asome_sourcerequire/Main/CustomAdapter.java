@@ -1,4 +1,4 @@
-package com.example.asome.asome_sourcerequire;
+package com.example.asome.asome_sourcerequire.Main;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

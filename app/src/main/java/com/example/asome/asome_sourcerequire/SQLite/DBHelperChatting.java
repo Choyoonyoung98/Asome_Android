@@ -8,7 +8,7 @@ import android.util.Log;
 
 import com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity;
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
-import com.example.asome.asome_sourcerequire.MainActivity;
+import com.example.asome.asome_sourcerequire.Main.MainActivity;
 
 import java.util.ArrayList;
 

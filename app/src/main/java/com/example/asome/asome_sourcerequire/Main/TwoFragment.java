@@ -1,10 +1,9 @@
-package com.example.asome.asome_sourcerequire;
+package com.example.asome.asome_sourcerequire.Main;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +12,12 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity;
-import com.example.asome.asome_sourcerequire.Chatting.Etc.RecyclerItemClickListener;
+import com.example.asome.asome_sourcerequire.Project.NewProjectActivity;
+import com.example.asome.asome_sourcerequire.Project.ProjectItem;
+import com.example.asome.asome_sourcerequire.Project.ProjectItemView;
+import com.example.asome.asome_sourcerequire.R;
 
 import java.util.ArrayList;
 

@@ -1,8 +1,7 @@
-package com.example.asome.asome_sourcerequire;
+package com.example.asome.asome_sourcerequire.Project;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -12,6 +11,9 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.asome.asome_sourcerequire.R;
+import com.example.asome.asome_sourcerequire.roleSub;
 
 public class RoleDetailDialogActivity extends Activity {
     AutoCompleteTextView testTag;

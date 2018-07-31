@@ -1,4 +1,4 @@
-package com.example.asome.asome_sourcerequire;
+package com.example.asome.asome_sourcerequire.Project;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.asome.asome_sourcerequire.R;
 
 public class ProjectItemView extends LinearLayout{
     TextView textTitle, textAbout;
