@@ -17,11 +17,11 @@ import org.json.JSONObject;
  */
 
 
-public class DBHelper_User extends SQLiteOpenHelper {
+public class DBHelperUser extends SQLiteOpenHelper {
 
     Context context;
 
-    public DBHelper_User(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public DBHelperUser(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         this.context = context;
     }

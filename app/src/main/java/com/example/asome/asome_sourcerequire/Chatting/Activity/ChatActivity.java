@@ -205,7 +205,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
                         if(getMessage().contains(ACTION_START)){
-                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_TEXT, status);
+                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_START, status);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
@@ -216,7 +216,7 @@ public class ChatActivity extends AppCompatActivity {
                             chats.add(chat);
                         }
                         if(getMessage().contains(ACTION_SCHEDULE_OTHER)){
-                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "누구 스케쥴 보시겠습니까?<Listview>", false, ACTION_TEXT, status);
+                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "누구 스케쥴 보시겠습니까?<Listview>", false, ACTION_SCHEDULE_OTHER, status);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
@@ -468,6 +468,7 @@ public class ChatActivity extends AppCompatActivity {
 */
 
 
+        //test();
 
         //메인뷰
         rv_chat_message.setLayoutManager(new LinearLayoutManager(this));
@@ -625,6 +626,10 @@ public class ChatActivity extends AppCompatActivity {
        //spf_notification.notiOn();
        // ShortcutBadger.applyCount(getApplicationContext(), db_helper_chat.get_outer_badge_num(current_room_no));//바깥뱃지 업데이트
     }
+
+
+
+    //////////////////////////////////////////////
 
 
 }

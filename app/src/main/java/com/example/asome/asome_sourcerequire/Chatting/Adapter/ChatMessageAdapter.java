@@ -1,15 +1,17 @@
 package com.example.asome.asome_sourcerequire.Chatting.Adapter;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
+import com.example.asome.asome_sourcerequire.Chatting.Model.SectionDataModel;
+import com.example.asome.asome_sourcerequire.Chatting.Model.SingleItemModel;
 import com.example.asome.asome_sourcerequire.R;
 
 import java.util.ArrayList;
@@ -17,9 +19,10 @@ import java.util.Locale;
 
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_IMG;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_MAP;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_OTHER;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_START;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_TEXT;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.TAG_IMG_MINE;
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.TAG_READ;
 
 
 /**
@@ -110,29 +113,30 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
     TextView tv_user_real_name;//한글로 메시지를 보낸 사람의 이름을 쓰는 텍스트뷰
     TextView txtMessage;//텍스트 메시지 내용을 보여주는 텍스트뷰
-    ImageView txtMessage_img;//이미지 메시지의 이미지를 보여주는 이미지뷰
+    //ImageView txtMessage_img;//이미지 메시지의 이미지를 보여주는 이미지뷰
     TextView txtTime;//텍스트 메시지를 보낸 시간을 보여주는 텍스트뷰
-    TextView txtCheck;//상대방이 메시지를 읽었는지 보여주는 텍스트뷰
-    TextView txtTime_img;//이미지 메시지를 보낸 시간을 보여주는 텍스트뷰
+   // TextView txtCheck;//상대방이 메시지를 읽었는지 보여주는 텍스트뷰
+   // TextView txtTime_img;//이미지 메시지를 보낸 시간을 보여주는 텍스트뷰
     LinearLayout container_txt;//텍스트 메시지의 레이아웃
-    LinearLayout container_img;//이미지 메시지의 레이아웃
+    //LinearLayout container_img;//이미지 메시지의 레이아웃
     TextView dateLine;//날짜 변경선을 보여주는 텍스트뷰
     Context context;
+    RecyclerView rv_choice_card;
 
     public ChatMessageViewHolder(View itemView) {
         super(itemView);
         context = itemView.getContext();
 
-        txtCheck = (TextView) itemView.findViewById(R.id.read_check);
+        //txtCheck = (TextView) itemView.findViewById(R.id.read_check);
         txtMessage = (TextView) itemView.findViewById(R.id.tv_message);
-        txtMessage_img = (ImageView) itemView.findViewById(R.id.message_img);
-        txtTime_img = (TextView) itemView.findViewById(R.id.time_img);
+        //  txtMessage_img = (ImageView) itemView.findViewById(R.id.message_img);
+        //  txtTime_img = (TextView) itemView.findViewById(R.id.time_img);
         txtTime = (TextView) itemView.findViewById(R.id.timestamp);
-        container_img = (LinearLayout) itemView.findViewById(R.id.message_img_set);
+        //  container_img = (LinearLayout) itemView.findViewById(R.id.message_img_set);
         container_txt = (LinearLayout) itemView.findViewById(R.id.msg_container);
         dateLine = (TextView) itemView.findViewById(R.id.dateLine);
         tv_user_real_name = (TextView) itemView.findViewById(R.id.tv_user_real_name);
-
+        rv_choice_card = (RecyclerView)itemView.findViewById(R.id.rv_choice_card);
     }
 
 
@@ -151,11 +155,11 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
         //메시지의 읽음 처리
         //만약 읽음 처리가 필요없다면(날짜선) View.GONE 처리됨
-        if (chat.getRead_check().equals(TAG_READ)) {
+   /*     if (chat.getRead_check().equals(TAG_READ)) {
             txtCheck.setText("읽음");
         } else {
             txtCheck.setText("안읽음");
-        }
+        }*/
 
         //케이스 마다 안쓰는 뷰 -> View.GONE
         //쓰는 뷰-->View.VISIBLE
@@ -164,15 +168,56 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
             //텍스트 메시지 케이스
             //쓰는 뷰
             //안쓰는 뷰
+            case  ACTION_START:
+                rv_choice_card.setVisibility(View.GONE);
+
+            case ACTION_SCHEDULE_OTHER:
+
+                ArrayList<SectionDataModel> allSampleData;
+                allSampleData = new ArrayList<SectionDataModel>();
+
+
+
+                //  createDummyData();
+
+
+                //  for (int i = 1; i <= 5; i++) {
+
+                SectionDataModel dm = new SectionDataModel();
+
+                //      dm.setHeaderTitle("Section " + i);
+
+                ArrayList<SingleItemModel> singleItem = new ArrayList<SingleItemModel>();
+                for (int j = 0; j <= 10; j++) {
+                    singleItem.add(new SingleItemModel("Item " + j, "URL " + j));
+                }
+
+                dm.setAllItemsInSection(singleItem);
+
+                allSampleData.add(dm);
+
+                //   RecyclerView my_recycler_view = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+                rv_choice_card.setHasFixedSize(true);
+
+                RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(context, allSampleData);
+
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+
+                rv_choice_card.setAdapter(adapter);
+
             case ACTION_TEXT:
-                container_img.setVisibility(View.GONE);
+
+               // container_img.setVisibility(View.GONE);
                 container_txt.setVisibility(View.VISIBLE);
-                txtCheck.setVisibility(View.VISIBLE);
+     //           txtCheck.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
                 txtTime.setVisibility(View.VISIBLE);
                 txtMessage.setText(chat.getMessage());
                 txtTime.setText(chat.getTimestamp());
                 dateLine.setVisibility(View.GONE);
+
+
                 break;
 
             /**
@@ -182,11 +227,11 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
             //쓰는 뷰
             //안쓰는 뷰
             case ACTION_IMG:
-                final String imageUri = chat.getMessage();
+       /*         final String imageUri = chat.getMessage();
                 container_txt.setVisibility(View.GONE);
                 container_img.setVisibility(View.VISIBLE);
                 txtTime_img.setText(chat.getTimestamp());
-  //              GlideUtil.setBitmapToView(imageUri, txtMessage_img);
+                //              GlideUtil.setBitmapToView(imageUri, txtMessage_img);
                 txtMessage_img.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -195,13 +240,13 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                     }
                 });
                 dateLine.setVisibility(View.GONE);
-                break;
+    */            break;
 
             //내가 상대에게 이미지 보내는 케이스
             //쓰는 뷰
             //안쓰는 뷰
             case TAG_IMG_MINE:
-                final String imageUri_mine = chat.getMessage();
+    /*            final String imageUri_mine = chat.getMessage();
                 container_txt.setVisibility(View.GONE);
                 container_img.setVisibility(View.VISIBLE);
                 txtTime_img.setText(chat.getTimestamp());
@@ -215,7 +260,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                     }
                 });
                 dateLine.setVisibility(View.GONE);
-                break;
+*/                break;
 
             //맵 메시지 케이스
             //쓰는 뷰
@@ -245,9 +290,9 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
             //쓰는 뷰
             //안쓰는 뷰
             case "dateLine":
-                container_img.setVisibility(View.GONE);
+          //      container_img.setVisibility(View.GONE);
                 container_txt.setVisibility(View.GONE);
-                txtCheck.setVisibility(View.GONE);
+       //         txtCheck.setVisibility(View.GONE);
                 txtMessage.setVisibility(View.GONE);
                 txtTime.setVisibility(View.GONE);
                 dateLine.setVisibility(View.VISIBLE);
@@ -257,4 +302,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
         }
 
     }
+
+
+
 }

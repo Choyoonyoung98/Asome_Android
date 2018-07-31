@@ -19,12 +19,12 @@
         android:textStyle="italic"
         android:visibility="gone" />
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/profileView"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_weight="1"
-        android:visibility="gone"/>
+        android:visibility="gone"/>-->
     <TextView
         android:id="@+id/dateLine"
         android:layout_width="match_parent"
@@ -67,68 +67,13 @@
             android:textSize="16dp" />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/message_img_set"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_choice_card"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/message_img"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:background="@color/white"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
-                android:textColor="@android:color/black"
-                android:textSize="16dp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/time_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.97"
-                android:padding="5dp"
-                android:text="6:44"
-                android:textColor="@color/name"
-                android:textSize="8sp"
-                android:textStyle="italic"
-                android:visibility="visible" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/read_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:padding="5dp"
-        android:text="read"
-        android:textColor="@color/colorPrimary"
-        android:textSize="12dp"
-        android:textStyle="italic" />
-
+      />
+<!--    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_choice_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />-->
 </LinearLayout>

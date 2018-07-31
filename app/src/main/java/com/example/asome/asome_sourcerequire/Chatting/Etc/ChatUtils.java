@@ -317,7 +317,7 @@ public class ChatUtils {
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put(TAG_ACTION, ACTION_TEXT);
+            jsonObject.put(TAG_ACTION, chat.getAction());
             jsonObject.put(TAG_USER_NO, chat.getUser_no());
             jsonObject.put(TAG_ROOM_NO, chat.getRoom_no());
             jsonObject.put(TAG_MESSAGE, chat.getMessage());
