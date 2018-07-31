@@ -9,9 +9,14 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
+
+import com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity;
+import com.example.asome.asome_sourcerequire.Chatting.Etc.RecyclerItemClickListener;
 
 import java.util.ArrayList;
 
@@ -19,6 +24,7 @@ public class TwoFragment extends ListFragment implements  View.OnClickListener {
     GridView gridView;
     Button addBtn;
     ProjectAdapter pa;
+    private static final String DEBUG_TAG = "TwoFragment";
     public TwoFragment() {
     }
 
@@ -44,8 +50,24 @@ public class TwoFragment extends ListFragment implements  View.OnClickListener {
         gridView.setAdapter(pa);
         pa.notifyDataSetChanged();
 
+
         view.findViewById(R.id.addbtn).setOnClickListener(this);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                Intent intent;
+
+                    intent = new Intent(getContext(), ChatActivity.class);
+                    startActivity(intent);
+
+
+            }
+        });
     }
+
+
+
 
     @Override
     public void onClick(View v) {
