@@ -37,6 +37,9 @@ public class RoleDetailDialogActivity extends Activity {
         showStartDate = findViewById(R.id.resultStartDay);
         showEndDate = findViewById(R.id.resultEndDay);
 
+        //datePicker.init(2071,7,7, onDateSelectClickd());
+
+
         day =""+datePicker.getDayOfMonth();
         month = ""+datePicker.getMonth();
         year = ""+datePicker.getYear();

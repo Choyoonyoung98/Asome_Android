@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity;
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
-import com.example.asome.asome_sourcerequire.SQLite.DBHelperChatting;
+import com.example.asome.asome_sourcerequire.Chatting.Utils.SQLite.DBHelperChatting;
 
 import org.json.JSONException;
 import org.json.JSONObject;
