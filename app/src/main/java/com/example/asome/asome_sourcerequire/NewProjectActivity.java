@@ -26,7 +26,7 @@ public class NewProjectActivity extends AppCompatActivity {
         addBtn = findViewById(R.id.addbtn);
         createBtn = findViewById(R.id.createbtn);
         roleLayout = (LinearLayout)findViewById(R.id.roleLayout);
-        detailBtn = findViewById(R.id.detailBtn);
+
         translateDownAnim =  AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate_down);
     }
 
@@ -51,6 +51,13 @@ public class NewProjectActivity extends AppCompatActivity {
         layout = new Sub(getApplicationContext());
         roleLayout.addView(layout);
         /*여기다가 다이얼로그 이동 부분 추가*/
+        Button btn = (Button)layout.findViewById(R.id.detailBtn);
+        btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Intent intent = new Intent(NewProjectActivity.this, RoleDetailDialogActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
