@@ -1,4 +1,4 @@
-package com.example.asome.asome_sourcerequire;
+package com.example.asome.asome_sourcerequire.Project;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import com.example.asome.asome_sourcerequire.R;
+import com.example.asome.asome_sourcerequire.Sub;
 
 public class NewProjectActivity extends AppCompatActivity {
    LinearLayout aboutForm;
