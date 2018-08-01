@@ -1,10 +1,11 @@
-package com.example.asome.asome_sourcerequire;
+package com.example.asome.asome_sourcerequire.Login;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.asome.asome_sourcerequire.R;
 
 public class SplashActivity extends AppCompatActivity {
 

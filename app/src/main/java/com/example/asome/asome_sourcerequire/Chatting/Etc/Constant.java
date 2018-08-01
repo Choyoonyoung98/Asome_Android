@@ -3,7 +3,7 @@ package com.example.asome.asome_sourcerequire.Chatting.Etc;
 public class Constant {
     //public static final String SOCKET_URL = "ws://45.32.55.218:8083/websocket/?request=";
     public static final String SOCKET_URL = "ws://10.200.153.95:8090/websocket/?request=";
-    public static final int SELECT_PHOTO = 1;
+    public static final String URL= "http://10.200.153.95/asome/";
 
     //일반 상수
     public static final String TAG_ACTION = "action";
@@ -26,8 +26,7 @@ public class Constant {
     public static final String ACTION_TEXT = "text";
     public static final String ACTION_MAP = "map";
     public static final String ACTION_IMG = "img";
-    public static final String hori_id ="11";
-
+    public static final String hori_id = "11";
 
 
     //
@@ -39,9 +38,9 @@ public class Constant {
     public static final String ACTION_CALL = "call";
     public static final String ACTION_DONE = "done";
 
-/*    public static final String ACTION_DONE = "done";
-    public static final String ACTION_DONE = "done";*/
-
+    /*    public static final String ACTION_DONE = "done";
+        public static final String ACTION_DONE = "done";*/
+    public static final String INSERT_JOIN = URL+"/login/insert_user.php";
     //쪽지 관련 URL
     public static final String INSERT_MSG_CONTENT = "http://www.giljabee.com/api/android_api/message/INSERT/msg_content.php";
     public static final String INSERT_MSG_ROOM = "http://www.giljabee.com/api/android_api/message/INSERT/msg_room.php";
@@ -93,7 +92,6 @@ public class Constant {
     public static final String DELETE_UPDATE_USER_LOGOUT_URL = "http://www.giljabee.com/api/android_api/login/DELETE/user_logout.php";
     public static final String INSERT_USER_PROFILE_IMAGE_URL = "http://www.giljabee.com/api/android_api/join/INSERT/join_upload_profile.php";
     public static final String GET_EMAIL_VALIDATE_URL = "http://www.giljabee.com/api/android_api/login/GET/email_validate_check.php";
-
 
 
     public static final String GET_SERVER_ROOT_API_URL = "http://www.giljabee.com/api/";

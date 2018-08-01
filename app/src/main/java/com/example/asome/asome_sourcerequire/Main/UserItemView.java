@@ -1,13 +1,13 @@
-package com.example.asome.asome_sourcerequire;
+package com.example.asome.asome_sourcerequire.Main;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.text.Layout;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.asome.asome_sourcerequire.R;
 
 class UserItemView extends LinearLayout{
     ImageView userProfile;

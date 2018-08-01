@@ -33,7 +33,7 @@ import com.example.asome.asome_sourcerequire.Chatting.Etc.DateFormat;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.SocketClient;
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
 import com.example.asome.asome_sourcerequire.R;
-import com.example.asome.asome_sourcerequire.SQLite.DBHelperChatting;
+import com.example.asome.asome_sourcerequire.Chatting.Utils.SQLite.DBHelperChatting;
 
 import org.java_websocket.exceptions.WebsocketNotConnectedException;
 import org.json.JSONException;

@@ -1,4 +1,4 @@
-package com.example.asome.asome_sourcerequire.SQLite;
+package com.example.asome.asome_sourcerequire.Chatting.Utils.SQLite;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.asome.asome_sourcerequire.Chatting.Etc.Constant;
-import com.example.asome.asome_sourcerequire.MainActivity;
+import com.example.asome.asome_sourcerequire.Main.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

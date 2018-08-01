@@ -1,4 +1,4 @@
-package com.example.asome.asome_sourcerequire;
+package com.example.asome.asome_sourcerequire.Main;
 
 public class UserItem {
     String name;

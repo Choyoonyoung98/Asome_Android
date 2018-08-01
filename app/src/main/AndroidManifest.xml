@@ -31,23 +31,23 @@
 
         <activity android:name=".Chatting.Activity.ChatActivity"></activity>
         <activity
-            android:name=".LogInActivity"
+            android:name=".Login.LogInActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".JoinActivity"
+            android:name=".Login.JoinActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NewProjectActivity"
+            android:name=".Project.NewProjectActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RoleDetailDialogActivity"
+            android:name=".Project.RoleDetailDialogActivity"
             android:theme="@android:style/Theme.Dialog"
             />
         <activity
-            android:name=".SplashActivity"
+            android:name=".Login.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,6 +55,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ResourceChartActivity"/>
     </application>
 
 </manifest>
