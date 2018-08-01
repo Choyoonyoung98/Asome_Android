@@ -12,6 +12,8 @@ import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.asome.asome_sourcerequire.Project.roleSub;
+
 public class RoleDetailDialogActivity2 extends Activity {
     AutoCompleteTextView testTag;
     TextView showTag, showStartDate, showEndDate, textStart, textEnd;
