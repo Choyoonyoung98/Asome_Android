@@ -1,9 +1,9 @@
 package com.example.asome.asome_sourcerequire.Chatting.Etc;
 
 public class Constant {
-    //public static final String SOCKET_URL = "ws://45.32.55.218:8083/websocket/?request=";
-    public static final String SOCKET_URL = "ws://10.200.153.95:8090/websocket/?request=";
-    public static final String URL= "http://10.200.153.95/asome/";
+    //public static final String SOCKET_URL = "ws://10.200.153.95:8090/websocket/?request=";
+    public static final String SOCKET_URL = "ws://14.63.164.251:8090/websocket/?request=";
+    public static final String URL= "http://14.63.164.251/asome/";
 
     //일반 상수
     public static final String TAG_ACTION = "action";
@@ -40,7 +40,7 @@ public class Constant {
 
     /*    public static final String ACTION_DONE = "done";
         public static final String ACTION_DONE = "done";*/
-    public static final String INSERT_JOIN = URL+"/login/insert_user.php";
+    public static final String INSERT_JOIN = URL+"login/insert_user_info.php";
     //쪽지 관련 URL
     public static final String INSERT_MSG_CONTENT = "http://www.giljabee.com/api/android_api/message/INSERT/msg_content.php";
     public static final String INSERT_MSG_ROOM = "http://www.giljabee.com/api/android_api/message/INSERT/msg_room.php";

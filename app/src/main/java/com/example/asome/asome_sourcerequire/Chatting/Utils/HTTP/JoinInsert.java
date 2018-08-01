@@ -25,15 +25,17 @@ import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.INSERT
 
 
 public class JoinInsert extends AsyncTask<String, Void, String> {
-    String myName, yourId, msg_content, myRoom,userType;
+    String user_name, user_pwd, user_department, user_phone, user_position, user_company, user_email;
 
-/*    public JoinInsert(String myName, String yourId, String msg_content, String myRoom, String userType) {
-        this.myName = myName;
-        this.yourId = yourId;
-        this.msg_content = msg_content;
-        this.myRoom = myRoom;
-        this.userType=userType;
-    }*/
+    public JoinInsert(String user_name, String user_pwd, String user_department, String user_phone, String user_position, String user_company, String user_email) {
+        this.user_name = user_name;
+        this.user_pwd = user_pwd;
+        this.user_department = user_department;
+        this.user_phone = user_phone;
+        this.user_position = user_position;
+        this.user_company = user_company;
+        this.user_email = user_email;
+    }
 
     protected void onPreExecute() {
     }
@@ -56,11 +58,13 @@ PHP
 * */
             URL url = new URL(INSERT_JOIN); // here is your URL path
             JSONObject postDataParams = new JSONObject();
-            postDataParams.put("user_name", "경연리");
-            postDataParams.put("user_email", "kyl@");
-            postDataParams.put("user_pwd", "111");
-            postDataParams.put("user_company", " ");
-            postDataParams.put("user_type",  " ");
+            postDataParams.put("user_name", user_name);
+            postDataParams.put("user_pwd", user_pwd);
+            postDataParams.put("user_department", user_department);
+            postDataParams.put("user_phone", user_phone);
+            postDataParams.put("user_position", user_position);
+            postDataParams.put("user_company", user_company);
+            postDataParams.put("user_email",  user_email);
             Log.e("[postMsgContent_params]", postDataParams.toString());
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

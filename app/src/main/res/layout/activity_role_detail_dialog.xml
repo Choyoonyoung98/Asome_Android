@@ -186,14 +186,18 @@
                 android:onClick="onAddClicked"
                 android:text="추가" />
 
-
-
-
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_gd"
                 android:onClick="onBackClicked"
-                android:text="Finish"/>
+                android:text="완료"
+                android:textColor="@color/white" />
 
 
         </LinearLayout>

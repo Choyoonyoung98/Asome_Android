@@ -7,11 +7,15 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.example.asome.asome_sourcerequire.R;
 
 public class NewProjectActivity extends AppCompatActivity {
+//    EditText projName, projAbout, roleName, userName, roleStartDate, roleEndDate;
+//    String proj_name, proj_about, role_name, user_name, role_start_date, role_end_date;
+
    LinearLayout aboutForm;
    Animation translateDownAnim;
    Button nextBtn,nextBtn2,addBtn,createBtn,detailBtn;
@@ -21,6 +25,22 @@ public class NewProjectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_project);
+
+        /////////////////////////////////////////////////////////////////
+//        projName = findViewById(R.id.editText9);
+//        projAbout = findViewById(R.id.editText10);
+//        roleName = findViewById(R.id.editText9);
+//        userName = findViewById(R.id.editText10);
+//        roleStartDate = findViewById(R.id.editText9);
+//        roleEndDate = findViewById(R.id.editText10);
+//
+//        proj_name = projName.getText().toString();
+//        proj_about = projAbout.getText().toString();
+//        role_name = roleName.getText().toString();
+//        user_name = userName.getText().toString();
+//        role_start_date = roleStartDate.getText().toString();
+//        role_end_date = roleEndDate.getText().toString();
+        /////////////////////////////////////////////////////////////////
 
         aboutForm = (LinearLayout)findViewById(R.id.AboutForm);
         nextBtn = findViewById(R.id.nextbtn);
