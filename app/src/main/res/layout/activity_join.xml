@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/log_in_background"
     tools:context=".JoinActivity">
 
     <Button
@@ -14,8 +15,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/profile"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/signup_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,8 +28,10 @@
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4">
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,17 +45,25 @@
                 android:layout_weight="1"
                 android:text="*"
                 android:textAlignment="textEnd"
+                android:layout_gravity="end"
                 android:textColor="#DB3A00"
                 android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/editText5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/edit_text_bg"
                 android:ems="10"
+                android:fontFamily="@font/nanum"
+                android:gravity="center"
                 android:hint="이름"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/violet2" />
 
         </LinearLayout>
 
@@ -68,17 +79,25 @@
                 android:layout_weight="1"
                 android:text="*"
                 android:textAlignment="textEnd"
+                android:layout_gravity="end"
                 android:textColor="#DB3A00"
                 android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/edit_text_bg"
                 android:ems="10"
+                android:fontFamily="@font/nanum"
+                android:gravity="center"
                 android:hint="이메일"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/violet2" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,17 +112,25 @@
                 android:layout_weight="1"
                 android:text="*"
                 android:textAlignment="textEnd"
+                android:layout_gravity="end"
                 android:textColor="#DB3A00"
                 android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/editText4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/edit_text_bg"
                 android:ems="10"
+                android:fontFamily="@font/nanum"
+                android:gravity="center"
                 android:hint="비밀번호"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/violet2" />
 
 
         </LinearLayout>
@@ -111,58 +138,86 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/editText9"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/edit_text_bg"
                 android:ems="10"
+                android:fontFamily="@font/nanum"
+                android:gravity="center"
                 android:hint="회사명"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/violet2" />
 
             <EditText
                 android:id="@+id/editText6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/edit_text_bg"
                 android:ems="10"
+                android:fontFamily="@font/nanum"
+                android:gravity="center"
                 android:hint="부서"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/violet2" />
 
             <EditText
                 android:id="@+id/editText7"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/edit_text_bg"
                 android:ems="10"
+                android:fontFamily="@font/nanum"
+                android:gravity="center"
                 android:hint="직위"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/violet2" />
 
             <EditText
                 android:id="@+id/editText8"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:background="@drawable/edit_text_bg"
                 android:ems="10"
+                android:fontFamily="@font/nanum"
+                android:gravity="center"
                 android:hint="연락처"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/violet2" />
 
         </LinearLayout>
 
         <Button
-            android:layout_width="100dp"
+            android:layout_width="307dp"
             android:layout_height="40dp"
             android:layout_gravity="end"
             android:layout_margin="10dp"
+            android:background="@drawable/btn_bg"
             android:onClick="onJoinClicked"
-            android:text="회원가입" />
+            android:soundEffectsEnabled="false"
+            android:text="회원가입"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/nanum" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

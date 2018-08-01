@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1c3860</color>
-    <color name="colorPrimaryDark">#1c3860</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#8D83F6</color>
     <color name="colorAccent">#FF4081</color>
     <color name="primary">#E43F3F</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
     <color name="milk">#f7f7f7</color>
+
+    <color name="violet">#3F51B5</color>
+    <color name="lightViolet">#7986cb</color>
+    <color name="skin">#fff8e1</color>
+    <color name="lavender">#f3e5f5</color>
+    <color name="violet2">#5C6BC0</color>
+
+    <color name="bgGradStart">#f3e5f5</color>
+    <color name="bgGradCenter">#7986CB</color>
+    <color name="btnGradStart">#8D9BFF</color>
+    <color name="editTextBG">#C298F4</color>
+
+    <color name="grayBG">#F2F2F2</color>
 
     <color name="black">#000000</color>
     <color name="main">#FFCC60</color>
