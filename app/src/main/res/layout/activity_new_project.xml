@@ -38,23 +38,27 @@
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Project Name" />
+                    android:text="프로젝트 이름"
+                    android:textColor="@color/violet"/>
 
                 <EditText
                     android:id="@+id/editText9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textColor="@color/violet"/>
 
             </LinearLayout>
 
             <Button
                 android:id="@+id/nextbtn"
-                android:layout_width="115dp"
+                android:layout_width="wrap_content"
                 android:layout_height="42dp"
+                android:background="@drawable/btn_gd"
                 android:onClick="onNextClicked"
-                android:text="Next"
+                android:text="다음"
+                android:textColor="#FFFFFF"
                 android:visibility="visible"
                 tools:layout_editor_absoluteX="209dp"
                 tools:layout_editor_absoluteY="212dp" />
@@ -75,7 +79,8 @@
                     android:id="@+id/text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="About" />
+                    android:text="About"
+                    android:textColor="@color/violet"/>
 
                 <EditText
                     android:id="@+id/editText10"
@@ -83,18 +88,21 @@
                     android:lines="5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:textColor="@color/violet" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/nextbtn2"
                 android:layout_width="115dp"
                 android:layout_height="42dp"
+                android:background="@drawable/btn_gd"
                 android:onClick="onNextClicked2"
-                android:text="Next"
+                android:text="다음"
                 android:visibility="gone"
                 tools:layout_editor_absoluteX="209dp"
-                tools:layout_editor_absoluteY="212dp" />
+                tools:layout_editor_absoluteY="212dp"
+                android:textColor="#FFFFFF"/>
 
             <LinearLayout
                 android:id="@+id/roleLayout"
@@ -111,15 +119,19 @@
                 tools:layout_editor_absoluteY="358dp">
 
             </LinearLayout>
+
             <Button
                 android:id="@+id/addbtn"
                 android:layout_width="115dp"
                 android:layout_height="42dp"
-                android:text="Add Role"
-                android:visibility="gone"
+                android:background="@drawable/btn_gd"
                 android:onClick="addRoleClicked"
+                android:text="업무 추가"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="209dp"
-                tools:layout_editor_absoluteY="212dp"/>
+                tools:layout_editor_absoluteY="212dp"
+                android:textColor="#FFFFFF" />
+
             <Button
                 android:id="@+id/createbtn"
                 android:layout_width="wrap_content"
@@ -130,9 +142,11 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="4dp"
                 android:layout_marginStart="8dp"
+                android:background="@drawable/btn_gd"
                 android:onClick="onCreateClicked"
                 android:text="Create"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="#FFFFFF" />
 
 
         </LinearLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/log_in_background"
     tools:context=".Login.LogInActivity">
 
     <TextView
@@ -15,23 +16,25 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="72dp"
-        android:text="Asome"
-        android:textSize="30dp"
-        android:textColor="#000000"
+        android:text="ASOME"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/abril" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -41,25 +44,41 @@
         <EditText
             android:id="@+id/editText2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/edit_text_bg"
             android:ems="10"
             android:hint="아이디"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/violet2"
+            android:gravity="center"
+            android:fontFamily="@font/nanum" />
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text_bg"
             android:ems="10"
             android:hint="비밀번호"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@color/violet2"
+            android:gravity="center"
+            android:fontFamily="@font/nanum"/>
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log In"
-            android:onClick="onLoginClicked"/>
+            android:background="@drawable/btn_bg"
+            android:onClick="onLoginClicked"
+            android:text="로그인"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nanum" />
     </LinearLayout>
 
     <LinearLayout
@@ -70,7 +89,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -83,7 +102,8 @@
             android:layout_height="5dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/bottom_bar" />
+            android:background="@drawable/stick"
+            app:srcCompat="@drawable/stick" />
 
         <TextView
             android:id="@+id/textView2"
@@ -91,8 +111,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="OR"
-            android:textColor="#000000"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/d2" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -100,17 +121,19 @@
             android:layout_height="5dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            app:srcCompat="@android:drawable/bottom_bar" />
+            android:background="@drawable/stick"
+            app:srcCompat="@drawable/stick" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="20dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:layout_weight="1"
@@ -126,15 +149,22 @@
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:onClick="MovetoJoinClicked"/>
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="@font/nanum"
+            android:onClick="MovetoJoinClicked"
+            android:text="회원가입"
+            android:textColor="@color/white" />
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/btn_google_signin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onLoginWithGoogleClicked"
-            android:text="Sign Up with Google" />
+            android:background="@drawable/btn_bg"
+            android:fontFamily="@font/nanum"
+            android:text="구글 계정으로 회원가입"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

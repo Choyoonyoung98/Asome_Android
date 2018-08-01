@@ -9,7 +9,7 @@
         android:id="@+id/imageView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/user" />
+        app:srcCompat="@drawable/accountimg" />
 
     <LinearLayout
         android:layout_width="match_parent"

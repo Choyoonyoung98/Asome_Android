@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/grayBG">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textTitle"
             android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:layout_height="18dp"
+            android:background="@color/lightViolet"
+
             android:padding="5dp"
             android:text="TitleEx"
-
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:background="#2C6BF8"
-            android:layout_marginTop="5dp"/>
+            android:textColor="@color/skin"
+            android:textSize="24sp"
+            android:fontFamily="@font/nanum" />
 
         <TextView
             android:id="@+id/textAbout"
             android:layout_width="match_parent"
-            android:layout_weight="7"
             android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:background="@color/white"
             android:text="AboutEx"
-            android:textSize="15sp"
-            android:background="#F1F2F5"
-            android:textColor="#000000"/>
+            android:textColor="@color/violet2"
+            android:textSize="16sp"
+            android:fontFamily="@font/nanum" />
 
     </LinearLayout>
 </LinearLayout>
