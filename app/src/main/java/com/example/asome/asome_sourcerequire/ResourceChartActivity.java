@@ -1,7 +1,11 @@
 package com.example.asome.asome_sourcerequire;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
@@ -16,34 +20,49 @@ import java.util.List;
 
 public class ResourceChartActivity extends AppCompatActivity {
 
+
+    String name, image, startDate, endDate, workName, minnutesPerDay;
+    Button btn_chart_make;
+    List<DataEntry> data;
+    Resource resource;
+    AnyChartView anyChartView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart_common);
 
-        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+        anyChartView = findViewById(R.id.any_chart_view);
         anyChartView.setProgressBar(findViewById(R.id.progress_bar));
+        btn_chart_make = findViewById(R.id.btn_chart_make);
 
-        Resource resource = AnyChart.resource();
+
+        resource = AnyChart.resource();
 
         resource.setZoomLevel(1d)
                 .setTimeTrackingMode(TimeTrackingMode.ACTIVITY_PER_CHART)
-                .setCurrentStartDate("2016-09-30");
+                .setCurrentStartDate("2018-07-31");
 
         resource.setResourceListWidth(120);
 
-        resource.getCalendar().setAvailabilities(new Availability[] {
+        resource.getCalendar().setAvailabilities(new Availability[]{
                 new Availability(AvailabilityPeriod.DAY, (Double) null, 10d, (Double) null, (Double) null, 18d, true),
                 new Availability(AvailabilityPeriod.DAY, (Double) null, 14d, (Double) null, (Double) null, 15d, false),
                 new Availability(AvailabilityPeriod.WEEK, (Double) null, (Double) null, 5d, (Double) null, 18d, false),
                 new Availability(AvailabilityPeriod.WEEK, (Double) null, (Double) null, 6d, (Double) null, 18d, false)
         });
 
-        List<DataEntry> data = new ArrayList<>();
-
-        data.add(new ResourceDataEntry(
-                "이경연",
-                "개발자",
+        data = new ArrayList<>();
+        btn_chart_make.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), RoleDetailDialogActivity2.class);
+                startActivity(intent);
+            }
+        });
+        /*data.add(new ResourceDataEntry(
+                "Romario",
+                "Developer",
                 "http://cdn.anychart.com/images/resource-chart/developer-romario.png",
                 new Activity[]{
                         new Activity(
@@ -86,8 +105,8 @@ public class ResourceChartActivity extends AppCompatActivity {
                                 "#62BEC1")
                 }));
         data.add(new ResourceDataEntry(
-                "김연지",
-                "디자인",
+                "Antonio",
+                "Developer",
                 "http://cdn.anychart.com/images/resource-chart/developer-antonio.png",
                 new Activity[]{
                         new Activity(
@@ -114,10 +133,10 @@ public class ResourceChartActivity extends AppCompatActivity {
                                         new Interval("2016-10-06", "2016-10-12", 120)
                                 },
                                 "#EA526F")
-                }));
-        data.add(new ResourceDataEntry(
-                "조윤영",
-                "기획자",
+                }));*/
+  /*      data.add(new ResourceDataEntry(
+                "Alejandro",
+                "Developer",
                 "http://cdn.anychart.com/images/resource-chart/developer-alejandro.png",
                 new Activity[]{
                         new Activity(
@@ -146,8 +165,8 @@ public class ResourceChartActivity extends AppCompatActivity {
                                 "#8789C0")
                 }));
         data.add(new ResourceDataEntry(
-                "황은선",
-                "개발자",
+                "Sergio",
+                "Developer",
                 "http://cdn.anychart.com/images/resource-chart/developer-sergio.png",
                 new Activity[]{
                         new Activity(
@@ -175,7 +194,7 @@ public class ResourceChartActivity extends AppCompatActivity {
                                 },
                                 "#E06D06")
                 }));
-
+*/
         resource.setData(data);
 
         anyChartView.setChart(resource);
@@ -206,4 +225,41 @@ public class ResourceChartActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
+        startDate = intent.getStringExtra("start_date");
+        endDate = intent.getStringExtra("end_date");
+        if (name != null && startDate != null && endDate != null) {
+            Toast.makeText(getApplicationContext(), name, Toast.LENGTH_LONG).show();
+
+            data.add(new ResourceDataEntry(
+                    name,
+                    "Developer",
+                    "http://cdn.anychart.com/images/resource-chart/developer-romario.png",
+                    new Activity[]{
+                            new Activity(
+                                    "Gantt timeline",
+                                    new Interval[]{
+                                            new Interval(startDate, endDate, 60)
+                                    },
+                                    "#62BEC1"),
+
+                    }));
+            resource.setData(data);
+
+            anyChartView.setChart(resource);
+
+        }
+
+    }
 }
