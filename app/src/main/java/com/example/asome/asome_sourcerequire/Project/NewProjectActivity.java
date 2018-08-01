@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.asome.asome_sourcerequire.R;
-import com.example.asome.asome_sourcerequire.Sub;
 
 public class NewProjectActivity extends AppCompatActivity {
    LinearLayout aboutForm;
@@ -47,7 +46,7 @@ public class NewProjectActivity extends AppCompatActivity {
         roleLayout.setVisibility(View.VISIBLE);
         roleLayout.startAnimation(translateDownAnim);
         addBtn.setVisibility(View.VISIBLE);
-        createBtn.setVisibility(View.GONE);
+        createBtn.setVisibility(View.VISIBLE);
 
     }
     public void addRoleClicked(View view) {

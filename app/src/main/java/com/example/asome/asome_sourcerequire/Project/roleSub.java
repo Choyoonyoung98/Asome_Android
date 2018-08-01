@@ -1,9 +1,11 @@
-package com.example.asome.asome_sourcerequire;
+package com.example.asome.asome_sourcerequire.Project;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
+
+import com.example.asome.asome_sourcerequire.R;
 
 public class roleSub  extends LinearLayout {
     public roleSub(Context context, AttributeSet attrs) {

@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.asome.asome_sourcerequire.R;
-import com.example.asome.asome_sourcerequire.roleSub;
 
 public class RoleDetailDialogActivity extends Activity {
     AutoCompleteTextView testTag;
