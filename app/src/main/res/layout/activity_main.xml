@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:icon="@drawable/usersuse"
-            android:text="사용자 관리" />
+            android:text="사용자 관리"/>
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
