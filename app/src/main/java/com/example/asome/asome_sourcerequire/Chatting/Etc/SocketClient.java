@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.example.asome.asome_sourcerequire.SQLite.DBHelperChatting;
+import com.example.asome.asome_sourcerequire.Chatting.Utils.SQLite.DBHelperChatting;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;

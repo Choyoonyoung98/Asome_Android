@@ -36,6 +36,7 @@ public class RoleDetailDialogActivity extends Activity {
         rolePage = findViewById(R.id.rolePage);
 
 
+
     }
 
     private static final String[] USER_TAG = new String[]{
