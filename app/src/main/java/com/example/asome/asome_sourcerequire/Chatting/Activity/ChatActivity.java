@@ -31,9 +31,10 @@ import com.example.asome.asome_sourcerequire.Chatting.Etc.ChatUtils;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.Constant;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.DateFormat;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.SocketClient;
+import com.example.asome.asome_sourcerequire.Chatting.Fragment.BottomSheetDialog;
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
-import com.example.asome.asome_sourcerequire.R;
 import com.example.asome.asome_sourcerequire.Chatting.Utils.SQLite.DBHelperChatting;
+import com.example.asome.asome_sourcerequire.R;
 
 import org.java_websocket.exceptions.WebsocketNotConnectedException;
 import org.json.JSONException;
@@ -265,7 +266,9 @@ public class ChatActivity extends AppCompatActivity {
         btn_show_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog_bottom_sheet.show();
+                BottomSheetDialog bottomSheetDialog = BottomSheetDialog.getInstance();
+                bottomSheetDialog.show(getSupportFragmentManager(),"bottomSheet");
+
 
 /*                //이미지 관련 퍼미션 체크
                 check_permissions();

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="380dp"
     android:background="@color/white"
     tools:context=".Project.RoleDetailDialogActivity">
 
@@ -36,36 +36,150 @@
             <LinearLayout
                 android:id="@+id/rolePage"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="40dp"
-                android:minHeight="30dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <AutoCompleteTextView
+                    android:id="@+id/test_tag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:hint="이름"
+                    tools:layout_editor_absoluteX="93dp"
+                    tools:layout_editor_absoluteY="237dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:gravity="center"
+                        android:text="시작일" />
+
+                    <Button
+                        android:id="@+id/setStartBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:onClick="onShowDatePicker1"
+                        android:text="▼" />
+
+                    <TextView
+                        android:id="@+id/textEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:gravity="center"
+                        android:text="마감일"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/setEndBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="▼"
+                        android:onClick="onShowDatePicker2"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/datePage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#D5D5D5"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="시작일을 설정해주세요"
+                        android:textColor="#000000" />
+
+                    <DatePicker
+                        android:id="@+id/datePicker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:addStatesFromChildren="false"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner"
+                        android:duplicateParentState="false"
+                        android:fadeScrollbars="false"
+                        android:theme="@android:style/Theme.Holo.Light" />
+
+                    <Button
+                        android:id="@+id/selectBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="select"
+                        android:onClick="onSelectClicked1"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/datePage2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#D5D5D5"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="마감일을 설정해주세요"
+                        android:textColor="#000000" />
+
+                    <DatePicker
+                        android:id="@+id/datePicker2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:addStatesFromChildren="false"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner"
+                        android:duplicateParentState="false"
+                        android:fadeScrollbars="false"
+                        android:theme="@android:style/Theme.Holo.Light" />
+
+                    <Button
+                        android:id="@+id/selectBtn2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="select"
+                        android:onClick="onSelectClicked2"/>
+
+                </LinearLayout>
 
 
+                <LinearLayout
+                    android:id="@+id/showPage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/resultUser"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:padding="5dp"
-                android:text="조윤영영"
-                android:textColor="@color/violet"
-                android:textSize="20sp" />
-
 
             <Button
                 android:id="@+id/button5"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="30dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_gd"
                 android:textColor="#FFFFFF"
