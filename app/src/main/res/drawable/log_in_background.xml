@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <gradient
-        android:angle="90"
-        android:endColor="@color/colorPrimary"
-        android:centerColor="@color/bgGradCenter"
-        android:startColor="@color/bgGradStart"
+        android:angle="135"
+        android:endColor="@color/violet"
+        android:centerColor="@color/violet2"
+        android:startColor="@color/lightViolet"
         android:type="linear" />
 
     <corners

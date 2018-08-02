@@ -9,6 +9,9 @@ import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +26,9 @@ import com.example.asome.asome_sourcerequire.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
+
+import com.example.asome.asome_sourcerequire.R;
+
 public class BottomSheetDialog extends BottomSheetDialogFragment implements View.OnClickListener{
 
     public static BottomSheetDialog getInstance() { return new BottomSheetDialog(); }
@@ -31,17 +37,16 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
     private LinearLayout emailLo;
     private LinearLayout cloudLo;
     private LinearLayout bluetoothLo;
-    SharedPreferences sp;
 
-    String err;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bottom_sheet_dialog, container,false);
+
         msgLo = (LinearLayout) view.findViewById(R.id.myLo);
         emailLo = (LinearLayout) view.findViewById(R.id.teamLo);
         cloudLo = (LinearLayout) view.findViewById(R.id.errLo);
-  //      bluetoothLo = (LinearLayout) view.findViewById(R.id.bluetoothLo);
+
 
         msgLo.setOnClickListener(this);
         emailLo.setOnClickListener(this);
@@ -90,6 +95,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
     */    }
         dismiss();
     }
+
 
 }
 

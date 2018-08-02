@@ -20,6 +20,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:orientation="vertical">
 
             <TextView
@@ -29,10 +30,12 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/gothic"
                 android:padding="5dp"
                 android:text="팀원 역할 지정이 필요합니다."
-                android:textSize="20sp"
-                android:textColor="@color/violet"/>
+                android:textColor="@color/violet"
+                android:textSize="18sp" />
+
             <LinearLayout
                 android:id="@+id/rolePage"
                 android:layout_width="match_parent"
@@ -43,7 +46,8 @@
                     android:id="@+id/test_tag"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:fontFamily="@font/gothic"
+                    android:textSize="16sp"
                     android:hint="이름"
                     tools:layout_editor_absoluteX="93dp"
                     tools:layout_editor_absoluteY="237dp" />
@@ -51,7 +55,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:orientation="horizontal">
 
                     <TextView
@@ -59,6 +62,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="6"
+                        android:fontFamily="@font/gothic"
                         android:gravity="center"
                         android:text="시작일" />
 
@@ -75,6 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="6"
+                        android:fontFamily="@font/gothic"
                         android:gravity="center"
                         android:text="마감일"
                         android:textSize="15sp" />
@@ -84,8 +89,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="▼"
-                        android:onClick="onShowDatePicker2"/>
+                        android:onClick="onShowDatePicker2"
+                        android:text="▼" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -99,6 +104,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/gothic"
                         android:text="시작일을 설정해주세요"
                         android:textColor="#000000" />
 
@@ -122,8 +128,9 @@
                         android:id="@+id/selectBtn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="select"
-                        android:onClick="onSelectClicked1"/>
+                        android:fontFamily="@font/gothic"
+                        android:onClick="onSelectClicked1"
+                        android:text="선택" />
 
                 </LinearLayout>
 
@@ -138,6 +145,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:fontFamily="@font/gothic"
                         android:text="마감일을 설정해주세요"
                         android:textColor="#000000" />
 
@@ -161,8 +169,9 @@
                         android:id="@+id/selectBtn2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="select"
-                        android:onClick="onSelectClicked2"/>
+                        android:fontFamily="@font/gothic"
+                        android:onClick="onSelectClicked2"
+                        android:text="선택" />
 
                 </LinearLayout>
 
@@ -182,24 +191,33 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btn_role_add"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/btn_gd"
-                android:textColor="#FFFFFF"
+                android:background="@drawable/btn_gd_light"
+                android:fontFamily="@font/gothic"
                 android:onClick="onAddClicked"
-                android:text="추가" />
+                android:text="추가"
+                android:textColor="#FFFFFF" />
 
+            <ListView
+                android:id="@+id/lv_role"
+                android:layout_width="match_parent"
+                android:layout_height="113dp">
+
+            </ListView>
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_height="38dp"
+                android:layout_margin="10dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_gd"
+                android:fontFamily="@font/gothic"
                 android:onClick="onBackClicked"
                 android:text="완료"
                 android:textColor="@color/white" />

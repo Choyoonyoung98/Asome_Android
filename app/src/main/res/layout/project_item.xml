@@ -8,35 +8,37 @@
         android:layout_width="match_parent"
         android:layout_height="170dp"
         android:layout_margin="10dp"
+        android:background="@drawable/rounded"
         android:orientation="vertical"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/textTitle"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@color/lightViolet"
-
-            android:fontFamily="@font/nanum"
-            android:gravity="center_vertical"
-            android:padding="5dp"
-            android:text="TitleEx"
-            android:textColor="@color/skin"
-            android:textSize="20sp" />
+        android:paddingBottom="5dp">
 
         <TextView
             android:id="@+id/textAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7"
-            android:background="@color/white"
-            android:fontFamily="@font/nanum"
+            android:background="@drawable/btn_gd"
+            android:fontFamily="@font/gothic"
             android:gravity="center"
-            android:paddingBottom="10dp"
             android:text="AboutEx"
-            android:textColor="@color/violet2"
-            android:textSize="16sp" />
+            android:textColor="@color/skin"
+            android:textSize="15sp"
+            android:lineSpacingExtra="8dip"/>
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:fontFamily="@font/songm"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="TitleEx"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
     </LinearLayout>
 </LinearLayout>
