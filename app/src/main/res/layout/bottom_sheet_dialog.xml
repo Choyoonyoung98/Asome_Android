@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grayBG2"
+    android:orientation="horizontal">
 
     <LinearLayout
         android:id="@+id/msgLo"
@@ -9,22 +11,24 @@
         android:layout_height="163dp"
         android:layout_weight="1"
         android:clickable="true"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginLeft="8dp"
             android:padding="12dp"
-            android:src="@drawable/ic_sms_gray_24dp" />
+            android:src="@drawable/project_cal"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Message"
+            android:gravity="center"
+            android:text="팀 일정 관리"
+            android:fontFamily="@font/gothic"
             android:textColor="#838383"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -33,22 +37,23 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:clickable="true"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginLeft="8dp"
             android:padding="12dp"
-            android:src="@drawable/ic_mail_gray_24dp" />
+            android:src="@drawable/personal_cal" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:gravity="center"
+            android:text="개인 일정 관리"
+            android:fontFamily="@font/gothic"
             android:textColor="#838383"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -57,22 +62,23 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:clickable="true"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginLeft="8dp"
             android:padding="12dp"
             android:src="@drawable/ic_cloud_queue_gray_24dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Cloud"
+            android:fontFamily="@font/gothic"
             android:textColor="#838383"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout><!--
     <LinearLayout
         android:id="@+id/bluetoothLo"

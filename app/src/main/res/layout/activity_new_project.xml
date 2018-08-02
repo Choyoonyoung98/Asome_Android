@@ -42,16 +42,19 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/songm"
                     android:text="프로젝트 이름"
+                    android:textSize="20dp"
                     android:textColor="@color/violet" />
 
                 <EditText
                     android:id="@+id/editText9"
+                    android:theme="@style/EditTheme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:fontFamily="@font/nanum"
+                    android:fontFamily="@font/gothic"
                     android:inputType="textPersonName"
-                    android:textColor="@color/violet" />
+                    android:textColor="@color/violet"
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -60,8 +63,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/btn_gd"
-                android:fontFamily="@font/nanum"
+                android:background="@drawable/btn_gd_light"
+                android:fontFamily="@font/gothic"
                 android:onClick="onNextClicked"
                 android:text="다음"
                 android:textColor="#FFFFFF"
@@ -88,17 +91,20 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/songm"
                     android:text="About"
+                    android:textSize="20dp"
                     android:textColor="@color/violet" />
 
                 <EditText
                     android:id="@+id/editText10"
+                    android:theme="@style/EditTheme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:fontFamily="@font/nanum"
+                    android:fontFamily="@font/gothic"
                     android:inputType="textMultiLine"
                     android:lines="5"
-                    android:textColor="@color/violet" />
+                    android:textColor="@color/violet"
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <Button
@@ -106,8 +112,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/btn_gd"
-                android:fontFamily="@font/nanum"
+                android:background="@drawable/btn_gd_light"
+                android:fontFamily="@font/gothic"
                 android:onClick="onNextClicked2"
                 android:text="다음"
                 android:textColor="#FFFFFF"
@@ -136,8 +142,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/btn_gd"
-                android:fontFamily="@font/nanum"
+                android:background="@drawable/btn_gd_light"
+                android:fontFamily="@font/gothic"
                 android:onClick="addRoleClicked"
                 android:text="업무 추가"
                 android:textColor="#FFFFFF"
@@ -157,7 +163,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/btn_gd"
-                android:fontFamily="@font/nanum"
+                android:fontFamily="@font/gothic"
                 android:onClick="onCreateClicked"
                 android:text="프로젝트 생성"
                 android:textColor="#FFFFFF"

@@ -25,6 +25,7 @@
                 android:gravity="right"
                 android:padding="5dp"
                 android:text="이름"
+                android:fontFamily="@font/gothic"
                 android:textColor="#111111"
                 android:textSize="20sp"
                  />
@@ -36,6 +37,7 @@
                 android:background="#BDBDBD"
                 android:padding="5dp"
                 android:text="시작일"
+                android:fontFamily="@font/gothic"
                 android:textColor="#111111"
                 android:textSize="20sp"
                  />
@@ -47,6 +49,7 @@
                 android:background="#BDBDBD"
                 android:padding="5dp"
                 android:text="마감일"
+                android:fontFamily="@font/gothic"
                 android:textColor="#111111"
                 android:textSize="20sp"
                  />

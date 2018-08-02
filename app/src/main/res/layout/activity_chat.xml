@@ -8,15 +8,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"-->
 
 
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_chat_message"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/linear_bottom"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_chat_message"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linear_bottom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <LinearLayout
         android:id="@+id/linear_bottom"
@@ -72,4 +70,5 @@
             android:textColor="@color/skin" />
 
     </LinearLayout>
+
 </RelativeLayout>

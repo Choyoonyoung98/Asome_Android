@@ -20,33 +20,41 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/edit_text2"
-                android:text="Role"
                 android:fontFamily="@font/songm"
-                android:gravity="center"
+                android:text="Role"
+                android:textSize="18dp"
                 android:textColor="@color/violet2" />
+
+            <EditText
+                android:theme="@style/EditTheme"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/gothic"
+                android:singleLine="false"
+                android:textColor="@color/violet" />
 
             <Button
                 android:id="@+id/detailBtn"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@drawable/btn_gd"
+                android:background="@drawable/btn_gd_light"
+                android:fontFamily="@font/gothic"
                 android:text="팀원 추가"
-                android:fontFamily="@font/nanum"
                 android:textColor="@color/white" />
         </LinearLayout>
 
-        <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="false" />
     </LinearLayout>
 </LinearLayout>
