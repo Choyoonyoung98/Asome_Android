@@ -53,7 +53,7 @@ public class RoleDetailDialogActivity2 extends Activity {
         layout = new roleSub(getApplicationContext());
         rolePage.addView(layout);
 
-        showTag = layout.findViewById(R.id.resultUser);
+        //showTag = layout.findViewById(R.id.resultUser);
 
         testTag = layout.findViewById(R.id.test_tag);
         ArrayAdapter<String> Tadapter = new ArrayAdapter<String>(this,
@@ -66,8 +66,8 @@ public class RoleDetailDialogActivity2 extends Activity {
         datePage2 = layout.findViewById(R.id.datePage2);
 
 
-        showStartDate = layout.findViewById(R.id.resultStartDay);
-        showEndDate = layout.findViewById(R.id.resultEndDay);
+     /*   showStartDate = layout.findViewById(R.id.resultStartDay);
+        showEndDate = layout.findViewById(R.id.resultEndDay);*/
 
         textStart = layout.findViewById(R.id.textStart);
         textEnd = layout.findViewById(R.id.textEnd);

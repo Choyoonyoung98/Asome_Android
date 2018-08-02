@@ -186,7 +186,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btn_role_add"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:layout_margin="10dp"
@@ -197,6 +197,12 @@
                 android:text="추가"
                 android:textColor="#FFFFFF" />
 
+            <ListView
+                android:id="@+id/lv_role"
+                android:layout_width="match_parent"
+                android:layout_height="113dp">
+
+            </ListView>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
