@@ -2,11 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.asome.asome_sourcerequire">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -28,22 +27,19 @@
         android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <receiver android:name=".Chatting.Etc.MsgReceiver">
             <intent-filter>
                 <action android:name="Response" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".Chatting.Activity.ChatActivity"></activity>
+        <activity android:name=".Chatting.Activity.ChatActivity" />
         <activity
             android:name=".Login.LogInActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -58,17 +54,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Project.RoleDetailDialogActivity"
-            android:theme="@android:style/Theme.Dialog"
-            />
+            android:theme="@android:style/Theme.Dialog" />
         <activity
             android:name=".Login.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-<activity android:name=".RoleDetailDialogActivity2"/>
-        <activity android:name=".ResourceChartActivity">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RoleDetailDialogActivity2" />
+        <activity android:name=".ResourceChartActivity" />
+        <activity android:name=".Chatting.Activity.MyScheduleActivity" />
+        <activity android:name=".Chatting.Activity.TeamScheduleActivity"></activity>
     </application>
 
 </manifest>
