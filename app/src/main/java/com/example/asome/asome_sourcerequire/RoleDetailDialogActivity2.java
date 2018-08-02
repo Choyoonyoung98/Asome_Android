@@ -77,7 +77,7 @@ public class RoleDetailDialogActivity2 extends Activity {
         setEndBtn = (Button) layout.findViewById(R.id.setEndBtn);
         selectBtn = (Button) layout.findViewById(R.id.selectBtn);
         selectBtn2 = (Button) layout.findViewById(R.id.selectBtn2);
-        showBtn = (Button) layout.findViewById(R.id.showBtn);
+        //showBtn = (Button) layout.findViewById(R.id.showBtn);
 
         setStartBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

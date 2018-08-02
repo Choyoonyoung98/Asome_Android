@@ -2,17 +2,24 @@ package com.example.asome.asome_sourcerequire.Project;
 
 import android.app.Activity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.asome.asome_sourcerequire.R;
+
+import java.util.ArrayList;
 
 public class RoleDetailDialogActivity extends Activity {
     AutoCompleteTextView testTag;
@@ -22,13 +29,22 @@ public class RoleDetailDialogActivity extends Activity {
     String day, month, year, day2, month2, year2;
     LinearLayout rolePage;
     roleSub layout;
-    Button setStartBtn, setEndBtn, selectBtn, selectBtn2, showBtn;
-    Boolean startD = false;
-    Boolean endD = false;
+    Button setStartBtn, setEndBtn, selectBtn, selectBtn2;
+
 
     LinearLayout showPage;
 
+
+
+    ListView userList;
+    String textTag,tag;
     String ed,sd;
+    private ArrayList mUserArr;
+    private MainAdapter mMainAdapter;
+    private boolean mIsInitAdapter=false;
+    private int mNumber;
+
+
 
 
     @Override
@@ -62,8 +78,9 @@ public class RoleDetailDialogActivity extends Activity {
         selectBtn = (Button) findViewById(R.id.selectBtn);
         selectBtn2 = (Button)findViewById(R.id.selectBtn2);
 
-
-
+        userList = findViewById(R.id.userList);
+        mUserArr = new ArrayList<>();
+        mMainAdapter = new MainAdapter(this);
 
     }
 
@@ -110,22 +127,99 @@ public class RoleDetailDialogActivity extends Activity {
     }
 
     public void onAddClicked(View v) {
-        layout = new roleSub(getApplicationContext());
 
+        initData();
+        initList();
+        //layout = new roleSub(getApplicationContext());
 
-        showTag = layout.findViewById(R.id.resultUser);
-        showStartDate =layout.findViewById(R.id.resultStartDay);
-        showEndDate =layout.findViewById(R.id.resultEndDay);
+        textTag = testTag.getText().toString();
+        tag = textTag.substring(1, textTag.length());
 
-
-        String textTag = testTag.getText().toString();
-        String tag = textTag.substring(1, textTag.length());
         String show_tag = tag + ":";
         showTag.setText(show_tag);
+
         showStartDate.setText(sd);
         showEndDate.setText(ed);
 
-        showPage.addView(layout);
+        //showPage.addView(layout);
+    }
+    private void initList() {
+        if(!mIsInitAdapter) {
+            userList.setAdapter(mMainAdapter);
+        }else {
+            mMainAdapter.notifyDataSetChanged();
+        }
+    }
+    public void initData() {
+        for (int i = 0; i < 5; i++) {
+            UserListData userListData = new UserListData();
+            userListData.name = tag;
+            userListData.start = sd;
+            userListData.end = ed;
+            mUserArr.add(userListData);
+            mNumber++;
+        }
+    }
+    private class MainAdapter extends BaseAdapter {
+
+        private Context mContext;
+        LayoutInflater mInflater;
+
+        public MainAdapter(Context context) {
+            this.mContext = context;
+            mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+
+        @Override
+        public int getCount() {
+            return mUserArr.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return mUserArr.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            UserViewHolder userViewHolder;
+
+            if (convertView == null) {
+                convertView = mInflater.inflate(R.layout.user_list_item, null);
+                userViewHolder = new UserViewHolder();
+                userViewHolder.userName = (TextView) convertView.findViewById(R.id.resultUser);
+                userViewHolder.userStartday = (TextView) convertView.findViewById(R.id.resultStartDay);
+                userViewHolder.userEndday = (TextView) convertView.findViewById(R.id.resultEndDay);
+                convertView.setTag(userViewHolder);
+
+            } else {
+                userViewHolder = (UserViewHolder) convertView.getTag();
+            }
+
+/*            userViewHolder.userName.setText(mUserArr.get(position).name );
+            userViewHolder.userStartday.setText(mUserArr.get(position).start);
+            userViewHolder.userEndday.setText(mUserArr.get(position).end);*/
+
+            return convertView;
+
+        }
+    }
+
+    public class UserViewHolder {
+        public TextView userName;
+        public TextView userStartday;
+        public TextView userEndday;
+    }
+    public class UserListData {
+        String name;
+        String start;
+        String end;
     }
 }
 
