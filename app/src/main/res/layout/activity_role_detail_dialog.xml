@@ -177,15 +177,21 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btn_role_add"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_gd"
                 android:textColor="#FFFFFF"
-                android:onClick="onAddClicked"
+
                 android:text="추가" />
 
+            <ListView
+                android:id="@+id/lv_role"
+                android:layout_width="match_parent"
+                android:layout_height="113dp">
+
+            </ListView>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
