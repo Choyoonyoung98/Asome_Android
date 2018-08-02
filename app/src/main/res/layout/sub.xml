@@ -25,6 +25,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/edit_text2"
                 android:text="Role"
+                android:fontFamily="@font/songm"
+                android:gravity="center"
                 android:textColor="@color/violet2" />
 
             <Button
@@ -38,6 +40,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/btn_gd"
                 android:text="팀원 추가"
+                android:fontFamily="@font/nanum"
                 android:textColor="@color/white" />
         </LinearLayout>
 

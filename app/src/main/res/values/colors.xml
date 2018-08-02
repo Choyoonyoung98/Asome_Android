@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#8D83F6</color>
+    <color name="colorPrimaryDark">#3F51B5</color>
     <color name="colorAccent">#FF4081</color>
     <color name="primary">#E43F3F</color>
     <color name="iron">#CCCCCC</color>
@@ -19,7 +19,8 @@
     <color name="btnGradStart">#8D9BFF</color>
     <color name="editTextBG">#C298F4</color>
 
-    <color name="grayBG">#F2F2F2</color>
+    <color name="grayBG">#E6E6E6</color>
+    <color name="grayBG2">#F1F1F1</color>
 
     <color name="black">#000000</color>
     <color name="main">#FFCC60</color>
