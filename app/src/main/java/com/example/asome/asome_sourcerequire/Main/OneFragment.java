@@ -33,22 +33,22 @@ public class OneFragment extends ListFragment {
         gridView = (GridView)view.findViewById(R.id.gridView);
 
         ua = new UserAdapter();
-        ua.addItem(new UserItem(R.drawable.user,"조윤영","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"이경연","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"김연지","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"황은선","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"조윤영","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"이경연","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"김연지","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"황은선","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"조윤영","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"이경연","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"김연지","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"황은선","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"조윤영","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"이경연","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"김연지","마켓팅부서","yoon980208@naver.com"));
-        ua.addItem(new UserItem(R.drawable.user,"황은선","마켓팅부서","yoon980208@naver.com"));
+        ua.addItem(new UserItem(R.drawable.user,"조윤영","기획팀","yoon98028@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"이경연","경영팀","adusan23@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"김연지","개발팀","gdsc53d@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"황은선","UI/UX팀","dgbge43g@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"김민규","기획팀","bbee348@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"전미경","경영팀","bbh58@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"조우석","개발팀","njdj53@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"조영서","UI/UX팀","njfdndjn3@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"최혜원","개발팀","bmeajhbadnb@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"안지후","UI/UX팀","htvdd4@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"한예지","기획팀"," bmf3fsvx@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"박세영","기획팀","wrfvsda@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"박주경","경영팀"," cryjfdca@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"김영진","개발팀","rwfvxda@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"김연진","개발팀","xdtaxc@asome.com"));
+        ua.addItem(new UserItem(R.drawable.user,"고준혁","개발팀","fncxaFS@asome.com"));
 
         gridView.setAdapter(ua);
         ua.notifyDataSetChanged();

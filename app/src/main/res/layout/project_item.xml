@@ -18,11 +18,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="7"
             android:background="@drawable/btn_gd"
-            android:fontFamily="@font/nanum"
+            android:fontFamily="@font/gothic"
             android:gravity="center"
             android:text="AboutEx"
             android:textColor="@color/skin"
-            android:textSize="16sp" />
+            android:textSize="15sp"
+            android:lineSpacingExtra="8dip"/>
 
         <TextView
             android:id="@+id/textTitle"

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#3F51B5</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#3F51B5</color>
     <color name="primary">#E43F3F</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
@@ -25,7 +25,7 @@
     <color name="black">#000000</color>
     <color name="main">#FFCC60</color>
 
-    <color name="bubble_me">#0084ff</color>
+    <color name="bubble_me">#3F51B5</color>
     <color name="bubble_you">#f1f0f0</color>
     <color name="msg">#A7B461</color>
     <color name="name">#777777</color>

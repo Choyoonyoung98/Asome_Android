@@ -4,8 +4,8 @@
         <shape android:shape="rectangle">
             <gradient android:type="linear"
                 android:angle="45"
-                android:startColor="@color/violet2"
-                android:endColor="@color/violet" />
+                android:startColor="@color/lightViolet"
+                android:endColor="@color/violet2" />
 
             <!--모서리 둥글게하기 -->
             <corners
@@ -18,8 +18,8 @@
         <shape>
             <gradient android:type="linear"
                 android:angle="45"
-                android:startColor="@color/lightViolet"
-                android:endColor="@color/violet2" />
+                android:startColor="@color/lavender"
+                android:endColor="@color/lightViolet" />
 
             <!--모서리 둥글게하기 -->
             <corners
@@ -28,4 +28,3 @@
         </shape>
     </item>
 </selector>
-

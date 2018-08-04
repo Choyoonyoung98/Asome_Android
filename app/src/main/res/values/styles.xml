@@ -16,5 +16,9 @@
         <item name="colorControlHighlight">@color/teal_100</item>
         <item name="colorButtonNormal">@color/teal_500</item>
     </style>
+    <style name="EditTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/violet</item>
+        <item name="colorControlNormal">@color/lightViolet</item>
+    </style>
 
 </resources>

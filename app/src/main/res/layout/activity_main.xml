@@ -24,19 +24,22 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:icon="@drawable/users"
-            android:text="사용자 관리"/>
+            android:text="사용자 관리"
+            android:fontFamily="@font/gothic"/>
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/projects"
-            android:text="프로젝트 관리" />
+            android:text="프로젝트 관리"
+            android:fontFamily="@font/gothic" />
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/settings"
-            android:text="설정" />
+            android:text="설정"
+            android:fontFamily="@font/gothic" />
     </android.support.design.widget.TabLayout>
 
 
