@@ -176,7 +176,9 @@ public class ChatActivity extends AppCompatActivity {
         }));
 
 */
-
+       Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_START, TAG_UNREAD);
+       // mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
+        chats.add(chat);
         //메시지 보내기 액션
         btn_send_message.setOnClickListener(new View.OnClickListener() {
             @Override

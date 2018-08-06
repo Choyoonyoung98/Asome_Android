@@ -11,6 +11,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+ //       vectorDrawables.useSupportLibrary = true
+
     }
     buildTypes {
         release {
@@ -24,6 +26,7 @@ android {
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
@@ -35,6 +38,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.0'
     implementation 'com.github.AnyChart:AnyChart-Android:0.2.0'
 
+    implementation 'com.github.vipulasri:timelineview:1.0.6'
 
     implementation "com.google.firebase:firebase-auth:15.1.0"
     implementation "com.google.android.gms:play-services-auth:15.0.1"
@@ -45,6 +49,7 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.android.support:design:27.+'
 
-
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }
 apply plugin: 'com.google.gms.google-services'

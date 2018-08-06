@@ -1,9 +1,8 @@
 package com.example.asome.asome_sourcerequire.Chatting.Activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -63,7 +62,7 @@ public class TeamScheduleActivity extends AppCompatActivity {
                 .setTimeTrackingMode(TimeTrackingMode.ACTIVITY_PER_CHART)
                 .setCurrentStartDate("2018-07-31");
 
-        resource.setResourceListWidth(50);//120
+        resource.setResourceListWidth(100);//120
 
         resource.getCalendar().setAvailabilities(new Availability[]{
                 new Availability(AvailabilityPeriod.DAY, (Double) null, 10d, (Double) null, (Double) null, 18d, true),
@@ -76,8 +75,8 @@ public class TeamScheduleActivity extends AppCompatActivity {
 
         data.add(new ResourceDataEntry(
                 "황은선",
-                "Backend-Developer",
-                "http://cdn.anychart.com/images/resource-chart/developer-sergio.png",
+                "Developer",
+                "http://206.189.84.207/asome/image/circle_blue.png",
                 new Activity[]{
                         new Activity(
                                 "업무 일정 정보",
@@ -89,8 +88,8 @@ public class TeamScheduleActivity extends AppCompatActivity {
                 }));
         data.add(new ResourceDataEntry(
                 "이경연",
-                "Backend-Developer",
-                "http://cdn.anychart.com/images/resource-chart/developer-sergio.png",
+                "Developer",
+                "http://206.189.84.207/asome/image/err.png",
                 new Activity[]{
                         new Activity(
                                 "업무 일정 정보",
@@ -102,7 +101,7 @@ public class TeamScheduleActivity extends AppCompatActivity {
                 }));
         data.add(new ResourceDataEntry(
                 "김연지",
-                "Backend-Developer",
+                "Developer",
                 "http://cdn.anychart.com/images/resource-chart/developer-sergio.png",
                 new Activity[]{
                         new Activity(
@@ -115,7 +114,7 @@ public class TeamScheduleActivity extends AppCompatActivity {
                 }));
         data.add(new ResourceDataEntry(
                 "조윤영",
-                "Backend-Developer",
+                "Developer",
                 "http://cdn.anychart.com/images/resource-chart/developer-sergio.png",
                 new Activity[]{
                         new Activity(
