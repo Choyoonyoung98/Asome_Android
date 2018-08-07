@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.asome.asome_sourcerequire.Chatting.Utils.HTTP.JoinInsert;
+import com.example.asome.asome_sourcerequire.Utils.HTTP.JoinInsert;
 import com.example.asome.asome_sourcerequire.R;
 
 public class JoinActivity extends AppCompatActivity {
