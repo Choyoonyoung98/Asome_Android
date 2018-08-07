@@ -15,8 +15,8 @@ import com.example.asome.asome_sourcerequire.Chatting.Model.SingleItemModel;
 import com.example.asome.asome_sourcerequire.R;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_DONE;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_IMG;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_MAP;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_OTHER;
@@ -35,12 +35,9 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
     private static final int RIGHT = 0, LEFT = 1;
 
     private ArrayList<Chat> chats;
-    private ArrayList<Chat> messages_search_result;
 
     public ChatMessageAdapter(ArrayList<Chat> chats) {
         this.chats = chats;
-        this.messages_search_result = new ArrayList<Chat>();
-        this.messages_search_result.addAll(chats);
     }
 
     @Override
@@ -84,22 +81,6 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
     @Override
     public int getItemCount() {
         return chats.size();
-    }
-
-    // Filter Class
-    public void filter(String charText) {
-        charText = charText.toLowerCase(Locale.getDefault());
-        chats.clear();
-        if (charText.length() == 0) {
-            chats.addAll(messages_search_result);
-        } else {
-            for (Chat wp : messages_search_result) {
-                if (wp.getMessage().toLowerCase(Locale.getDefault()).contains(charText)) {
-                    chats.add(wp);
-                }
-            }
-        }
-        notifyDataSetChanged();
     }
 
 
@@ -169,48 +150,86 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
             //쓰는 뷰
             //안쓰는 뷰
             case  ACTION_START:
-                rv_choice_card.setVisibility(View.GONE);
-
-            case ACTION_SCHEDULE_OTHER:
-
-                ArrayList<SectionDataModel> allSampleData;
-                allSampleData = new ArrayList<SectionDataModel>();
+                ArrayList<SectionDataModel> array_action_start = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> ACTION_STARTsingleItem = new ArrayList<SingleItemModel>();
+                SectionDataModel ACTION_STARTdm = new SectionDataModel();
 
 
-
-                //  createDummyData();
-
-
-                //  for (int i = 1; i <= 5; i++) {
-
-                SectionDataModel dm = new SectionDataModel();
-
-                //      dm.setHeaderTitle("Section " + i);
-
-                ArrayList<SingleItemModel> singleItem = new ArrayList<SingleItemModel>();
-                for (int j = 0; j <= 10; j++) {
-                    singleItem.add(new SingleItemModel("Item " + j, "URL " + j));
+                /*for (int j = 0; j <= 10; j++) {
+                    ACTION_STARTsingleItem.add(new SingleItemModel("아템 ", "유알엘 " + j));
                 }
+*/
+                container_txt.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
 
-                dm.setAllItemsInSection(singleItem);
+                rv_choice_card.setVisibility(View.VISIBLE);
+                ACTION_STARTsingleItem.add(new SingleItemModel("내 스케줄 알려줘", "유알엘 " ));
+                ACTION_STARTsingleItem.add(new SingleItemModel("오늘 알람을 설정해야겠어", "유알엘 " ));
+                ACTION_STARTsingleItem.add(new SingleItemModel("오늘 스케줄 끝났어", "유알엘 " ));
+                ACTION_STARTsingleItem.add(new SingleItemModel("팀원 스케줄 보여줘", "유알엘 " ));
+                ACTION_STARTsingleItem.add(new SingleItemModel("에러가 났어", "유알엘 " ));
+                ACTION_STARTsingleItem.add(new SingleItemModel("잡담하자", "유알엘 " ));
 
-                allSampleData.add(dm);
-
-                //   RecyclerView my_recycler_view = (RecyclerView) findViewById(R.id.my_recycler_view);
+                ACTION_STARTdm.setAllItemsInSection(ACTION_STARTsingleItem);
+                array_action_start.add(ACTION_STARTdm);
 
                 rv_choice_card.setHasFixedSize(true);
-
-                RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(context, allSampleData);
-
+                RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(context, array_action_start);
                 rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-
                 rv_choice_card.setAdapter(adapter);
+                break;
 
+
+
+            case ACTION_SCHEDULE_OTHER:
+                container_txt.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+
+                rv_choice_card.setVisibility(View.VISIBLE);
+                ArrayList<SectionDataModel> allSampleData = new ArrayList<SectionDataModel>();
+                SectionDataModel dm = new SectionDataModel();
+                ArrayList<SingleItemModel> al_schedule_other = new ArrayList<SingleItemModel>();
+/*                al_schedule_other.add(new SingleItemModel("내 스케줄 알려줘", "유알엘 " ));
+                al_schedule_other.add(new SingleItemModel("오늘 알람을 설정해야겠어", "유알엘 " ));
+                al_schedule_other.add(new SingleItemModel("오늘 스케줄 끝났어", "유알엘 " ));
+                al_schedule_other.add(new SingleItemModel("팀원 스케줄 보여줘", "유알엘 " ));
+                al_schedule_other.add(new SingleItemModel("에러가 났어", "유알엘 " ));
+                al_schedule_other.add(new SingleItemModel("잡담하자", "유알엘 " ));*/
+                dm.setAllItemsInSection(al_schedule_other);
+                allSampleData.add(dm);
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewDataAdapter adapter2 = new RecyclerViewDataAdapter(context, allSampleData);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter2);
+                break;
             case ACTION_TEXT:
 
-               // container_img.setVisibility(View.GONE);
+                // container_img.setVisibility(View.GONE);
                 container_txt.setVisibility(View.VISIBLE);
-     //           txtCheck.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+
+
+                break;
+
+            case ACTION_DONE:
+
+
+                // container_img.setVisibility(View.GONE);
+                container_txt.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
                 txtTime.setVisibility(View.VISIBLE);
                 txtMessage.setText(chat.getMessage());

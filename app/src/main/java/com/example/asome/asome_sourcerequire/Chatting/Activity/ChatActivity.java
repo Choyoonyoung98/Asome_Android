@@ -28,12 +28,11 @@ import android.widget.Toast;
 
 import com.example.asome.asome_sourcerequire.Chatting.Adapter.ChatMessageAdapter;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.ChatUtils;
-import com.example.asome.asome_sourcerequire.Chatting.Etc.Constant;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.DateFormat;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.SocketClient;
 import com.example.asome.asome_sourcerequire.Chatting.Fragment.BottomSheetDialog;
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
-import com.example.asome.asome_sourcerequire.Chatting.Utils.SQLite.DBHelperChatting;
+import com.example.asome.asome_sourcerequire.Utils.SQLite.DBHelperChatting;
 import com.example.asome.asome_sourcerequire.R;
 
 import org.java_websocket.exceptions.WebsocketNotConnectedException;
@@ -96,8 +95,8 @@ public class ChatActivity extends AppCompatActivity {
     //정적 변수
     public static ArrayList<Chat> chats = new ArrayList<Chat>();//메시지 리스트
     public static ChatMessageAdapter messages_adapter = new ChatMessageAdapter(chats);//메시지 리스트 어댑터
-    public static String current_name;//현재방에서 내아이디
-    public static String current_room_no;//현재방 아이디
+    public static String current_name="11";//현재방에서 내아이디
+    public static String current_room_no = "11";//현재방 아이디
     public static String current_counter_name;//현재방에서 상대방 아이디
 
     ChatUtils chat_utils = new ChatUtils(ChatActivity.this);//받은 채팅 메시지(json)를 message 구조체에 맞게 바꾸어 주는 유틸
@@ -116,7 +115,7 @@ public class ChatActivity extends AppCompatActivity {
     RecyclerView rv_image_menu;//바텀시트에서 "갤러리"라고 보여줄 뷰 (차후에 음악/동영상/..을 추가할 예정이었음)
     RecyclerView rv_chat_message;//채팅내용 리스트뷰
     View bottom_sheet;//하단 최근 이미지 리스트 보여줄 뷰
-  //  TwoWayGridView img_list_grid_view;//하단 최근 이미지 그리드뷰 (**라이브러리)
+    //  TwoWayGridView img_list_grid_view;//하단 최근 이미지 그리드뷰 (**라이브러리)
 
 
     /**
@@ -149,43 +148,15 @@ public class ChatActivity extends AppCompatActivity {
          이는 최근 접근 했던 이미지리스트이며 이 이미지 중 하나를 클릭하면 해당 이미지를 채팅에 전송한다.-->image_send_process() 메소드가 이를 수행한다
          * 4. edit_message.setOnClickListener: 채팅 에딧텍스트 눌렀을때 리스트 맨 아래로 내리는 액션
          * */
-/*
 
-        //rv_image_menu (바텀시트에서 "갤러리"라고 보여줄 뷰 (차후에 음악/동영상/..을 추가할 예정이었음)) 가 올라온다
-        rv_image_menu.addOnItemTouchListener(new RecyclerItemClickListener(this, rv_image_menu, new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int i) {
-
-                //앨범 접근 권한 체크
-                check_permissions();
-
-                //(지금은 1가지) 갤러리: 앨범에서 image/* 애들을 불러온다
-                //onActivityResult 가서 이미지 전송 처리
-                if (i == 0) {
-                    Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-                    photoPickerIntent.setType("image/*");
-             //       startActivityForResult(photoPickerIntent, SELECT_PHOTO);
-                    dialog_bottom_sheet.dismiss();
-                }
-            }
-
-            @Override
-            public void onItemLongClick(View view, int position) {
-
-            }
-        }));
-
-*/
-       Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_START, TAG_UNREAD);
-       // mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
+        Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_START, TAG_UNREAD);
         chats.add(chat);
+
         //메시지 보내기 액션
         btn_send_message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), getMessage(), true, ACTION_TEXT, TAG_UNREAD);
-                Chat chat2 = new Chat("멘티", current_room_no, DateFormat.date_apm(), getMessage(), false, ACTION_TEXT, TAG_UNREAD);
-
+       Chat chat;
                 //메시지 내용이 있을때만 보내도록 처리
                 if (!TextUtils.isEmpty(getMessage())) {
 
@@ -207,33 +178,33 @@ public class ChatActivity extends AppCompatActivity {
                         chats.add(chat);
 
 
-                        if(getMessage().contains(ACTION_START)){
+                        if (getMessage().contains(ACTION_START)) {
                             chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_START, status);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
 
-                        if(getMessage().contains(ACTION_SCHEDULE_MY)){
+                        if (getMessage().contains(ACTION_SCHEDULE_MY)) {
                             chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신 오늘 스케줄은 ~~~이다.", false, ACTION_TEXT, status);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
-                        if(getMessage().contains(ACTION_SCHEDULE_OTHER)){
+                        if (getMessage().contains(ACTION_SCHEDULE_OTHER)) {
                             chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "누구 스케쥴 보시겠습니까?<Listview>", false, ACTION_SCHEDULE_OTHER, status);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
-                        if(getMessage().contains(ACTION_CALL)){
+                        if (getMessage().contains(ACTION_CALL)) {
                             chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "어떤 호출하시겠습니까?<응급,비상,...>", false, ACTION_TEXT, status);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
-                        if(getMessage().contains(ACTION_DONE)){
+                        if (getMessage().contains(ACTION_DONE)) {
                             chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "오늘 일정 완료하시겠습니까?", false, ACTION_TEXT, status);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
-                        if(getMessage().contains("bye")){
+                        if (getMessage().contains("bye")) {
                             chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "잘가요~~", false, ACTION_TEXT, status);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
@@ -242,8 +213,6 @@ public class ChatActivity extends AppCompatActivity {
 
                         //네트워크 연결이 끊겼을때는 에러처리 스낵바를 띄운다
                     } catch (Exception e) {
-                        chats.add(chat);
-                        chats.add(chat2);
                         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                         Snackbar.make(getWindow().getDecorView().getRootView(), "네트워크 연결상태를 확인해주세요", Snackbar.LENGTH_LONG).setAction("닫기", new View.OnClickListener() {
@@ -269,7 +238,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog = BottomSheetDialog.getInstance();
-                bottomSheetDialog.show(getSupportFragmentManager(),"bottomSheet");
+                bottomSheetDialog.show(getSupportFragmentManager(), "bottomSheet");
 
 
 /*                //이미지 관련 퍼미션 체크
@@ -342,7 +311,6 @@ public class ChatActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * 메소드 [4]
      * 이 액티비티가 살아있을 동안 소켓에서 오는 데이터들을 실시간으로 받아주는 리시버 함수
@@ -350,7 +318,7 @@ public class ChatActivity extends AppCompatActivity {
      * ChatActivity의 리시버는 그 방송을 받아서 메시지창에 실시간으로 보여준다
      */
     private void chatActivityReceiver() {
-        Log.e(TAG, "chat_receiver");
+
         IntentFilter intentfilter = new IntentFilter();
         intentfilter.addAction("Response");
         chat_receiver = new BroadcastReceiver() {
@@ -363,6 +331,7 @@ public class ChatActivity extends AppCompatActivity {
                     if (msg != null) {
                         chats.add(msg);//메시지 리스트에 추가
                         scroll_to_bottom();
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -427,7 +396,6 @@ public class ChatActivity extends AppCompatActivity {
         }*/
         return super.onOptionsItemSelected(item);
     }
-
 
 
     /**
@@ -495,9 +463,9 @@ public class ChatActivity extends AppCompatActivity {
     private void init_system() {
 
         //겟 인텐트 액션: 내이름, 상대 이름, 방이름
-        current_name = getIntent().getStringExtra(Constant.TAG_USER_NO);
+      /*  current_name = getIntent().getStringExtra(Constant.TAG_USER_NO);
         current_room_no = getIntent().getStringExtra(Constant.TAG_ROOM_NO);
-        current_counter_name = getIntent().getStringExtra("guideName");
+        current_counter_name = getIntent().getStringExtra("guideName");*/
 
         //들어와있는 방의 fcm notification을 끈다(fcm 관련 작업 미완 --> 제거)
         // spf_notification.notiOff(current_room_no);
@@ -519,9 +487,9 @@ public class ChatActivity extends AppCompatActivity {
         try {
             mWebSocketClient.send(ChatUtils.chat_to_json_connected(new Chat(current_name, current_room_no)));
         } catch (WebsocketNotConnectedException e) {
-        //    Toast.makeText(getApplicationContext(), "네트워크 오류입니다", Toast.LENGTH_LONG).show();
+            //    Toast.makeText(getApplicationContext(), "네트워크 오류입니다", Toast.LENGTH_LONG).show();
         } catch (Exception e) {
-          //  Toast.makeText(getApplicationContext(), "오류입니다", Toast.LENGTH_LONG).show();
+            //  Toast.makeText(getApplicationContext(), "오류입니다", Toast.LENGTH_LONG).show();
         }
 
         //툴바 헤더 이름을 현재 상대방이름이로 정한다
@@ -585,9 +553,9 @@ public class ChatActivity extends AppCompatActivity {
         try {
             mWebSocketClient.send(ChatUtils.chat_to_json_reconnect(new Chat(current_name, current_room_no)));//재접속 했음을 서버에 알린다
         } catch (WebsocketNotConnectedException e) {
-        //    Toast.makeText(getApplicationContext(), "network error", Toast.LENGTH_LONG).show();
+            //    Toast.makeText(getApplicationContext(), "network error", Toast.LENGTH_LONG).show();
         } catch (Exception e) {
-          //  Toast.makeText(getApplicationContext(), "other error", Toast.LENGTH_LONG).show();
+            //  Toast.makeText(getApplicationContext(), "other error", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -600,9 +568,9 @@ public class ChatActivity extends AppCompatActivity {
         try {
             mWebSocketClient.send(ChatUtils.chat_to_json_reconnect(new Chat(current_name, current_room_no)));//재접속 했음을 서버에 알린다
         } catch (WebsocketNotConnectedException e) {
-       //     Toast.makeText(getApplicationContext(), "network error", Toast.LENGTH_LONG).show();
+            //     Toast.makeText(getApplicationContext(), "network error", Toast.LENGTH_LONG).show();
         } catch (Exception e) {
-         //   Toast.makeText(getApplicationContext(), "other error", Toast.LENGTH_LONG).show();
+            //   Toast.makeText(getApplicationContext(), "other error", Toast.LENGTH_LONG).show();
         }
 
 
@@ -628,10 +596,9 @@ public class ChatActivity extends AppCompatActivity {
         }
         db_helper_chat.update_badge_to_zero(current_room_no);//이 방의 메시지를 모두 읽었으니 뱃지는 0
         db_helper_chat.lastDataChatToRoom();//현재방에서 나눈 마지막 줄 메시지를 방목록에서 보기위해 넘긴다
-       //spf_notification.notiOn();
-       // ShortcutBadger.applyCount(getApplicationContext(), db_helper_chat.get_outer_badge_num(current_room_no));//바깥뱃지 업데이트
+        //spf_notification.notiOn();
+        // ShortcutBadger.applyCount(getApplicationContext(), db_helper_chat.get_outer_badge_num(current_room_no));//바깥뱃지 업데이트
     }
-
 
 
     //////////////////////////////////////////////

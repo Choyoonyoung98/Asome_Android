@@ -1,20 +1,8 @@
 package com.example.asome.asome_sourcerequire;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.example.asome.asome_sourcerequire.Project.roleSub;
-
-public class RoleDetailDialogActivity2 extends Activity {
+public class RoleDetailDialogActivity2 extends Activity {/*
     AutoCompleteTextView testTag;
     TextView showTag, showStartDate, showEndDate, textStart, textEnd;
     DatePicker datePicker, datePicker2;
@@ -66,8 +54,8 @@ public class RoleDetailDialogActivity2 extends Activity {
         datePage2 = layout.findViewById(R.id.datePage2);
 
 
-     /*   showStartDate = layout.findViewById(R.id.resultStartDay);
-        showEndDate = layout.findViewById(R.id.resultEndDay);*/
+     *//*   showStartDate = layout.findViewById(R.id.resultStartDay);
+        showEndDate = layout.findViewById(R.id.resultEndDay);*//*
 
         textStart = layout.findViewById(R.id.textStart);
         textEnd = layout.findViewById(R.id.textEnd);
@@ -119,14 +107,14 @@ public class RoleDetailDialogActivity2 extends Activity {
 
         showBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-      /*          showTag.setVisibility(v.VISIBLE);
+      *//*          showTag.setVisibility(v.VISIBLE);
                 String textTag = testTag.getText().toString();
                 String tag = textTag.substring(1, textTag.length());
                 String show_tag = tag + ":";
                 showTag.setText(show_tag);
 
                 showStartDate.setVisibility(v.VISIBLE);
-                showEndDate.setVisibility(v.VISIBLE);*/
+                showEndDate.setVisibility(v.VISIBLE);*//*
       //TODO: 널값체크
 
                 Intent intent = new Intent(getApplicationContext(), ResourceChartActivity.class);
@@ -140,7 +128,7 @@ public class RoleDetailDialogActivity2 extends Activity {
         });
     }
 
-
+*/
 }
 
 

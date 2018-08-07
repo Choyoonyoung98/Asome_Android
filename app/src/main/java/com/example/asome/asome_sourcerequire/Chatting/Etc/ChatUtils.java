@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity;
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
-import com.example.asome.asome_sourcerequire.Chatting.Utils.SQLite.DBHelperChatting;
+import com.example.asome.asome_sourcerequire.Utils.SQLite.DBHelperChatting;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -318,14 +318,15 @@ public class ChatUtils {
 
         try {
             jsonObject.put(TAG_ACTION, chat.getAction());
-            jsonObject.put(TAG_USER_NO, chat.getUser_no());
-            jsonObject.put(TAG_ROOM_NO, chat.getRoom_no());
+            jsonObject.put(TAG_USER_NO, "11");
+            jsonObject.put(TAG_ROOM_NO, "11");
             jsonObject.put(TAG_MESSAGE, chat.getMessage());
             jsonObject.put(TAG_TIMESTAMP, DateFormat.date_for_chat());
             jsonObject.put(TAG_USER_TYPE, TAG_CUSTOMER);
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        Log.e("[chat_to_json_text]",jsonObject.toString());
         return jsonObject.toString();
     }
 

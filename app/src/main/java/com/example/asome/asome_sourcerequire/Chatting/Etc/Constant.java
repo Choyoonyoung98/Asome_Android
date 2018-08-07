@@ -1,8 +1,8 @@
 package com.example.asome.asome_sourcerequire.Chatting.Etc;
 
 public class Constant {
-    //public static final String SOCKET_URL = "ws://10.200.153.95:8090/websocket/?request=";
-    public static final String SOCKET_URL = "ws://206.189.84.207:8090/websocket/?request=";
+    public static final String SOCKET_URL = "ws://172.30.1.59:8090/websocket/?request=";
+    //public static final String SOCKET_URL = "ws://206.189.84.207:8090/websocket/?request=";
     public static final String URL= "http://206.189.84.207/asome/";
 
     //일반 상수
@@ -41,6 +41,10 @@ public class Constant {
     /*    public static final String ACTION_DONE = "done";
         public static final String ACTION_DONE = "done";*/
     public static final String INSERT_JOIN = URL+"login/insert_user_info.php";
+    public static final String GET_CHAT_ROOM_URL = URL+"project/select_proj_info.php";
+    public static final String SELECT_PROJ = URL+"project/select_proj.php";
+    public static final String INSERT_PROJ = URL+"project/insert_proj.php";
+
     //쪽지 관련 URL
     public static final String INSERT_MSG_CONTENT = "http://www.giljabee.com/api/android_api/message/INSERT/msg_content.php";
     public static final String INSERT_MSG_ROOM = "http://www.giljabee.com/api/android_api/message/INSERT/msg_room.php";
@@ -51,7 +55,7 @@ public class Constant {
 
     //채팅방 관련 URL
     public static final String INSERT_CHAT_ROOM_URL = "http://www.giljabee.com/api/android_api/management/INSERT/room.php";
-    public static final String GET_CHAT_ROOM_URL = "http://www.giljabee.com/api/android_api/management/GET/room.php";
+   // public static final String GET_CHAT_ROOM_URL = "http://www.giljabee.com/api/android_api/management/GET/room.php";
     public static final String DELETE_CHAT_ROOM_URL = "http://www.giljabee.com/api/android_api/management/DELETE/room.php";
 
     //유실 패킷 관련 URL

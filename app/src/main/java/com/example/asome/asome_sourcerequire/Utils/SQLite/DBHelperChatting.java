@@ -1,4 +1,4 @@
-package com.example.asome.asome_sourcerequire.Chatting.Utils.SQLite;
+package com.example.asome.asome_sourcerequire.Utils.SQLite;
 
 import android.content.Context;
 import android.database.Cursor;

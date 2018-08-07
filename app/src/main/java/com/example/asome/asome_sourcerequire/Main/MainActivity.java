@@ -1,11 +1,12 @@
 package com.example.asome.asome_sourcerequire.Main;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.example.asome.asome_sourcerequire.R;
+import com.example.asome.asome_sourcerequire.Utils.HTTP.ProjSelect;
 
 public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setViewPager();
         setTabLayout();
         setListener();
+
+        ProjSelect projSelect = new ProjSelect();
+        projSelect.execute();
     }
     public void setViewPager(){
         viewPager = findViewById(R.id.viewPager);

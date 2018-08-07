@@ -42,8 +42,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <AutoCompleteTextView
-                    android:id="@+id/test_tag"
+                <EditText
+                    android:id="@+id/et_role_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gothic"
@@ -198,7 +198,6 @@
                 android:layout_weight="1"
                 android:background="@drawable/btn_gd_light"
                 android:fontFamily="@font/gothic"
-                android:onClick="onAddClicked"
                 android:text="추가"
                 android:textColor="#FFFFFF" />
 
@@ -209,6 +208,7 @@
 
             </ListView>
             <Button
+                android:id="@+id/btn_complete"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:layout_margin="10dp"
@@ -218,7 +218,6 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_gd"
                 android:fontFamily="@font/gothic"
-                android:onClick="onBackClicked"
                 android:text="완료"
                 android:textColor="@color/white" />
 
