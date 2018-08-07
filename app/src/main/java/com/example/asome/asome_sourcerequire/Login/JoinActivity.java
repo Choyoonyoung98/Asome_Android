@@ -31,6 +31,12 @@ public class JoinActivity extends AppCompatActivity {
         userEmail = findViewById(R.id.user_email);
 
 
+    }
+
+
+    public void onJoinClicked(View view) {
+
+
         user_name = userName.getText().toString();
         user_pwd = userPwd.getText().toString();
         user_department = userDepartment.getText().toString();
@@ -39,10 +45,7 @@ public class JoinActivity extends AppCompatActivity {
         user_company = userCompany.getText().toString();
         user_email = userEmail.getText().toString();
 
-    }
 
-
-    public void onJoinClicked(View view) {
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);
         JoinInsert joinInsert = new JoinInsert(user_name, user_pwd, user_department, user_phone, user_position, user_company, user_email);
