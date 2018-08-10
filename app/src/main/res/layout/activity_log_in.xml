@@ -71,14 +71,14 @@
             android:fontFamily="@font/gothic"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_bg"
+            android:fontFamily="@font/gothic"
             android:onClick="onLoginClicked"
             android:text="로그인"
-            android:textColor="@color/white"
-            android:fontFamily="@font/gothic"/>
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -147,7 +147,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_join"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"

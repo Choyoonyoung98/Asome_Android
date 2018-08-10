@@ -20,7 +20,7 @@ public class NewProjectActivity extends AppCompatActivity {
 
     LinearLayout aboutForm;
     //Animation translateDownAnim;
-    Button nextBtn, nextBtn2, addBtn, btn_proj_create, detailBtn;
+    Button btn_set_role, nextBtn2, addBtn, btn_proj_create, detailBtn;
     LinearLayout roleLayout;
     Sub layout;
     EditText et_proj_name, et_proj_about;
@@ -39,6 +39,7 @@ public class NewProjectActivity extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////
         et_proj_name = (EditText) findViewById(R.id.et_proj_name);
         et_proj_about = (EditText) findViewById(R.id.et_proj_about);
+        btn_set_role = (Button) findViewById(R.id.btn_set_role);
 //        roleName = findViewById(R.id.editText9);
 //        userName = findViewById(R.id.editText10);
 //        roleStartDate = findViewById(R.id.editText9);
@@ -65,11 +66,16 @@ public class NewProjectActivity extends AppCompatActivity {
                 //    public ProjInsert(String proj_UUID, String proj_name, String proj_about, String role_name, String role_user_id, String role_start_date, String role_end_date,String role_status) {
                 ProjInsert projInsert = new ProjInsert("uuid", proj_name, proj_about, "role_name", "11", "st", "ed", "ong");
                 projInsert.execute();
-                Toast.makeText(getApplicationContext(),"cp",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "cp", Toast.LENGTH_LONG).show();
             }
         });
+        btn_set_role.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), RoleDetailDialogActivity.class));
 
-        startActivity(new Intent(getApplicationContext(), RoleDetailDialogActivity.class));
+            }
+        });
 
         //  translateDownAnim =  AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate_down);
     }

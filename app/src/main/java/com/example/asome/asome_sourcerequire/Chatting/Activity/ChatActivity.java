@@ -32,8 +32,8 @@ import com.example.asome.asome_sourcerequire.Chatting.Etc.DateFormat;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.SocketClient;
 import com.example.asome.asome_sourcerequire.Chatting.Fragment.BottomSheetDialog;
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
-import com.example.asome.asome_sourcerequire.Utils.SQLite.DBHelperChatting;
 import com.example.asome.asome_sourcerequire.R;
+import com.example.asome.asome_sourcerequire.Utils.SQLite.DBHelperChatting;
 
 import org.java_websocket.exceptions.WebsocketNotConnectedException;
 import org.json.JSONException;
@@ -46,8 +46,6 @@ import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_OTHER;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_START;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_TEXT;
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.TAG_READ;
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.TAG_UNREAD;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.SocketClient.mWebSocketClient;
 
 
@@ -149,7 +147,7 @@ public class ChatActivity extends AppCompatActivity {
          * 4. edit_message.setOnClickListener: 채팅 에딧텍스트 눌렀을때 리스트 맨 아래로 내리는 액션
          * */
 
-        Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_START, TAG_UNREAD);
+        Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_START);
         chats.add(chat);
 
         //메시지 보내기 액션
@@ -162,50 +160,41 @@ public class ChatActivity extends AppCompatActivity {
 
 
                     try {
-                        //상대방 상태에 따라서
-                        String status;
-
-                        //상대방이 온라인일때는 "read" 오프라인 일때 는"unread"
-                        if (!chat_utils.counter) {
-                            status = TAG_UNREAD;
-                        } else {
-                            status = TAG_READ;
-                        }
 
                         //해당 메시지 구조를 완성하고 메시지를 전송한다
-                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), getMessage(), true, ACTION_TEXT, status);
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), getMessage(), true, ACTION_TEXT);
                         mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                         chats.add(chat);
 
 
                         if (getMessage().contains(ACTION_START)) {
-                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_START, status);
+                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_START);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
 
                         if (getMessage().contains(ACTION_SCHEDULE_MY)) {
-                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신 오늘 스케줄은 ~~~이다.", false, ACTION_TEXT, status);
+                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신 오늘 스케줄은 ~~~이다.", false, ACTION_TEXT);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
                         if (getMessage().contains(ACTION_SCHEDULE_OTHER)) {
-                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "누구 스케쥴 보시겠습니까?<Listview>", false, ACTION_SCHEDULE_OTHER, status);
+                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "누구 스케쥴 보시겠습니까?<Listview>", false, ACTION_SCHEDULE_OTHER);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
                         if (getMessage().contains(ACTION_CALL)) {
-                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "어떤 호출하시겠습니까?<응급,비상,...>", false, ACTION_TEXT, status);
+                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "어떤 호출하시겠습니까?<응급,비상,...>", false, ACTION_TEXT);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
                         if (getMessage().contains(ACTION_DONE)) {
-                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "오늘 일정 완료하시겠습니까?", false, ACTION_TEXT, status);
+                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "오늘 일정 완료하시겠습니까?", false, ACTION_TEXT);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
                         if (getMessage().contains("bye")) {
-                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "잘가요~~", false, ACTION_TEXT, status);
+                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "잘가요~~", false, ACTION_TEXT);
                             mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                             chats.add(chat);
                         }
@@ -284,7 +273,7 @@ public class ChatActivity extends AppCompatActivity {
      */
     private void insert_date_lIne() {
         if (!DateFormat.date_month_and_day().equals(db_helper_chat.get_last_date(current_room_no))) {
-            Chat chat = new Chat(current_name, current_room_no, DateFormat.date_month_day_time(), "---- " + DateFormat.date_month() + "월 " + DateFormat.date_day() + "일 ---- ", true, "dateLine", "unread");
+            Chat chat = new Chat(current_name, current_room_no, DateFormat.date_month_day_time(), "---- " + DateFormat.date_month() + "월 " + DateFormat.date_day() + "일 ---- ", true, "dateLine");
             db_helper_chat.insert_chat(current_name, current_room_no, "---- " + DateFormat.date_month() + "월 " + DateFormat.date_day() + "일 ---- ", "read", DateFormat.date_month_day_time(), "true", "dateLine", 0, 0);
             chats.add(chat);
         }

@@ -1,7 +1,7 @@
 package com.example.asome.asome_sourcerequire.Chatting.Etc;
 
 public class Constant {
-    public static final String SOCKET_URL = "ws://172.30.1.59:8090/websocket/?request=";
+    public static final String SOCKET_URL = "ws://172.30.1.7:8090/websocket/?request=";
     //public static final String SOCKET_URL = "ws://206.189.84.207:8090/websocket/?request=";
     public static final String URL= "http://206.189.84.207/asome/";
 
@@ -31,12 +31,12 @@ public class Constant {
 
     //
 
-
-    public static final String ACTION_START = "start";
+        public static final String ACTION_START = "start";
     public static final String ACTION_SCHEDULE_MY = "schedulemy";
     public static final String ACTION_SCHEDULE_OTHER = "scheduleother";
     public static final String ACTION_CALL = "call";
     public static final String ACTION_DONE = "done";
+    public static final String ACTION_ALARM= "alarm";
 
     /*    public static final String ACTION_DONE = "done";
         public static final String ACTION_DONE = "done";*/

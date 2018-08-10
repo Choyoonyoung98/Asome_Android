@@ -3,6 +3,8 @@ package com.example.asome.asome_sourcerequire.Utils.HTTP;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.asome.asome_sourcerequire.Project.ProjectItem;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,6 +22,7 @@ import java.util.Iterator;
 import javax.net.ssl.HttpsURLConnection;
 
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.SELECT_PROJ;
+import static com.example.asome.asome_sourcerequire.Main.TwoFragment.projectAdapter;
 
 /**[OUTLINE]
  * 채팅방 가져온다
@@ -100,6 +103,7 @@ public class ProjSelect extends AsyncTask<String, Void, String> {
                 String proj_UUID = jsonArray.getJSONObject(i).getString("proj_UUID");
                 String proj_name = jsonArray.getJSONObject(i).getString("proj_name");
                 String proj_about = jsonArray.getJSONObject(i).getString("proj_about");
+
                 String role_name = jsonArray.getJSONObject(i).getString("role_name");
                 String role_user_id = jsonArray.getJSONObject(i).getString("role_user_id");
                 String role_start_date = jsonArray.getJSONObject(i).getString("role_start_date");
@@ -108,7 +112,7 @@ public class ProjSelect extends AsyncTask<String, Void, String> {
                 Log.e("[ProjSelect]"+i, jsonArray.getJSONObject(i).toString());
 
             //    dbHelper_room.insert_room(roomName, guideName, profileUrl, " ", DateFormat.date_full());
-
+                projectAdapter.addItem(new ProjectItem(proj_name,proj_about,Integer.parseInt(proj_id)));
             }
         //    chatListItem_adapter.notifyDataSetChanged();
         } catch (JSONException e) {

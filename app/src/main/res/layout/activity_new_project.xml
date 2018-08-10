@@ -111,6 +111,13 @@
 
             </LinearLayout>
 
+
+            <Button
+                android:id="@+id/btn_set_role"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="역할지정" />
+
             <Button
                 android:id="@+id/createbtn"
                 android:layout_width="match_parent"
@@ -126,8 +133,7 @@
                 android:fontFamily="@font/gothic"
                 android:onClick="onCreateClicked"
                 android:text="프로젝트 생성"
-                android:textColor="#FFFFFF"
-      />
+                android:textColor="#FFFFFF" />
 
 
         </LinearLayout>

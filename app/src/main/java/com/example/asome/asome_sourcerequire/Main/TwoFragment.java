@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ListFragment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +21,10 @@ import com.example.asome.asome_sourcerequire.R;
 
 import java.util.ArrayList;
 
-public class TwoFragment extends ListFragment implements  View.OnClickListener {
+public class TwoFragment extends ListFragment implements View.OnClickListener {
     GridView gridView;
     Button addBtn;
-    ProjectAdapter pa;
+    public static ProjectAdapter projectAdapter;
 
     private static final String DEBUG_TAG = "TwoFragment";
 
@@ -41,18 +40,18 @@ public class TwoFragment extends ListFragment implements  View.OnClickListener {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        gridView = (GridView)view.findViewById(R.id.gridView);
-        addBtn = (Button)view.findViewById(R.id.addbtn);
+        gridView = (GridView) view.findViewById(R.id.gridView);
+        addBtn = (Button) view.findViewById(R.id.addbtn);
 
-        pa = new ProjectAdapter();
-        pa.addItem(new ProjectItem("projectA", "이 프로젝트는 프로젝트 A입니다.이 프로젝트는 프로젝트 A입니다.이 프로젝트는 프로젝트 A입니다."));
-        pa.addItem(new ProjectItem("projectB", "이 프로젝트는 B입니다.이 프로젝트는 B입니다.이 프로젝트는 B입니다.이 프로젝트는 B입니다."));
-        pa.addItem(new ProjectItem("projectC", "이 프로젝트는 프로젝트 C입니다.이 프로젝트는 프로젝트 C입니다.이 프로젝트는 프로젝트 C입니다."));
-        pa.addItem(new ProjectItem("projectD", "이 프로젝트는 프로젝트 D입니다.이 프로젝트는 프로젝트 D입니다.이 프로젝트는 프로젝트 D입니다."));
-        pa.addItem(new ProjectItem("projectE", "이 프로젝트는 프로젝트 E입니다.이 프로젝트는 프로젝트 E입니다.이 프로젝트는 프로젝트 E입니다."));
+        projectAdapter = new ProjectAdapter();
+        projectAdapter.addItem(new ProjectItem("projectA", "이 프로젝트는 프로젝트 A입니다.이 프로젝트는 프로젝트 A입니다.이 프로젝트는 프로젝트 A입니다.",1));
+        projectAdapter.addItem(new ProjectItem("projectB", "이 프로젝트는 B입니다.이 프로젝트는 B입니다.이 프로젝트는 B입니다.이 프로젝트는 B입니다.",2));
+        projectAdapter.addItem(new ProjectItem("projectC", "이 프로젝트는 프로젝트 C입니다.이 프로젝트는 프로젝트 C입니다.이 프로젝트는 프로젝트 C입니다.",3));
+        projectAdapter.addItem(new ProjectItem("projectD", "이 프로젝트는 프로젝트 D입니다.이 프로젝트는 프로젝트 D입니다.이 프로젝트는 프로젝트 D입니다.",4));
+        projectAdapter.addItem(new ProjectItem("projectE", "이 프로젝트는 프로젝트 E입니다.이 프로젝트는 프로젝트 E입니다.이 프로젝트는 프로젝트 E입니다.",5));
 
-        gridView.setAdapter(pa);
-        pa.notifyDataSetChanged();
+        gridView.setAdapter(projectAdapter);
+        projectAdapter.notifyDataSetChanged();
 
 
         view.findViewById(R.id.addbtn).setOnClickListener(this);
@@ -62,15 +61,13 @@ public class TwoFragment extends ListFragment implements  View.OnClickListener {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Intent intent;
 
-                    intent = new Intent(getContext(), ChatActivity.class);
-                    startActivity(intent);
+                intent = new Intent(getContext(), ChatActivity.class);
+                startActivity(intent);
 
 
             }
         });
     }
-
-
 
 
     @Override
@@ -81,6 +78,7 @@ public class TwoFragment extends ListFragment implements  View.OnClickListener {
 
     public class ProjectAdapter extends BaseAdapter {
         ArrayList<ProjectItem> items = new ArrayList<ProjectItem>();
+
         @Override
         public int getCount() {
             return items.size();
@@ -95,20 +93,21 @@ public class TwoFragment extends ListFragment implements  View.OnClickListener {
         public long getItemId(int position) {
             return position;
         }
-        public void addItem(ProjectItem item){
+
+        public void addItem(ProjectItem item) {
             items.add(item);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-           ProjectItemView view = new ProjectItemView(getContext());
+            ProjectItemView view = new ProjectItemView(getContext());
 
 
-           ProjectItem item = items.get(position);
-           view.setTextTitle(item.getTitle());
-           view.setTextAbout(item.getAbout());
-           return view;
+            ProjectItem item = items.get(position);
+            view.setTextTitle(item.getTitle());
+            view.setTextAbout(item.getAbout());
+            return view;
 
         }
     }

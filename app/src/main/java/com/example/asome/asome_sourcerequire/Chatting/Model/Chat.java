@@ -12,14 +12,13 @@ public class Chat {
     private Double longitude;//지도 메시지의 경도;
 
     //기본 텍스트 담을 구조체, 남이 보낸 이미지 담을 구조체
-    public Chat(String user_no, String room_no, String timestamp, String message, boolean is_me, String action, String read_check) {
+    public Chat(String user_no, String room_no, String timestamp, String message, boolean is_me, String action) {
         this.user_no = user_no;
         this.timestamp = timestamp;
         this.room_no = room_no;
         this.message = message;
         this.is_me = is_me;
         this.action = action;
-        this.read_check = read_check;
     }
 
     //내가 보낸 이미지 담을 구조체
