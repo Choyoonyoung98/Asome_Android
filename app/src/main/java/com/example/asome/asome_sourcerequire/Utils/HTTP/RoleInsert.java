@@ -17,18 +17,19 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.INSERT_PROJ;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.INSERT_ROLE;
 
-/**[OUTLINE]
+/**
+ * [OUTLINE]
  * 쪽지를 보낸다
  */
 
 
 public class RoleInsert extends AsyncTask<String, Void, String> {
-    String  role_name, role_user_id, role_start_date, role_end_date,role_status;
+    String proj_id, role_name, role_user_id, role_start_date, role_end_date, role_status;
 
-    public RoleInsert(String role_name, String role_user_id, String role_start_date, String role_end_date, String role_status) {
-
+    public RoleInsert(String proj_id, String role_name, String role_user_id, String role_start_date, String role_end_date, String role_status) {
+        this.proj_id = proj_id;
         this.role_name = role_name;
         this.role_user_id = role_user_id;
         this.role_start_date = role_start_date;
@@ -37,6 +38,8 @@ public class RoleInsert extends AsyncTask<String, Void, String> {
     }
 
     protected void onPreExecute() {
+        Log.e("[ROLE_INSERT]", "fortest" + proj_id);
+
     }
 
     protected String doInBackground(String... arg0) {
@@ -57,14 +60,18 @@ PHP
 
 *
 * */
-            URL url = new URL(INSERT_PROJ); // here is your URL path
+            Log.e("[ROLE_INSERT]", "fortest2" + role_user_id);
+
+            URL url = new URL(INSERT_ROLE); // here is your URL path
             JSONObject postDataParams = new JSONObject();
 
+            postDataParams.put("proj_id", proj_id);
             postDataParams.put("role_name", role_name);
             postDataParams.put("role_user_id", role_user_id);
             postDataParams.put("role_start_date", role_start_date);
-            postDataParams.put("role_end_date",  role_end_date);
-            postDataParams.put("role_status",  role_status);
+            postDataParams.put("role_end_date", role_end_date);
+            postDataParams.put("role_status", role_status);
+
             Log.e("[ROLE_INSERT]", postDataParams.toString());
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -100,14 +107,16 @@ PHP
                 }
 
                 in.close();
-                Log.e("[InsertMsgContent]", sb.toString());
+                Log.e("[ROLE_INSERT]", sb.toString());
                 return sb.toString();
 
             } else {
+                Log.e("[ROLE_INSERT]", "false : " + responseCode);
                 return new String("false : " + responseCode);
             }
         } catch (Exception e) {
-            return new String("Exception: " + e.getMessage());
+            Log.e("[ROLE_INSERT]", "Exceptiondfdf: " + e.getMessage());
+            return new String("Exceptiondfdf: " + e.getMessage());
         }
 
     }

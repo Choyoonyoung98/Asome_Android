@@ -91,6 +91,7 @@ public class RoleDetailDialogActivity extends Activity {
                 intent.putExtra("name", "이름값");//역할값, 프로젝트 UUID*/
                 intent.putExtra("some",role_arr_list);
     //            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+           //     intent.putParcelableArrayListExtra("key", (ArrayList<? extends Parcelable>) role_arr_list);
 
                 startActivity(intent);
                 finish();

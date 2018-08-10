@@ -44,6 +44,7 @@ public class Constant {
     public static final String GET_CHAT_ROOM_URL = URL+"project/select_proj_info.php";
     public static final String SELECT_PROJ = URL+"project/select_proj.php";
     public static final String INSERT_PROJ = URL+"project/insert_proj.php";
+    public static final String INSERT_ROLE = URL+"project/insert_role.php";
 
     //쪽지 관련 URL
     public static final String INSERT_MSG_CONTENT = "http://www.giljabee.com/api/android_api/message/INSERT/msg_content.php";

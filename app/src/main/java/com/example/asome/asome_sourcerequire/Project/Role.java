@@ -1,6 +1,8 @@
 package com.example.asome.asome_sourcerequire.Project;
 
-public class Role {
+import java.io.Serializable;
+
+public class Role implements Serializable{
     String role_name,role_end_date, role_start_date;
 
     public Role(String role_name, String role_end_date, String role_start_date) {

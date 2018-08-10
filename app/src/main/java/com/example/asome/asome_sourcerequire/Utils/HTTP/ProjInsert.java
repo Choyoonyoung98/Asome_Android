@@ -3,8 +3,6 @@ package com.example.asome.asome_sourcerequire.Utils.HTTP;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.asome.asome_sourcerequire.Project.Role;
-
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -15,7 +13,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -27,9 +24,8 @@ import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.INSERT
  */
 
 
-public class ProjInsert extends AsyncTask<String, Void, String> {
+public class  ProjInsert extends AsyncTask<String, Void, String> {
     String proj_name, proj_about, role_name, role_user_id, role_start_date, role_end_date,role_status;
-ArrayList<Role> roles;
 
     public ProjInsert( String proj_name, String proj_about, String role_name, String role_user_id, String role_start_date, String role_end_date,String role_status) {
         this.proj_name = proj_name;
@@ -68,11 +64,6 @@ PHP
             JSONObject postDataParams = new JSONObject();
             postDataParams.put("proj_name", proj_name);
             postDataParams.put("proj_about", proj_about);
-            postDataParams.put("role_name", role_name);
-            postDataParams.put("role_user_id", role_user_id);
-            postDataParams.put("role_start_date", role_start_date);
-            postDataParams.put("role_end_date",  role_end_date);
-            postDataParams.put("role_status",  role_status);
             Log.e("[insert_proj]", postDataParams.toString());
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -108,7 +99,8 @@ PHP
                 }
 
                 in.close();
-                Log.e("[InsertMsgContent]", sb.toString());
+                Log.e("[InsertPrject]", sb.toString());
+                //요거 리턴값
                 return sb.toString();
 
             } else {
@@ -122,6 +114,7 @@ PHP
 
     @Override
     protected void onPostExecute(String result) {
+
     }
 
 
