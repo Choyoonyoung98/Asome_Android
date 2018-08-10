@@ -13,6 +13,7 @@ import com.example.asome.asome_sourcerequire.R;
 import com.example.asome.asome_sourcerequire.Utils.HTTP.ProjInsert;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class NewProjectActivity extends AppCompatActivity {
 //    EditText projName, projAbout, roleName, userName, roleStartDate, roleEndDate;
@@ -64,8 +65,14 @@ public class NewProjectActivity extends AppCompatActivity {
                 proj_name = et_proj_name.getText().toString();
                 proj_about = et_proj_about.getText().toString();
                 //    public ProjInsert(String proj_UUID, String proj_name, String proj_about, String role_name, String role_user_id, String role_start_date, String role_end_date,String role_status) {
-                ProjInsert projInsert = new ProjInsert("uuid", proj_name, proj_about, "role_name", "11", "st", "ed", "ong");
-                projInsert.execute();
+                ProjInsert projInsert = new ProjInsert( proj_name, proj_about, "role_name", "11", "st", "ed", "ong");
+                try {
+                    projInsert.execute().get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(getApplicationContext(), "cp", Toast.LENGTH_LONG).show();
             }
         });
