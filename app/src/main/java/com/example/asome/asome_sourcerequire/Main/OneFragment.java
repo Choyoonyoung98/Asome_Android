@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.asome.asome_sourcerequire.R;
 
@@ -50,6 +51,8 @@ public class OneFragment extends ListFragment {
         ua.addItem(new UserItem(R.drawable.user,"김연진","개발팀","xdtaxc@asome.com"));
         ua.addItem(new UserItem(R.drawable.user,"고준혁","개발팀","fncxaFS@asome.com"));
 
+
+
         gridView.setAdapter(ua);
         ua.notifyDataSetChanged();
 
@@ -79,13 +82,21 @@ public class OneFragment extends ListFragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             UserItemView view = new UserItemView(getContext());
 
-            UserItem item = items.get(position);
+            final UserItem item = items.get(position);
             view.setUserName(item.getName());
             view.setUserProfile(item.getResID());
             view.setUserDepartment(item.getDepartment());
             view.setUserEmail(item.getEmail());
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(view.getContext(),item.getName(),Toast.LENGTH_LONG).show();
+                }
+            });
             return view;
 
         }
+
     }
 }

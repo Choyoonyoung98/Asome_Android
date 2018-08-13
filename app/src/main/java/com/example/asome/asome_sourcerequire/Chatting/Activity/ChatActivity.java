@@ -147,7 +147,7 @@ public class ChatActivity extends AppCompatActivity {
          * 4. edit_message.setOnClickListener: 채팅 에딧텍스트 눌렀을때 리스트 맨 아래로 내리는 액션
          * */
 
-        Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?? < 메뉴 선택 창 >  ", false, ACTION_START);
+        Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "안녕하세요. 무엇을 도와드릴까요?  ", false, ACTION_START);
         chats.add(chat);
 
         //메시지 보내기 액션

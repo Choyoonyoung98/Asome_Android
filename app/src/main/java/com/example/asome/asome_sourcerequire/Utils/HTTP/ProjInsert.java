@@ -101,7 +101,7 @@ PHP
                 in.close();
                 Log.e("[InsertPrject]", sb.toString());
                 //요거 리턴값
-                return sb.toString();
+                return String.valueOf(sb);
 
             } else {
                 return new String("false : " + responseCode);

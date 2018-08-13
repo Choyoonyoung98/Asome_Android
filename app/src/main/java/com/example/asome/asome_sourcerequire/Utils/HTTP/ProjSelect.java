@@ -78,9 +78,15 @@ public class ProjSelect extends AsyncTask<String, Void, String> {
                 return sb.toString();
 
             } else {
+                Log.e("[ProjSelect]", "false : " + responseCode);
+
+
                 return new String("false : " + responseCode);
+
             }
         } catch (Exception e) {
+            Log.e("[ProjSelect]","Exception: " + e.getMessage());
+
             return new String("Exception: " + e.getMessage());
         }
 
@@ -97,24 +103,14 @@ public class ProjSelect extends AsyncTask<String, Void, String> {
         try {
             JSONArray jsonArray = new JSONArray(jsonArr);
             for (int i = 0; i < jsonArray.length(); i++) {
-                //{"proj_id":"18","proj_UUID":null,"proj_name":"?????","proj_about":null,"role_name":null,"role_user_id":null,
-                // "role_start_date":null,"role_end_date":null,"role_hour":null,"role_status":null}
                 String proj_id = jsonArray.getJSONObject(i).getString("proj_id");
-                String proj_UUID = jsonArray.getJSONObject(i).getString("proj_UUID");
                 String proj_name = jsonArray.getJSONObject(i).getString("proj_name");
                 String proj_about = jsonArray.getJSONObject(i).getString("proj_about");
 
-                String role_name = jsonArray.getJSONObject(i).getString("role_name");
-                String role_user_id = jsonArray.getJSONObject(i).getString("role_user_id");
-                String role_start_date = jsonArray.getJSONObject(i).getString("role_start_date");
-                String role_end_date = jsonArray.getJSONObject(i).getString("role_end_date");
-                String role_status = jsonArray.getJSONObject(i).getString("role_status");
                 Log.e("[ProjSelect]"+i, jsonArray.getJSONObject(i).toString());
-
-            //    dbHelper_room.insert_room(roomName, guideName, profileUrl, " ", DateFormat.date_full());
-                projectAdapter.addItem(new ProjectItem(proj_name,proj_about,Integer.parseInt(proj_id)));
+                projectAdapter.addItem(new ProjectItem(proj_name,proj_about,proj_id));
             }
-        //    chatListItem_adapter.notifyDataSetChanged();
+            projectAdapter.notifyDataSetChanged();
         } catch (JSONException e) {
             Log.e("[ProjSelect]", e.toString());
             e.printStackTrace();

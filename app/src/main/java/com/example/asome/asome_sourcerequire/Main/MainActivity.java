@@ -11,6 +11,7 @@ import com.example.asome.asome_sourcerequire.Utils.HTTP.ProjSelect;
 public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
+    ProjSelect projSelect = new ProjSelect();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +23,31 @@ public class MainActivity extends AppCompatActivity {
         setTabLayout();
         setListener();
 
-        ProjSelect projSelect = new ProjSelect();
-        projSelect.execute();
+
+    /*    try {
+            projSelect.execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    */
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+   /*     try {
+            projSelect.execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+*/
+    }
+
     public void setViewPager(){
         viewPager = findViewById(R.id.viewPager);
         CustomAdapter adapter = new CustomAdapter(getSupportFragmentManager());

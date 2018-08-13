@@ -14,21 +14,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asome.asome_sourcerequire.R;
+import com.example.asome.asome_sourcerequire.Utils.HTTP.ProjInsert;
+import com.example.asome.asome_sourcerequire.Utils.HTTP.RoleInsert;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.hori_id;
+import static com.example.asome.asome_sourcerequire.Main.TwoFragment.projectAdapter;
 
 public class RoleDetailDialogActivity extends Activity {
     //AutoCompleteTextView testTag;
     TextView showTag, showStartDate, showEndDate, textStart, textEnd;
     DatePicker dp_start_date, dp_end_date;
     LinearLayout datePage, datePage2;
-    String start_day, start_month, start_year, end_day, end_month, end_year;
+    String start_day, start_month, start_year, end_day, end_month, end_year, proj_id;
     LinearLayout rolePage;
-    Button setStartBtn, setEndBtn, selectBtn, selectBtn2, showBtn, btn_role_add,btn_complete;
+    Button setStartBtn, setEndBtn, selectBtn, selectBtn2, showBtn, btn_role_add, btn_complete;
 
 
     EditText et_role_name;
-    String final_end_date, final_start_date;
+    String name, about, final_end_date, final_start_date;
     ListView lv_role;
     Role role;
     ArrayList<Role> role_arr_list = new ArrayList<Role>();
@@ -41,11 +47,14 @@ public class RoleDetailDialogActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_role_detail_dialog);
 
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
+        about = intent.getStringExtra("about");
 
         et_role_name = (EditText) findViewById(R.id.et_role_name);
-        role_name = et_role_name.getText().toString();
 
         dp_start_date = findViewById(R.id.datePicker);
         dp_end_date = findViewById(R.id.datePicker2);
@@ -65,11 +74,12 @@ public class RoleDetailDialogActivity extends Activity {
         lv_role = (ListView) findViewById(R.id.lv_role);
         datePage = (LinearLayout) findViewById(R.id.datePage);
         datePage2 = (LinearLayout) findViewById(R.id.datePage2);
-        btn_complete = (Button)findViewById(R.id.btn_complete);
+        btn_complete = (Button) findViewById(R.id.btn_complete);
 
         btn_role_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                role_name = et_role_name.getText().toString();
 
                 role = new Role(role_name, final_start_date, final_end_date);
 
@@ -85,15 +95,23 @@ public class RoleDetailDialogActivity extends Activity {
         btn_complete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RoleDetailDialogActivity.this, NewProjectActivity.class);
-               /* intent.putExtra("start_date", final_start_date);
-                intent.putExtra("end_date", final_end_date);
-                intent.putExtra("name", "이름값");//역할값, 프로젝트 UUID*/
-                intent.putExtra("some",role_arr_list);
-    //            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-           //     intent.putParcelableArrayListExtra("key", (ArrayList<? extends Parcelable>) role_arr_list);
+                ProjInsert projInsert = new ProjInsert(name, about, "role_name", "11", "st", "ed", "ong");
+                try {
+                    proj_id = projInsert.execute().get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
 
-                startActivity(intent);
+                for (int i = 0; i < role_arr_list.size(); i++) {
+                    RoleInsert roleInsert = new RoleInsert(proj_id, role_arr_list.get(i).role_name, hori_id, role_arr_list.get(i).getRole_start_date(), role_arr_list.get(i).getRole_end_date(), role_arr_list.get(i).getRole_end_date());//상태만 변경
+                    roleInsert.execute();
+                    Toast.makeText(getApplicationContext(), proj_id, Toast.LENGTH_LONG).show();
+
+                }
+                overridePendingTransition(R.anim.anim_slide_out_right, R.anim.anim_slide_in_left);
+                projectAdapter.addItem(new ProjectItem(name, about,proj_id ));
                 finish();
 
             }
@@ -108,6 +126,7 @@ public class RoleDetailDialogActivity extends Activity {
 
     public void onShowDatePicker1(View v) {
         datePage.setVisibility(v.VISIBLE);
+
     }
 
     public void onShowDatePicker2(View v) {

@@ -112,11 +112,6 @@
             </LinearLayout>
 
 
-            <Button
-                android:id="@+id/btn_set_role"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="역할지정" />
 
             <Button
                 android:id="@+id/createbtn"

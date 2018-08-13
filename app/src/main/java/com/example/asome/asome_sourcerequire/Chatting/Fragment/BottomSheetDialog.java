@@ -12,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.asome.asome_sourcerequire.CalendarActivity;
 import com.example.asome.asome_sourcerequire.Chatting.Activity.MyScheduleActivity;
-import com.example.asome.asome_sourcerequire.Chatting.Activity.TeamScheduleActivity;
 import com.example.asome.asome_sourcerequire.R;
 
 public class BottomSheetDialog extends BottomSheetDialogFragment implements View.OnClickListener{
@@ -58,14 +58,14 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
 
                 break;
             case R.id.ll_team_schedule:
-                Intent intent2 = new Intent(getContext(), TeamScheduleActivity.class);
+                Intent intent2 = new Intent(getContext(), CalendarActivity.class);
                 intent2.putExtra("status","");
                 startActivity(intent2);
                 break;
             case R.id.ll_error:
 
                 boolean b=true;
-                Intent intent3 = new Intent(getContext(), TeamScheduleActivity.class);
+                Intent intent3 = new Intent(getContext(), CalendarActivity.class);
                 if(b == true) {
                     intent3.putExtra("status","doing");
                     b=false;

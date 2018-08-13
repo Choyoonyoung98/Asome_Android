@@ -149,15 +149,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
             //쓰는 뷰
             //안쓰는 뷰
             case  ACTION_START:
-                ArrayList<SectionDataModel> array_action_start = new ArrayList<SectionDataModel>();
-                ArrayList<SingleItemModel> ACTION_STARTsingleItem = new ArrayList<SingleItemModel>();
-                SectionDataModel ACTION_STARTdm = new SectionDataModel();
 
-
-                /*for (int j = 0; j <= 10; j++) {
-                    ACTION_STARTsingleItem.add(new SingleItemModel("아템 ", "유알엘 " + j));
-                }
-*/
                 container_txt.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
                 txtTime.setVisibility(View.VISIBLE);
@@ -166,6 +158,11 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 dateLine.setVisibility(View.GONE);
 
                 rv_choice_card.setVisibility(View.VISIBLE);
+
+                ArrayList<SectionDataModel> array_action_start = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> ACTION_STARTsingleItem = new ArrayList<SingleItemModel>();
+                SectionDataModel ACTION_STARTdm = new SectionDataModel();
+
                 ACTION_STARTsingleItem.add(new SingleItemModel("내 스케줄 알려줘", ACTION_SCHEDULE_MY ));
                 ACTION_STARTsingleItem.add(new SingleItemModel("오늘 알람을 설정해야겠어", ACTION_ALARM ));
                 ACTION_STARTsingleItem.add(new SingleItemModel("오늘 스케줄 끝났어", ACTION_DONE ));
@@ -220,6 +217,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 txtTime.setText(chat.getTimestamp());
                 dateLine.setVisibility(View.GONE);
 
+                 rv_choice_card.setVisibility(View.GONE);
 
                 break;
             case ACTION_DONE:
@@ -232,13 +230,14 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 txtMessage.setText(chat.getMessage());
                 txtTime.setText(chat.getTimestamp());
                 dateLine.setVisibility(View.GONE);
+                rv_choice_card.setVisibility(View.GONE);
 
 
                 break;
 
             case ACTION_SCHEDULE_OTHER:
 
-
+//txt + 물음상자
                 // container_img.setVisibility(View.GONE);
                 container_txt.setVisibility(View.VISIBLE);
                 //           txtCheck.setVisibility(View.VISIBLE);
@@ -247,13 +246,31 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 txtMessage.setText(chat.getMessage());
                 txtTime.setText(chat.getTimestamp());
                 dateLine.setVisibility(View.GONE);
+                rv_choice_card.setVisibility(View.VISIBLE);
 
+
+                ArrayList<SectionDataModel> array_action_start2 = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> ACTION_STARTsingleItem2 = new ArrayList<SingleItemModel>();
+                SectionDataModel ACTION_STARTdm2 = new SectionDataModel();
+
+                ACTION_STARTsingleItem2.add(new SingleItemModel("teammate1", ACTION_SCHEDULE_MY ));
+                ACTION_STARTsingleItem2.add(new SingleItemModel("teammate3", ACTION_ALARM ));
+                ACTION_STARTsingleItem2.add(new SingleItemModel("teammate3", ACTION_DONE ));
+                ACTION_STARTsingleItem2.add(new SingleItemModel("teammate4", ACTION_SCHEDULE_OTHER ));
+
+                ACTION_STARTdm2.setAllItemsInSection(ACTION_STARTsingleItem2);
+                array_action_start2.add(ACTION_STARTdm2);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewDataAdapter adapter2 = new RecyclerViewDataAdapter(context, array_action_start2);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter2);
 
                 break;
 
             case ACTION_SCHEDULE_MY:
 
-
+                rv_choice_card.setVisibility(View.GONE);
                 // container_img.setVisibility(View.GONE);
                 container_txt.setVisibility(View.VISIBLE);
                 //           txtCheck.setVisibility(View.VISIBLE);

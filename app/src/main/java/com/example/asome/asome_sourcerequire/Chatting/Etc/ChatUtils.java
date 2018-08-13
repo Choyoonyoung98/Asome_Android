@@ -214,7 +214,7 @@ public class ChatUtils {
                         chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "누구 스케쥴 보시겠습니까?<Listview>", false, ACTION_SCHEDULE_OTHER);
 
                     }
-
+                    return chat;
                 case ACTION_DONE:
                     if (jsonObject.getString(TAG_ROOM_NO).equals(current_room_no)) {
                         chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "오늘 일정 완료하시겠습니까?", false, ACTION_DONE);

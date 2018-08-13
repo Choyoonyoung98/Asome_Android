@@ -5,13 +5,13 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.asome.asome_sourcerequire"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
- //       vectorDrawables.useSupportLibrary = true
+        //       vectorDrawables.useSupportLibrary = true
 
     }
     buildTypes {
@@ -48,6 +48,11 @@ dependencies {
     implementation 'com.android.support:design:27.+'
 
     implementation 'com.jakewharton:butterknife:8.8.1'
+
+    implementation 'com.archit.calendar:awesome-calendar:1.1.1'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.riontech:calendar:1.0'
+
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
 }

@@ -36,9 +36,7 @@
         <activity android:name=".Chatting.Activity.ChatActivity" />
         <activity
             android:name=".Login.LogInActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -56,17 +54,21 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Project.RoleDetailDialogActivity"
-            android:theme="@android:style/Theme.Dialog" />
+           />
         <activity
             android:name=".Login.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RoleDetailDialogActivity2" />
         <activity android:name=".ResourceChartActivity" />
         <activity android:name=".Chatting.Activity.MyScheduleActivity" />
-        <activity android:name=".Chatting.Activity.TeamScheduleActivity"></activity>
-        <activity android:name=".Timeline.TimeLineActivity">
+        <activity android:name=".Chatting.Activity.TeamScheduleActivity" />
+        <activity android:name=".Timeline.TimeLineActivity" />
+        <activity
+            android:name=".RangePicker"
+            android:theme="@android:style/Theme.Dialog">
 
         </activity>
+        <activity android:name=".CalendarActivity"/>
     </application>
 
 </manifest>
