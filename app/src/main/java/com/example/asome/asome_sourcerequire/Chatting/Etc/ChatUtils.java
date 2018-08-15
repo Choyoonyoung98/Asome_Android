@@ -283,7 +283,7 @@ public class ChatUtils {
         try {
             jsonObject.put(TAG_ACTION, chat.getAction());
             jsonObject.put(TAG_USER_NO, chat.getUser_no());
-            jsonObject.put(TAG_ROOM_NO, "11");
+            jsonObject.put(TAG_ROOM_NO, chat.getRoom_no());
             jsonObject.put(TAG_MESSAGE, chat.getMessage());
             jsonObject.put(TAG_TIMESTAMP, DateFormat.date_for_chat());
             jsonObject.put(TAG_USER_TYPE, TAG_CUSTOMER);

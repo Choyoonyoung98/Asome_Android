@@ -14,10 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asome.asome_sourcerequire.R;
+import com.example.asome.asome_sourcerequire.RangePicker;
 import com.example.asome.asome_sourcerequire.Utils.HTTP.ProjInsert;
 import com.example.asome.asome_sourcerequire.Utils.HTTP.RoleInsert;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.concurrent.ExecutionException;
 
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.hori_id;
@@ -111,11 +114,20 @@ public class RoleDetailDialogActivity extends Activity {
 
                 }
                 overridePendingTransition(R.anim.anim_slide_out_right, R.anim.anim_slide_in_left);
-                projectAdapter.addItem(new ProjectItem(name, about,proj_id ));
+                projectAdapter.addItem(new ProjectItem(name, about, proj_id));
                 finish();
 
             }
         });
+
+       /* setStartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // startActivity(new Intent(getApplicationContext(), RangePicker.class));
+                RangePicker rangePicker = new RangePicker(RoleDetailDialogActivity.this );
+                rangePicker.show();
+            }
+        });*/
     }
 
 
@@ -135,21 +147,41 @@ public class RoleDetailDialogActivity extends Activity {
 
     public void onSelectClicked1(View v) {
         datePage.setVisibility(v.GONE);
-        start_day = "" + dp_start_date.getDayOfMonth();
-        int m1 = dp_start_date.getMonth() + 1;
-        start_month = "" + m1;
-        start_year = "" + dp_start_date.getYear();
-        final_start_date = start_year + "-" + start_month + "-" + start_day;
+        int year = dp_start_date.getYear();
+        int month = dp_start_date.getMonth();
+        int day = dp_start_date.getDayOfMonth();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, day);
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");String strDate = format.format(calendar.getTime());
+
+        final_start_date =strDate;
         textStart.setText(final_start_date);
+
+
     }
 
     public void onSelectClicked2(View v) {
         datePage2.setVisibility(v.GONE);
-        end_day = "" + dp_end_date.getDayOfMonth();
+  /*      end_day = "" + dp_end_date.getDayOfMonth();
         int m2 = dp_end_date.getMonth() + 1;
         end_month = "" + m2;
         end_year = "" + dp_end_date.getYear();
         final_end_date = end_year + "-" + end_month + "-" + end_day;
+*/
+
+        int year = dp_end_date.getYear();
+        int month = dp_end_date.getMonth();
+        int day = dp_end_date.getDayOfMonth();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, day);
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String strDate = format.format(calendar.getTime());
+
+        final_end_date =strDate;
         textEnd.setText(final_end_date);
     }
 

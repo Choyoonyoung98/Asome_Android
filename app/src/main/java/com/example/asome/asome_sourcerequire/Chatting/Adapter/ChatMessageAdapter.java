@@ -16,6 +16,7 @@ import com.example.asome.asome_sourcerequire.R;
 
 import java.util.ArrayList;
 
+import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity.roles;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_ALARM;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_DONE;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_MY;
@@ -129,20 +130,12 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
      * 5. 날짜선
      */
     public void bind(final Chat chat) {
+/*
 
         //메시지를 보낸 사람이름을 세팅
         tv_user_real_name.setText(chat.getUser_no());
+*/
 
-        //메시지의 읽음 처리
-        //만약 읽음 처리가 필요없다면(날짜선) View.GONE 처리됨
-   /*     if (chat.getRead_check().equals(TAG_READ)) {
-            txtCheck.setText("읽음");
-        } else {
-            txtCheck.setText("안읽음");
-        }*/
-
-        //케이스 마다 안쓰는 뷰 -> View.GONE
-        //쓰는 뷰-->View.VISIBLE
         switch (chat.getAction()) {
 
             //텍스트 메시지 케이스
@@ -160,52 +153,25 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 rv_choice_card.setVisibility(View.VISIBLE);
 
                 ArrayList<SectionDataModel> array_action_start = new ArrayList<SectionDataModel>();
-                ArrayList<SingleItemModel> ACTION_STARTsingleItem = new ArrayList<SingleItemModel>();
-                SectionDataModel ACTION_STARTdm = new SectionDataModel();
+                ArrayList<SingleItemModel> singleItem_start = new ArrayList<SingleItemModel>();
+                SectionDataModel dm_start = new SectionDataModel();
 
-                ACTION_STARTsingleItem.add(new SingleItemModel("내 스케줄 알려줘", ACTION_SCHEDULE_MY ));
-                ACTION_STARTsingleItem.add(new SingleItemModel("오늘 알람을 설정해야겠어", ACTION_ALARM ));
-                ACTION_STARTsingleItem.add(new SingleItemModel("오늘 스케줄 끝났어", ACTION_DONE ));
-                ACTION_STARTsingleItem.add(new SingleItemModel("팀원 스케줄 보여줘", ACTION_SCHEDULE_OTHER ));
-                ACTION_STARTsingleItem.add(new SingleItemModel("에러가 났어", "err" ));
-                ACTION_STARTsingleItem.add(new SingleItemModel("메뉴 보여줘", ACTION_START ));
+                singleItem_start.add(new SingleItemModel("내 스케줄 알려줘", ACTION_SCHEDULE_MY ));
+                //ACTION_STARTsingleItem.add(new SingleItemModel("오늘 알람을 설정해야겠어", ACTION_ALARM ));
+                singleItem_start.add(new SingleItemModel("오늘 스케줄 끝났어", ACTION_DONE ));
+                singleItem_start.add(new SingleItemModel("팀원 스케줄 보여줘", ACTION_SCHEDULE_OTHER ));
+                singleItem_start.add(new SingleItemModel("에러가 났어", "err" ));
+                singleItem_start.add(new SingleItemModel("메뉴 보여줘", ACTION_START ));
 
-                ACTION_STARTdm.setAllItemsInSection(ACTION_STARTsingleItem);
-                array_action_start.add(ACTION_STARTdm);
+                dm_start.setAllItemsInSection(singleItem_start);
+                array_action_start.add(dm_start);
 
                 rv_choice_card.setHasFixedSize(true);
-                RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(context, array_action_start);
+                RecyclerViewDataAdapter adapter_start = new RecyclerViewDataAdapter(context, array_action_start);
                 rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-                rv_choice_card.setAdapter(adapter);
+                rv_choice_card.setAdapter(adapter_start);
                 break;
 
-
-/*
-            case ACTION_SCHEDULE_OTHER:
-                container_txt.setVisibility(View.VISIBLE);
-                txtMessage.setVisibility(View.VISIBLE);
-                txtTime.setVisibility(View.VISIBLE);
-                txtMessage.setText(chat.getMessage());
-                txtTime.setText(chat.getTimestamp());
-                dateLine.setVisibility(View.GONE);
-
-                rv_choice_card.setVisibility(View.VISIBLE);
-                ArrayList<SectionDataModel> allSampleData = new ArrayList<SectionDataModel>();
-                SectionDataModel dm = new SectionDataModel();
-                ArrayList<SingleItemModel> al_schedule_other = new ArrayList<SingleItemModel>();
-*//*                al_schedule_other.add(new SingleItemModel("내 스케줄 알려줘", "유알엘 " ));
-                al_schedule_other.add(new SingleItemModel("오늘 알람을 설정해야겠어", "유알엘 " ));
-                al_schedule_other.add(new SingleItemModel("오늘 스케줄 끝났어", "유알엘 " ));
-                al_schedule_other.add(new SingleItemModel("팀원 스케줄 보여줘", "유알엘 " ));
-                al_schedule_other.add(new SingleItemModel("에러가 났어", "유알엘 " ));
-                al_schedule_other.add(new SingleItemModel("잡담하자", "유알엘 " ));*//*
-                dm.setAllItemsInSection(al_schedule_other);
-                allSampleData.add(dm);
-                rv_choice_card.setHasFixedSize(true);
-                RecyclerViewDataAdapter adapter2 = new RecyclerViewDataAdapter(context, allSampleData);
-                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-                rv_choice_card.setAdapter(adapter2);
-                break;*/
              case ACTION_TEXT:
 
                 // container_img.setVisibility(View.GONE);
@@ -230,8 +196,24 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 txtMessage.setText(chat.getMessage());
                 txtTime.setText(chat.getTimestamp());
                 dateLine.setVisibility(View.GONE);
-                rv_choice_card.setVisibility(View.GONE);
+                rv_choice_card.setVisibility(View.VISIBLE);
 
+                ArrayList<SectionDataModel> array_action_yn = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> singleItem_yn = new ArrayList<SingleItemModel>();
+                SectionDataModel dm_yn = new SectionDataModel();
+
+
+                singleItem_yn.add(new SingleItemModel("네", "err" ));
+                singleItem_yn.add(new SingleItemModel("아니오", ACTION_START ));
+                singleItem_yn.add(new SingleItemModel("메뉴 보여줘", ACTION_START ));
+
+                dm_yn.setAllItemsInSection(singleItem_yn);
+                array_action_yn.add(dm_yn);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewDataAdapter adapter11 = new RecyclerViewDataAdapter(context, array_action_yn);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter11);
 
                 break;
 
@@ -253,10 +235,15 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 ArrayList<SingleItemModel> ACTION_STARTsingleItem2 = new ArrayList<SingleItemModel>();
                 SectionDataModel ACTION_STARTdm2 = new SectionDataModel();
 
-                ACTION_STARTsingleItem2.add(new SingleItemModel("teammate1", ACTION_SCHEDULE_MY ));
-                ACTION_STARTsingleItem2.add(new SingleItemModel("teammate3", ACTION_ALARM ));
-                ACTION_STARTsingleItem2.add(new SingleItemModel("teammate3", ACTION_DONE ));
-                ACTION_STARTsingleItem2.add(new SingleItemModel("teammate4", ACTION_SCHEDULE_OTHER ));
+                for(int i =0;i<roles.size();i++) {
+                    ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(i).getRole_name(), ACTION_SCHEDULE_MY));
+                }
+               /* 
+                ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(0).getRole_name(), ACTION_SCHEDULE_MY ));
+                ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(1).getRole_name(), ACTION_ALARM ));
+                ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(2).getRole_name(), ACTION_DONE ));
+                ACTION_STARTsingleItem2.add(new SingleItemModel("teammate4", ACTION_SCHEDULE_OTHER ));*/
+                ACTION_STARTsingleItem2.add(new SingleItemModel("메뉴", ACTION_START));
 
                 ACTION_STARTdm2.setAllItemsInSection(ACTION_STARTsingleItem2);
                 array_action_start2.add(ACTION_STARTdm2);

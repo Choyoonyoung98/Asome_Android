@@ -2,7 +2,7 @@ package com.example.asome.asome_sourcerequire;
 
 import android.app.Activity;
 
-public class RoleDetailDialogActivity2 extends Activity {/*
+public class  RoleDetailDialogActivity2 extends Activity {/*
     AutoCompleteTextView testTag;
     TextView showTag, showStartDate, showEndDate, textStart, textEnd;
     DatePicker datePicker, datePicker2;

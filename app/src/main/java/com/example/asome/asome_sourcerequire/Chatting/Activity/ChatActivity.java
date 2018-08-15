@@ -28,17 +28,21 @@ import android.widget.Toast;
 
 import com.example.asome.asome_sourcerequire.Chatting.Adapter.ChatMessageAdapter;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.ChatUtils;
+import com.example.asome.asome_sourcerequire.Chatting.Etc.Constant;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.DateFormat;
 import com.example.asome.asome_sourcerequire.Chatting.Etc.SocketClient;
 import com.example.asome.asome_sourcerequire.Chatting.Fragment.BottomSheetDialog;
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
+import com.example.asome.asome_sourcerequire.Project.Role;
 import com.example.asome.asome_sourcerequire.R;
+import com.example.asome.asome_sourcerequire.Utils.HTTP.RoleSelect;
 import com.example.asome.asome_sourcerequire.Utils.SQLite.DBHelperChatting;
 
 import org.java_websocket.exceptions.WebsocketNotConnectedException;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_CALL;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_DONE;
@@ -46,6 +50,7 @@ import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_OTHER;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_START;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_TEXT;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.SELECT_ROLE;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.SocketClient.mWebSocketClient;
 
 
@@ -92,9 +97,11 @@ public class ChatActivity extends AppCompatActivity {
 
     //정적 변수
     public static ArrayList<Chat> chats = new ArrayList<Chat>();//메시지 리스트
+    public static  ArrayList<Role> roles = new ArrayList<>();
+
     public static ChatMessageAdapter messages_adapter = new ChatMessageAdapter(chats);//메시지 리스트 어댑터
     public static String current_name="11";//현재방에서 내아이디
-    public static String current_room_no = "11";//현재방 아이디
+    public static String current_room_no;//현재방 아이디
     public static String current_counter_name;//현재방에서 상대방 아이디
 
     ChatUtils chat_utils = new ChatUtils(ChatActivity.this);//받은 채팅 메시지(json)를 message 구조체에 맞게 바꾸어 주는 유틸
@@ -135,7 +142,7 @@ public class ChatActivity extends AppCompatActivity {
         init_layout();
         init_system();
         SocketClient sc = new SocketClient(getApplicationContext());
-        sc.connectWebSocket("11");
+        sc.connectWebSocket(current_room_no);
         /**
          * [2] 레이아웃 아이템 액션 4가지
          * 1. rv_image_menu.addOnItemTouchListener: 이미지 보낼때 이미지 선택창 올리는 액션
@@ -452,10 +459,22 @@ public class ChatActivity extends AppCompatActivity {
     private void init_system() {
 
         //겟 인텐트 액션: 내이름, 상대 이름, 방이름
-      /*  current_name = getIntent().getStringExtra(Constant.TAG_USER_NO);
+        //current_name = getIntent().getStringExtra(Constant.TAG_USER_NO);
         current_room_no = getIntent().getStringExtra(Constant.TAG_ROOM_NO);
-        current_counter_name = getIntent().getStringExtra("guideName");*/
+        current_counter_name = getIntent().getStringExtra("guideName");
 
+
+        RoleSelect roleSelect = new RoleSelect(current_room_no);
+        roles.clear();
+        try {
+            roleSelect.execute().get();//current teammate?
+            Toast.makeText(getApplicationContext(),roles.get(1).getRole_start_date(),Toast.LENGTH_LONG).show();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //들어와있는 방의 fcm notification을 끈다(fcm 관련 작업 미완 --> 제거)
         // spf_notification.notiOff(current_room_no);
 

@@ -43,6 +43,7 @@ public class Constant {
     public static final String INSERT_JOIN = URL+"login/insert_user_info.php";
     public static final String GET_CHAT_ROOM_URL = URL+"project/select_proj_info.php";
     public static final String SELECT_PROJ = URL+"project/select_proj.php";
+    public static final String SELECT_ROLE= URL+"role/select_role.php";
     public static final String INSERT_PROJ = URL+"project/insert_proj.php";
     public static final String INSERT_ROLE = URL+"project/insert_role.php";
 

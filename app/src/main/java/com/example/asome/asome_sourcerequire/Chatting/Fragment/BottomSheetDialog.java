@@ -16,6 +16,8 @@ import com.example.asome.asome_sourcerequire.CalendarActivity;
 import com.example.asome.asome_sourcerequire.Chatting.Activity.MyScheduleActivity;
 import com.example.asome.asome_sourcerequire.R;
 
+import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity.roles;
+
 public class BottomSheetDialog extends BottomSheetDialogFragment implements View.OnClickListener{
 
     public static BottomSheetDialog getInstance() { return new BottomSheetDialog(); }
@@ -59,7 +61,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
                 break;
             case R.id.ll_team_schedule:
                 Intent intent2 = new Intent(getContext(), CalendarActivity.class);
-                intent2.putExtra("status","");
+                intent2.putExtra("arr_role",roles);
                 startActivity(intent2);
                 break;
             case R.id.ll_error:
