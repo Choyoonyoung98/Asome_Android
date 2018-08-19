@@ -15,14 +15,14 @@ import com.example.asome.asome_sourcerequire.Chatting.Model.SingleItemModel;
 import com.example.asome.asome_sourcerequire.R;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_IMG;
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_MAP;
+import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity.roles;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_ALARM;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_DONE;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_MY;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_OTHER;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_START;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_TEXT;
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.TAG_IMG_MINE;
 
 
 /**
@@ -35,12 +35,9 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
     private static final int RIGHT = 0, LEFT = 1;
 
     private ArrayList<Chat> chats;
-    private ArrayList<Chat> messages_search_result;
 
     public ChatMessageAdapter(ArrayList<Chat> chats) {
         this.chats = chats;
-        this.messages_search_result = new ArrayList<Chat>();
-        this.messages_search_result.addAll(chats);
     }
 
     @Override
@@ -84,22 +81,6 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
     @Override
     public int getItemCount() {
         return chats.size();
-    }
-
-    // Filter Class
-    public void filter(String charText) {
-        charText = charText.toLowerCase(Locale.getDefault());
-        chats.clear();
-        if (charText.length() == 0) {
-            chats.addAll(messages_search_result);
-        } else {
-            for (Chat wp : messages_search_result) {
-                if (wp.getMessage().toLowerCase(Locale.getDefault()).contains(charText)) {
-                    chats.add(wp);
-                }
-            }
-        }
-        notifyDataSetChanged();
     }
 
 
@@ -149,139 +130,143 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
      * 5. 날짜선
      */
     public void bind(final Chat chat) {
+/*
 
         //메시지를 보낸 사람이름을 세팅
         tv_user_real_name.setText(chat.getUser_no());
+*/
 
-        //메시지의 읽음 처리
-        //만약 읽음 처리가 필요없다면(날짜선) View.GONE 처리됨
-   /*     if (chat.getRead_check().equals(TAG_READ)) {
-            txtCheck.setText("읽음");
-        } else {
-            txtCheck.setText("안읽음");
-        }*/
-
-        //케이스 마다 안쓰는 뷰 -> View.GONE
-        //쓰는 뷰-->View.VISIBLE
         switch (chat.getAction()) {
 
             //텍스트 메시지 케이스
             //쓰는 뷰
             //안쓰는 뷰
             case  ACTION_START:
-                rv_choice_card.setVisibility(View.GONE);
 
-            case ACTION_SCHEDULE_OTHER:
-
-                ArrayList<SectionDataModel> allSampleData;
-                allSampleData = new ArrayList<SectionDataModel>();
-
-
-
-                //  createDummyData();
-
-
-                //  for (int i = 1; i <= 5; i++) {
-
-                SectionDataModel dm = new SectionDataModel();
-
-                //      dm.setHeaderTitle("Section " + i);
-
-                ArrayList<SingleItemModel> singleItem = new ArrayList<SingleItemModel>();
-                for (int j = 0; j <= 10; j++) {
-                    singleItem.add(new SingleItemModel("Item " + j, "URL " + j));
-                }
-
-                dm.setAllItemsInSection(singleItem);
-
-                allSampleData.add(dm);
-
-                //   RecyclerView my_recycler_view = (RecyclerView) findViewById(R.id.my_recycler_view);
-
-                rv_choice_card.setHasFixedSize(true);
-
-                RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(context, allSampleData);
-
-                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-
-                rv_choice_card.setAdapter(adapter);
-
-            case ACTION_TEXT:
-
-               // container_img.setVisibility(View.GONE);
                 container_txt.setVisibility(View.VISIBLE);
-     //           txtCheck.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
                 txtTime.setVisibility(View.VISIBLE);
                 txtMessage.setText(chat.getMessage());
                 txtTime.setText(chat.getTimestamp());
                 dateLine.setVisibility(View.GONE);
 
+                rv_choice_card.setVisibility(View.VISIBLE);
+
+                ArrayList<SectionDataModel> array_action_start = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> singleItem_start = new ArrayList<SingleItemModel>();
+                SectionDataModel dm_start = new SectionDataModel();
+
+                singleItem_start.add(new SingleItemModel("내 스케줄 알려줘", ACTION_SCHEDULE_MY ));
+                //ACTION_STARTsingleItem.add(new SingleItemModel("오늘 알람을 설정해야겠어", ACTION_ALARM ));
+                singleItem_start.add(new SingleItemModel("오늘 스케줄 끝났어", ACTION_DONE ));
+                singleItem_start.add(new SingleItemModel("팀원 스케줄 보여줘", ACTION_SCHEDULE_OTHER ));
+                singleItem_start.add(new SingleItemModel("에러가 났어", "err" ));
+                singleItem_start.add(new SingleItemModel("메뉴 보여줘", ACTION_START ));
+
+                dm_start.setAllItemsInSection(singleItem_start);
+                array_action_start.add(dm_start);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewDataAdapter adapter_start = new RecyclerViewDataAdapter(context, array_action_start);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter_start);
+                break;
+
+             case ACTION_TEXT:
+
+                // container_img.setVisibility(View.GONE);
+                container_txt.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+
+                 rv_choice_card.setVisibility(View.GONE);
+
+                break;
+            case ACTION_DONE:
+
+                // container_img.setVisibility(View.GONE);
+                container_txt.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+                rv_choice_card.setVisibility(View.VISIBLE);
+
+                ArrayList<SectionDataModel> array_action_yn = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> singleItem_yn = new ArrayList<SingleItemModel>();
+                SectionDataModel dm_yn = new SectionDataModel();
+
+
+                singleItem_yn.add(new SingleItemModel("네", "err" ));
+                singleItem_yn.add(new SingleItemModel("아니오", ACTION_START ));
+                singleItem_yn.add(new SingleItemModel("메뉴 보여줘", ACTION_START ));
+
+                dm_yn.setAllItemsInSection(singleItem_yn);
+                array_action_yn.add(dm_yn);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewDataAdapter adapter11 = new RecyclerViewDataAdapter(context, array_action_yn);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter11);
 
                 break;
 
-            /**
-             * 이미지 케이스가 2개인 이유
-             * */
-            //상대가 나에게 이미지 보내는 케이스
-            //쓰는 뷰
-            //안쓰는 뷰
-            case ACTION_IMG:
-       /*         final String imageUri = chat.getMessage();
-                container_txt.setVisibility(View.GONE);
-                container_img.setVisibility(View.VISIBLE);
-                txtTime_img.setText(chat.getTimestamp());
-                //              GlideUtil.setBitmapToView(imageUri, txtMessage_img);
-                txtMessage_img.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-//                        context.startActivity(new Intent(context, PhotoViewActivity.class).putExtra(IMAGE_DATA, imageUri));
+            case ACTION_SCHEDULE_OTHER:
 
-                    }
-                });
+//txt + 물음상자
+                // container_img.setVisibility(View.GONE);
+                container_txt.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
                 dateLine.setVisibility(View.GONE);
-    */            break;
+                rv_choice_card.setVisibility(View.VISIBLE);
 
-            //내가 상대에게 이미지 보내는 케이스
-            //쓰는 뷰
-            //안쓰는 뷰
-            case TAG_IMG_MINE:
-    /*            final String imageUri_mine = chat.getMessage();
-                container_txt.setVisibility(View.GONE);
-                container_img.setVisibility(View.VISIBLE);
-                txtTime_img.setText(chat.getTimestamp());
-                txtMessage_img.setImageBitmap(chat.getMy_image_bitmap());
 
-                //이미지 뷰 클릭시 이미지를 크게 볼수 있는 PhotoViewActivity.class로 넘어간다
-                txtMessage_img.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //context.startActivity(new Intent(context, PhotoViewActivity.class).putExtra(IMAGE_DATA, imageUri_mine));
-                    }
-                });
+                ArrayList<SectionDataModel> array_action_start2 = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> ACTION_STARTsingleItem2 = new ArrayList<SingleItemModel>();
+                SectionDataModel ACTION_STARTdm2 = new SectionDataModel();
+
+                for(int i =0;i<roles.size();i++) {
+                    ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(i).getRole_name(), ACTION_SCHEDULE_MY));
+                }
+               /* 
+                ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(0).getRole_name(), ACTION_SCHEDULE_MY ));
+                ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(1).getRole_name(), ACTION_ALARM ));
+                ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(2).getRole_name(), ACTION_DONE ));
+                ACTION_STARTsingleItem2.add(new SingleItemModel("teammate4", ACTION_SCHEDULE_OTHER ));*/
+                ACTION_STARTsingleItem2.add(new SingleItemModel("메뉴", ACTION_START));
+
+                ACTION_STARTdm2.setAllItemsInSection(ACTION_STARTsingleItem2);
+                array_action_start2.add(ACTION_STARTdm2);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewDataAdapter adapter2 = new RecyclerViewDataAdapter(context, array_action_start2);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter2);
+
+                break;
+
+            case ACTION_SCHEDULE_MY:
+
+                rv_choice_card.setVisibility(View.GONE);
+                // container_img.setVisibility(View.GONE);
+                container_txt.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
                 dateLine.setVisibility(View.GONE);
-*/                break;
 
-            //맵 메시지 케이스
-            //쓰는 뷰
-            //안쓰는 뷰
-            case ACTION_MAP:
-/*
-                txtMessage_img.setImageResource(R.drawable.ic_pin_drop_black_48dp);
-                container_img.setVisibility(View.VISIBLE);
-                container_txt.setVisibility(View.GONE);
-                txtTime_img.setText(chat.getRoom_no());
-                txtMessage_img.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent i = new Intent(v.getContext(), ViewMapActivity.class);
-                        i.putExtra("lat", chat.getLatitude());
-                        i.putExtra("lng", chat.getLongitude());
-                        v.getContext().startActivity(i);
-                    }
-                });
-                dateLine.setVisibility(View.GONE);
-*/
 
                 break;
 

@@ -5,17 +5,21 @@ import android.util.Log;
 
 import com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity;
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
-import com.example.asome.asome_sourcerequire.Chatting.Utils.SQLite.DBHelperChatting;
+import com.example.asome.asome_sourcerequire.Utils.SQLite.DBHelperChatting;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity.current_name;
+import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity.current_room_no;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_CONNECTED;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_DONE;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_IMG;
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_MAP;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_RECEIVED;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_RECONNECTED;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_MY;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_OTHER;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_START;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_TEMP_DISCONNECTED;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_TEXT;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.TAG_ACTION;
@@ -130,61 +134,6 @@ public class ChatUtils {
                     return message_no;
 
 
-                case ACTION_MAP:
-                    read_or_unread = counter_status();
-                    message_no = jsonObject.getString(TAG_MESSAGE_NO);
-                    if (jsonObject.get(TAG_USER_NO).equals(chatUtilmyName)) {
-                        dbHelperChattingChat.insert_chat(
-                                jsonObject.get(TAG_USER_NO).toString(),
-                                jsonObject.getString(TAG_ROOM_NO),
-                                jsonObject.getString(TAG_MESSAGE),
-                                read_or_unread,
-                                DateFormat.date_month_day_time(),
-                                "true",
-                                ACTION_MAP, jsonObject.getDouble("lat"), jsonObject.getDouble("lng"));
-
-                        dbHelperChattingRoom.update_room_sequence(jsonObject.getString(TAG_ROOM_NO));
-
-                    } else if (!jsonObject.get(TAG_USER_NO).equals(chatUtilmyName)) {
-                        dbHelperChattingChat.insert_chat(
-                                dbHelperChattingRoom.get_guide_real_name(jsonObject.getString(TAG_ROOM_NO)),
-                                jsonObject.getString(TAG_ROOM_NO),
-                                ACTION_MAP,
-                                read_or_unread,
-                                DateFormat.date_month_day_time(),
-                                "false",
-                                ACTION_MAP, jsonObject.getDouble("lat"), jsonObject.getDouble("lng"));
-                        dbHelperChattingRoom.update_room_sequence(jsonObject.getString(TAG_ROOM_NO));
-                    }
-                    return message_no;
-
-
-                case ACTION_IMG:
-                    message_no = jsonObject.getString(TAG_MESSAGE_NO);
-                    read_or_unread = counter_status();
-                    if (jsonObject.get(TAG_USER_NO).equals(chatUtilmyName)) {
-                        dbHelperChattingChat.insert_chat(
-                                chatUtilmyName,
-                                jsonObject.getString(TAG_ROOM_NO),
-                                jsonObject.getString(TAG_MESSAGE),
-                                read_or_unread,
-                                DateFormat.date_month_day_time(),
-                                "true",
-                                ACTION_IMG, 0, 0);
-                        dbHelperChattingRoom.update_room_sequence(jsonObject.getString(TAG_ROOM_NO));
-                    } else if (!jsonObject.get(TAG_USER_NO).equals(chatUtilmyName)) {
-                        dbHelperChattingChat.insert_chat(
-                                dbHelperChattingRoom.get_guide_real_name(jsonObject.getString(TAG_ROOM_NO)),
-                                jsonObject.getString(TAG_ROOM_NO),
-                                jsonObject.getString(TAG_MESSAGE),
-                                read_or_unread,
-                                DateFormat.date_month_day_time(),
-                                "false",
-                                ACTION_IMG, 0, 0);
-                        dbHelperChattingRoom.update_room_sequence(jsonObject.getString(TAG_ROOM_NO));
-                    }
-                    return message_no;
-
 
                 case "connected":
                     if (!jsonObject.getString(TAG_USER_NO).equals(chatUtilmyName)) {
@@ -210,7 +159,7 @@ public class ChatUtils {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public Chat json_to_chat_front(String json) throws JSONException {
-        Log.e(TAG, "json_to_chat_front");
+        Log.e("[json_to_chat_front]", json);
         Chat chat = null;
         JSONObject jsonObject = new JSONObject(json);
         String returnRead = "unread";
@@ -219,60 +168,75 @@ public class ChatUtils {
         try {
             switch (jsonObject.getString(TAG_ACTION)) {
                 case ACTION_TEXT:
-                    if (jsonObject.getString(TAG_ROOM_NO).equals(ChatActivity.current_room_no)) {
-                        if (jsonObject.get(TAG_USER_NO).equals(ChatActivity.current_name)) {
-                        } else if (!jsonObject.get(TAG_USER_NO).equals(ChatActivity.current_name)) {
+                    if (jsonObject.getString(TAG_ROOM_NO).equals(current_room_no)) {
+                        if (jsonObject.get(TAG_USER_NO).equals(current_name)) {
                             chat = new Chat(
                                     ChatActivity.current_counter_name,
                                     jsonObject.getString(TAG_ROOM_NO),
                                     DateFormat.date_apm(),
                                     jsonObject.getString(TAG_MESSAGE),
-                                    false, ACTION_TEXT, TAG_UNREAD);
-                        }
-                    }
-                    return chat;
-
-
-                case ACTION_MAP:
-                    if (jsonObject.getString(TAG_ROOM_NO).equals(ChatActivity.current_room_no)) {
-                        if (jsonObject.get(TAG_USER_NO).equals(ChatActivity.current_name)) {
-                            returnRead = counter_status();
-                            chat = new Chat(
-                                    jsonObject.get(TAG_USER_NO).toString(),
-                                    DateFormat.date_month_day_time(),
-                                    ACTION_MAP,
-                                    false, ACTION_MAP, jsonObject.getDouble("lat"), jsonObject.getDouble("lng"), returnRead);
-                        } else if (!jsonObject.get(TAG_USER_NO).equals(ChatActivity.current_name)) {
-                            chat = new Chat(
-                                    ChatActivity.current_counter_name,
-                                    DateFormat.date_month_day_time(),
-                                    ACTION_MAP,
-                                    false, ACTION_MAP, jsonObject.getDouble("lat"), jsonObject.getDouble("lng"), returnRead);
-
-                        }
-                    }
-                    return chat;
-
-
-                case ACTION_IMG:
-                    if (jsonObject.getString(TAG_ROOM_NO).equals(ChatActivity.current_room_no)) {
-                        if (jsonObject.get(TAG_USER_NO).equals(ChatActivity.current_name)) {
-                        } else if (!jsonObject.get(TAG_USER_NO).equals(ChatActivity.current_name)) {
+                                    true, ACTION_TEXT);
+                        } else if (!jsonObject.get(TAG_USER_NO).equals(current_name)) {
                             chat = new Chat(
                                     ChatActivity.current_counter_name,
                                     jsonObject.getString(TAG_ROOM_NO),
                                     DateFormat.date_apm(),
                                     jsonObject.getString(TAG_MESSAGE),
-                                    false, ACTION_IMG, returnRead);
+                                    false, ACTION_TEXT);
                         }
                     }
                     return chat;
 
+
+                case ACTION_SCHEDULE_MY:
+                    if (jsonObject.getString(TAG_ROOM_NO).equals(current_room_no)) {
+/*
+                        if (jsonObject.get(TAG_USER_NO).equals(current_name)) {
+                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신 오늘 스케줄은 ~~~이다.", false, ACTION_SCHEDULE_MY);
+
+                        } else if (!jsonObject.get(TAG_USER_NO).equals(current_name)) {
+                            chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신 오늘 스케줄은 ~~~이다.", false, ACTION_SCHEDULE_MY);
+
+                        }
+*/
+
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신 오늘 스케줄은 ~~~이다.", false, ACTION_SCHEDULE_MY);
+
+                    }
+
+
+                    return chat;
+
+
+
+                case ACTION_SCHEDULE_OTHER:
+                    if (jsonObject.getString(TAG_ROOM_NO).equals(current_room_no)) {
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "누구 스케쥴 보시겠습니까?<Listview>", false, ACTION_SCHEDULE_OTHER);
+
+                    }
+                    return chat;
+                case ACTION_DONE:
+                    if (jsonObject.getString(TAG_ROOM_NO).equals(current_room_no)) {
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "오늘 일정 완료하시겠습니까?", false, ACTION_DONE);
+
+                    }
+
+
+                    return chat;
+
+                case ACTION_START:
+                    if (jsonObject.getString(TAG_ROOM_NO).equals(current_room_no)) {
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "무엇을 도와드릴까요?", false, ACTION_START);
+
+                    }
+
+
+                    return chat;
 
                 case ACTION_CONNECTED:
                     if (!jsonObject.getString(TAG_USER_NO).equals(chatUtilmyName)) {
-                        read_check_sync_on_activity(ChatActivity.current_room_no);
-                        if (!jsonObject.getString(TAG_USER_NO).equals(ChatActivity.current_name)) {
+                        read_check_sync_on_activity(current_room_no);
+                        if (!jsonObject.getString(TAG_USER_NO).equals(current_name)) {
 
                         } else {
                         }
@@ -283,9 +247,9 @@ public class ChatUtils {
 
 
                 case "user-disconnected":
-                    if (jsonObject.getString(TAG_ROOM_NO).equals(ChatActivity.current_room_no)) {
+                    if (jsonObject.getString(TAG_ROOM_NO).equals(current_room_no)) {
                         //Ref
-                        if (!jsonObject.getString(TAG_USER_NO).equals(ChatActivity.current_name)) {
+                        if (!jsonObject.getString(TAG_USER_NO).equals(current_name)) {
                             counter = false;
                         } else {
                         }
@@ -326,6 +290,7 @@ public class ChatUtils {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        Log.e("[chat_to_json_text]",jsonObject.toString());
         return jsonObject.toString();
     }
 

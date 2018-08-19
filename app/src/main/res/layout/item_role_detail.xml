@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView"
+        android:textColor="@color/black"
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="140dp" />
 
@@ -19,6 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView"
+        android:textColor="@color/black"
+
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="140dp" />
 
@@ -28,6 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView"
+        android:textColor="@color/black"
+
         tools:layout_editor_absoluteX="64dp"
         tools:layout_editor_absoluteY="140dp" />
 </LinearLayout>

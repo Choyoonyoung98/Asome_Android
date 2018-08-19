@@ -5,11 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import org.json.JSONException;
-
 import static android.content.Intent.FLAG_INCLUDE_STOPPED_PACKAGES;
 import static android.content.Intent.FLAG_RECEIVER_REPLACE_PENDING;
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.SocketClient.mWebSocketClient;
 
 /**
  * [OUTLINE]
@@ -30,18 +27,13 @@ public class MsgReceiver extends BroadcastReceiver {
         intent.addFlags(FLAG_RECEIVER_REPLACE_PENDING);
         Log.i("MsgReceiver", json);
       //  ShortcutBadger.applyCount(getApplicationContext(), BadgeNum()); //for 1.1.4+
-        try {
+ /*       try {
             ChatUtils chatUtils = new ChatUtils(context);
             String uuid = chatUtils.json_to_string(json);
-            if (uuid != null) {
-                try {
-                    mWebSocketClient.send(ChatUtils.chat_to_json_received(uuid));
-                } catch (Exception e) {
-                }
-            }
+
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 /*    public int BadgeNum() {
         DBHelperChatting dbHelperChatting = new DBHelperChatting(getApplicationContext(), "ROOM.db", null, 1);

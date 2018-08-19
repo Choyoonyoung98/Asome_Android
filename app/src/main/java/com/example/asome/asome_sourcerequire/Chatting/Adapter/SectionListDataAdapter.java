@@ -9,14 +9,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.asome.asome_sourcerequire.Chatting.Etc.ChatUtils;
+import com.example.asome.asome_sourcerequire.Chatting.Etc.DateFormat;
+import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
 import com.example.asome.asome_sourcerequire.Chatting.Model.SingleItemModel;
 import com.example.asome.asome_sourcerequire.R;
 
 import java.util.ArrayList;
+
+import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity.current_room_no;
+import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity.messages_adapter;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_TEXT;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.SocketClient.mWebSocketClient;
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder> {
 
@@ -41,6 +48,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
         SingleItemModel singleItem = itemsList.get(i);
 
         holder.tvTitle.setText(singleItem.getName());
+        holder.tvCode.setText(singleItem.getUrl());
 
 
        /* Glide.with(mContext)
@@ -58,16 +66,15 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
     public class SingleItemRowHolder extends RecyclerView.ViewHolder {
 
-        protected TextView tvTitle;
+        protected TextView tvTitle,tvCode;
 
-        protected ImageView itemImage;
 
 
         public SingleItemRowHolder(View view) {
             super(view);
-
             this.tvTitle = (TextView) view.findViewById(R.id.tvTitle);
-            this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
+            this.tvCode= (TextView) view.findViewById(R.id.tvCode);
+           // this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
 
 
             view.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +82,13 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
                 public void onClick(View v) {
 
 
-                    Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), tvCode.getText(), Toast.LENGTH_SHORT).show();
+
+                    Chat chat_mine = new Chat("11", current_room_no, DateFormat.date_apm(), tvTitle.getText().toString(), true, ACTION_TEXT);
+                    mWebSocketClient.send(ChatUtils.chat_to_json_text(chat_mine));
+                    Chat chat = new Chat("11", current_room_no, DateFormat.date_apm(), tvTitle.getText().toString(), true, tvCode.getText().toString());
+                    mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
+                    messages_adapter.notifyDataSetChanged();
 
                 }
             });

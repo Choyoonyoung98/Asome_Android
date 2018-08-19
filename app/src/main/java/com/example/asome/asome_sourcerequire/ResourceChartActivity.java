@@ -200,8 +200,8 @@ public class ResourceChartActivity extends AppCompatActivity {
         anyChartView.setChart(resource);
     }
 
-    private class ResourceDataEntry extends DataEntry {
-        ResourceDataEntry(String name, String description, String image, Activity[] activities) {
+    public static class ResourceDataEntry extends DataEntry {
+        public ResourceDataEntry(String name, String description, String image, Activity[] activities) {
             setValue("name", name);
             setValue("description", description);
             setValue("image", image);
@@ -209,16 +209,16 @@ public class ResourceChartActivity extends AppCompatActivity {
         }
     }
 
-    private class Activity extends DataEntry {
-        Activity(String name, Interval[] intervals, String fill) {
+    public static class Activity extends DataEntry {
+        public Activity(String name, Interval[] intervals, String fill) {
             setValue("name", name);
             setValue("intervals", intervals);
             setValue("fill", fill);
         }
     }
 
-    private class Interval extends DataEntry {
-        Interval(String start, String end, Integer minutesPerDay) {
+    public static class Interval extends DataEntry {
+        public Interval(String start, String end, Integer minutesPerDay) {
             setValue("start", start);
             setValue("end", end);
             setValue("minutesPerDay", minutesPerDay);

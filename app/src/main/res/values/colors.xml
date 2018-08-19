@@ -58,4 +58,12 @@
     <color name="teal_a400">#1de9b6</color> <!-- Use with black text -->
     <color name="teal_a700">#00bfa5</color> <!-- Use with black text -->
 
+
+    <color name="colorBackground">#eeeeee</color>
+    <color name="calendar_header">@color/colorPrimary</color>
+    <color name="calendar_header_title">#FFF</color>
+    <color name="selected_date_circle_color_app">#FF5252</color>
+    <color name="range_bg_color_app">#FFCDD2</color>
+
+
 </resources>

@@ -1,4 +1,4 @@
-package com.example.asome.asome_sourcerequire.Chatting.Utils.HTTP;
+package com.example.asome.asome_sourcerequire.Utils.HTTP;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -17,27 +17,29 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.INSERT_JOIN;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.INSERT_ROLE;
 
-/**[OUTLINE]
+/**
+ * [OUTLINE]
  * 쪽지를 보낸다
  */
 
 
-public class JoinInsert extends AsyncTask<String, Void, String> {
-    String user_name, user_pwd, user_department, user_phone, user_position, user_company, user_email;
+public class RoleInsert extends AsyncTask<String, Void, String> {
+    String proj_id, role_name, role_user_id, role_start_date, role_end_date, role_status;
 
-    public JoinInsert(String user_name, String user_pwd, String user_department, String user_phone, String user_position, String user_company, String user_email) {
-        this.user_name = user_name;
-        this.user_pwd = user_pwd;
-        this.user_department = user_department;
-        this.user_phone = user_phone;
-        this.user_position = user_position;
-        this.user_company = user_company;
-        this.user_email = user_email;
+    public RoleInsert(String proj_id, String role_name, String role_user_id, String role_start_date, String role_end_date, String role_status) {
+        this.proj_id = proj_id;
+        this.role_name = role_name;
+        this.role_user_id = role_user_id;
+        this.role_start_date = role_start_date;
+        this.role_end_date = role_end_date;
+        this.role_status = role_status;
     }
 
     protected void onPreExecute() {
+        Log.e("[ROLE_INSERT]", "fortest" + proj_id);
+
     }
 
     protected String doInBackground(String... arg0) {
@@ -46,26 +48,31 @@ public class JoinInsert extends AsyncTask<String, Void, String> {
         try {
 /*
 PHP
-*  $user_name = $_POST['user_name'];
- $user_email = $_POST['user_email'];
- $user_pwd = $_POST['user_pwd'];
- $user_company = $_POST['user_company'];
- $user_department = $_POST['user_department'];
- $user_position = $_POST['$user_position'];
- $user_phone = $_POST['$user_phone'];
- $user_profile_image = $_POST['$user_profile_image'];   //skip
+ $proj_UUID = $_POST['proj_UUID'];
+ $proj_name = $_POST['proj_name'];
+ $proj_about = $_POST['proj_about'];
+ $role_name = $_POST['role_name'];
+ $role_user_id = $_POST['role_user_id'];
+ $role_start_date = $_POST['role_start_date'];
+ $role_end_date = $_POST['role_end_date'];
+ $role_hour = $_POST['role_hour'];
+ $role_status = $_POST['role_status'];
+
 *
 * */
-            URL url = new URL(INSERT_JOIN); // here is your URL path
+            Log.e("[ROLE_INSERT]", "fortest2" + role_user_id);
+
+            URL url = new URL(INSERT_ROLE); // here is your URL path
             JSONObject postDataParams = new JSONObject();
-            postDataParams.put("user_name", user_name);
-            postDataParams.put("user_pwd", user_pwd);
-            postDataParams.put("user_department", user_department);
-            postDataParams.put("user_phone", user_phone);
-            postDataParams.put("user_position", user_position);
-            postDataParams.put("user_company", user_company);
-            postDataParams.put("user_email",  user_email);
-            Log.e("[postMsgContent_params]", postDataParams.toString());
+
+            postDataParams.put("proj_id", proj_id);
+            postDataParams.put("role_name", role_name);
+            postDataParams.put("role_user_id", role_user_id);
+            postDataParams.put("role_start_date", role_start_date);
+            postDataParams.put("role_end_date", role_end_date);
+            postDataParams.put("role_status", role_status);
+
+            Log.e("[ROLE_INSERT]", postDataParams.toString());
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
@@ -100,14 +107,16 @@ PHP
                 }
 
                 in.close();
-                Log.e("[InsertMsgContent]", sb.toString());
+                Log.e("[ROLE_INSERT]", sb.toString());
                 return sb.toString();
 
             } else {
+                Log.e("[ROLE_INSERT]", "false : " + responseCode);
                 return new String("false : " + responseCode);
             }
         } catch (Exception e) {
-            return new String("Exception: " + e.getMessage());
+            Log.e("[ROLE_INSERT]", "Exceptiondfdf: " + e.getMessage());
+            return new String("Exceptiondfdf: " + e.getMessage());
         }
 
     }

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="380dp"
+    android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".Project.RoleDetailDialogActivity">
 
@@ -42,13 +42,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <AutoCompleteTextView
-                    android:id="@+id/test_tag"
+                <EditText
+                    android:id="@+id/et_role_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gothic"
-                    android:textSize="16sp"
                     android:hint="이름"
+                    android:textSize="16sp"
                     tools:layout_editor_absoluteX="93dp"
                     tools:layout_editor_absoluteY="237dp" />
 
@@ -193,6 +193,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
+
+                    <ListView
+                        android:id="@+id/userList"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -204,17 +209,18 @@
                 android:layout_weight="1"
                 android:background="@drawable/btn_gd_light"
                 android:fontFamily="@font/gothic"
-                android:onClick="onAddClicked"
                 android:text="추가"
                 android:textColor="#FFFFFF" />
 
             <ListView
                 android:id="@+id/lv_role"
                 android:layout_width="match_parent"
-                android:layout_height="113dp">
+                android:layout_height="150dp">
 
             </ListView>
+
             <Button
+                android:id="@+id/btn_complete"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:layout_margin="10dp"
@@ -224,7 +230,6 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_gd"
                 android:fontFamily="@font/gothic"
-                android:onClick="onBackClicked"
                 android:text="완료"
                 android:textColor="@color/white" />
 

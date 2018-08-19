@@ -71,14 +71,14 @@
             android:fontFamily="@font/gothic"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_bg"
+            android:fontFamily="@font/gothic"
             android:onClick="onLoginClicked"
             android:text="로그인"
-            android:textColor="@color/white"
-            android:fontFamily="@font/gothic"/>
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -147,21 +147,19 @@
         app:layout_constraintVertical_bias="0.0">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_join"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@drawable/btn_bg"
             android:fontFamily="@font/gothic"
-            android:onClick="MovetoJoinClicked"
             android:text="회원가입"
             android:textColor="@color/white" />
 
         <com.google.android.gms.common.SignInButton
-            android:id="@+id/btn_google_signin"
+            android:id="@+id/GoogleSign_Btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onLoginWithGoogleClicked"
             android:background="@drawable/btn_bg"
             android:fontFamily="@font/gothic"
             android:text="구글 계정으로 회원가입"

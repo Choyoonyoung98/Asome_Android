@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ListFragment;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +19,16 @@ import com.example.asome.asome_sourcerequire.Project.NewProjectActivity;
 import com.example.asome.asome_sourcerequire.Project.ProjectItem;
 import com.example.asome.asome_sourcerequire.Project.ProjectItemView;
 import com.example.asome.asome_sourcerequire.R;
+import com.example.asome.asome_sourcerequire.Utils.HTTP.ProjSelect;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
-public class TwoFragment extends ListFragment implements  View.OnClickListener {
+public class TwoFragment extends ListFragment implements View.OnClickListener {
     GridView gridView;
     Button addBtn;
-    ProjectAdapter pa;
+    public static ProjectAdapter projectAdapter;
+    ProjSelect projSelect = new ProjSelect();
 
     private static final String DEBUG_TAG = "TwoFragment";
 
@@ -41,37 +44,48 @@ public class TwoFragment extends ListFragment implements  View.OnClickListener {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        gridView = (GridView)view.findViewById(R.id.gridView);
-        addBtn = (Button)view.findViewById(R.id.addbtn);
+        gridView = (GridView) view.findViewById(R.id.gridView);
+        addBtn = (Button) view.findViewById(R.id.addbtn);
 
-        pa = new ProjectAdapter();
-        pa.addItem(new ProjectItem("projectA", "이 프로젝트는 프로젝트 A입니다.이 프로젝트는 프로젝트 A입니다.이 프로젝트는 프로젝트 A입니다."));
-        pa.addItem(new ProjectItem("projectB", "이 프로젝트는 B입니다.이 프로젝트는 B입니다.이 프로젝트는 B입니다.이 프로젝트는 B입니다."));
-        pa.addItem(new ProjectItem("projectC", "이 프로젝트는 프로젝트 C입니다.이 프로젝트는 프로젝트 C입니다.이 프로젝트는 프로젝트 C입니다."));
-        pa.addItem(new ProjectItem("projectD", "이 프로젝트는 프로젝트 D입니다.이 프로젝트는 프로젝트 D입니다.이 프로젝트는 프로젝트 D입니다."));
-        pa.addItem(new ProjectItem("projectE", "이 프로젝트는 프로젝트 E입니다.이 프로젝트는 프로젝트 E입니다.이 프로젝트는 프로젝트 E입니다."));
+        projectAdapter = new ProjectAdapter();
+        try {
+            projSelect.execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+     //   projectAdapter.addItem(new ProjectItem("projectA", "이 프로젝트는 프로젝트 A입니다.이 프로젝트는 프로젝트 A입니다.이 프로젝트는 프로젝트 A입니다.",1));
 
-        gridView.setAdapter(pa);
-        pa.notifyDataSetChanged();
+        gridView.setAdapter(projectAdapter);
+        projectAdapter.notifyDataSetChanged();
 
 
         view.findViewById(R.id.addbtn).setOnClickListener(this);
-
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Intent intent;
 
-                    intent = new Intent(getContext(), ChatActivity.class);
-                    startActivity(intent);
+                intent = new Intent(getContext(), ChatActivity.class);
+
+                ProjectItem projectItem = (ProjectItem) gridView.getItemAtPosition(position);
+                intent.putExtra("room_no",projectItem.getId());
+                Log.e("projectItem", String.valueOf(projectItem.getId()));
+                startActivity(intent);
 
 
             }
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
+      projectAdapter.notifyDataSetChanged();
 
+    }
 
     @Override
     public void onClick(View v) {
@@ -81,6 +95,7 @@ public class TwoFragment extends ListFragment implements  View.OnClickListener {
 
     public class ProjectAdapter extends BaseAdapter {
         ArrayList<ProjectItem> items = new ArrayList<ProjectItem>();
+
         @Override
         public int getCount() {
             return items.size();
@@ -95,20 +110,21 @@ public class TwoFragment extends ListFragment implements  View.OnClickListener {
         public long getItemId(int position) {
             return position;
         }
-        public void addItem(ProjectItem item){
+
+        public void addItem(ProjectItem item) {
             items.add(item);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-           ProjectItemView view = new ProjectItemView(getContext());
+            ProjectItemView view = new ProjectItemView(getContext());
 
 
-           ProjectItem item = items.get(position);
-           view.setTextTitle(item.getTitle());
-           view.setTextAbout(item.getAbout());
-           return view;
+            ProjectItem item = items.get(position);
+            view.setTextTitle(item.getTitle());
+            view.setTextAbout(item.getAbout());
+            return view;
 
         }
     }

@@ -46,7 +46,7 @@
                     android:textColor="@color/violet" />
 
                 <EditText
-                    android:id="@+id/editText9"
+                    android:id="@+id/et_proj_name"
                     android:theme="@style/EditTheme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,19 +58,6 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/nextbtn"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/btn_gd_light"
-                android:fontFamily="@font/gothic"
-                android:onClick="onNextClicked"
-                android:text="다음"
-                android:textColor="#FFFFFF"
-                android:visibility="visible"
-                tools:layout_editor_absoluteX="209dp"
-                tools:layout_editor_absoluteY="212dp" />
 
             <LinearLayout
                 android:id="@+id/AboutForm"
@@ -82,7 +69,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
                 android:orientation="vertical"
-                android:visibility="gone">
+          >
 
                 <TextView
                     android:id="@+id/text"
@@ -95,7 +82,7 @@
                     android:textColor="@color/violet" />
 
                 <EditText
-                    android:id="@+id/editText10"
+                    android:id="@+id/et_proj_about"
                     android:theme="@style/EditTheme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -107,19 +94,6 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/nextbtn2"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/btn_gd_light"
-                android:fontFamily="@font/gothic"
-                android:onClick="onNextClicked2"
-                android:text="다음"
-                android:textColor="#FFFFFF"
-                android:visibility="gone"
-                tools:layout_editor_absoluteX="209dp"
-                tools:layout_editor_absoluteY="212dp" />
 
             <LinearLayout
                 android:id="@+id/roleLayout"
@@ -131,25 +105,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:orientation="vertical"
-                android:visibility="gone"
+
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="358dp">
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/addbtn"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/btn_gd_light"
-                android:fontFamily="@font/gothic"
-                android:onClick="addRoleClicked"
-                android:text="업무 추가"
-                android:textColor="#FFFFFF"
-                android:visibility="gone"
-                tools:layout_editor_absoluteX="209dp"
-                tools:layout_editor_absoluteY="212dp" />
+
 
             <Button
                 android:id="@+id/createbtn"
@@ -166,8 +128,7 @@
                 android:fontFamily="@font/gothic"
                 android:onClick="onCreateClicked"
                 android:text="프로젝트 생성"
-                android:textColor="#FFFFFF"
-                android:visibility="gone" />
+                android:textColor="#FFFFFF" />
 
 
         </LinearLayout>
