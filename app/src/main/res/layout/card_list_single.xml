@@ -30,11 +30,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemImage"
+            android:background="@drawable/btn_gd"
             android:gravity="center"
             android:padding="5dp"
             android:text="Sample title"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:fontFamily="@font/gothic"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/tvCode"

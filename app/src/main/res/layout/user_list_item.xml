@@ -18,13 +18,14 @@
                 android:id="@+id/resultUser"
                 android:layout_width="85dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/common_10_dp"
                 android:background="#BDBDBD"
                 android:gravity="right"
                 android:padding="5dp"
                 android:text="이름"
+                android:fontFamily="@font/gothic"
                 android:textColor="#111111"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/resultStartDay"
@@ -33,6 +34,7 @@
                 android:background="#BDBDBD"
                 android:padding="5dp"
                 android:text="시작일"
+                android:fontFamily="@font/gothic"
                 android:textColor="#111111"
                 android:textSize="20sp"
                 />
@@ -44,6 +46,7 @@
                 android:background="#BDBDBD"
                 android:padding="5dp"
                 android:text="마감일"
+                android:fontFamily="@font/gothic"
                 android:textColor="#111111"
                 android:textSize="20sp"
                 />
