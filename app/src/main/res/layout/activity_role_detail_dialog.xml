@@ -41,6 +41,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <EditText
+                    android:id="@+id/et_role"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/gothic"
+                    android:hint="역할"
+                    android:textSize="16sp"
+                    android:textColor="@color/violet"
+                    tools:layout_editor_absoluteX="93dp"
+                    tools:layout_editor_absoluteY="237dp" />
 
                 <EditText
                     android:id="@+id/et_role_name"
@@ -70,7 +81,6 @@
                         android:fontFamily="@font/gothic"
                         android:gravity="center"
                         android:text="시작일"
-                        android:textColor="@color/violet"
                         android:textSize="15sp" />
 
                     <Button
@@ -94,7 +104,6 @@
                         android:fontFamily="@font/gothic"
                         android:gravity="center"
                         android:text="마감일"
-                        android:textColor="@color/violet"
                         android:textSize="15sp" />
 
                     <Button
@@ -190,12 +199,11 @@
                         android:id="@+id/selectBtn2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="10dp"
                         android:fontFamily="@font/gothic"
                         android:background="@drawable/btn_gd_light"
                         android:onClick="onSelectClicked2"
                         android:text="선택"
-                        android:textColor="#FFFFFF"  />
+                        android:textColor="#FFFFFF" />
 
                 </LinearLayout>
 
@@ -228,9 +236,7 @@
             <ListView
                 android:id="@+id/lv_role"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="10dp"
-                android:padding="5dp">
+                android:layout_height="150dp">
 
             </ListView>
 
