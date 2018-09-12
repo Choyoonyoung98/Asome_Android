@@ -25,7 +25,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
 
     private LinearLayout ll_team_schedule;
     private LinearLayout ll_my_schedule;
-    private LinearLayout ll_error;
+    //private LinearLayout ll_error;
     private LinearLayout bluetoothLo;
 
     @Nullable
@@ -35,12 +35,12 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
 
         ll_team_schedule = (LinearLayout) view.findViewById(R.id.ll_team_schedule);
         ll_my_schedule = (LinearLayout) view.findViewById(R.id.ll_my_schedule);
-        ll_error = (LinearLayout) view.findViewById(R.id.ll_error);
+        //ll_error = (LinearLayout) view.findViewById(R.id.ll_error);
 
 
         ll_team_schedule.setOnClickListener(this);
         ll_my_schedule.setOnClickListener(this);
-        ll_error.setOnClickListener(this);
+        //ll_error.setOnClickListener(this);
 //        bluetoothLo.setOnClickListener(this);
         return view;
 
@@ -71,7 +71,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
                 intent2.putExtra("arr_role",roles);
                 startActivity(intent2);
                 break;
-            case R.id.ll_error:
+            /*case R.id.ll_error:
 
                 boolean b=true;
                 Intent intent3 = new Intent(getContext(), CalendarActivity.class);
@@ -86,7 +86,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
                 startActivity(intent3);
 
 
-                break;
+                break;*/
     /*
     */    }
         dismiss();

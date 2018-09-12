@@ -1,12 +1,16 @@
 package com.example.asome.asome_sourcerequire.Login;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.asome.asome_sourcerequire.Main.MainActivity;
 import com.example.asome.asome_sourcerequire.R;
@@ -81,6 +85,29 @@ public class LogInActivity extends AppCompatActivity {
             }
 
         }); //버튼 클릭후 로그인 페이지로 이동
+        for (int i = 0; i < GoogleSignIn_Btn.getChildCount(); i++) {
+            View v = GoogleSignIn_Btn.getChildAt(i);
+
+            if (v instanceof TextView)
+            {
+                TextView tv = (TextView) v;
+                tv.setTextSize(14);
+                tv.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/gothica1.ttf"));
+                tv.setText("구글 계정으로 회원가입");
+                tv.setTextColor(Color.parseColor("#FFFFFF"));
+                tv.setBackgroundDrawable(getResources().getDrawable(
+                        R.drawable.btn_bg));
+                tv.setSingleLine(true);
+                tv.setPadding(15, 15, 15, 15);
+
+                //ViewGroup.LayoutParams params = tv.getLayoutParams();
+                //params.width = 1000;
+                //params.height = 200;
+                //tv.setLayoutParams(params);
+
+                return;
+            }
+        }
 
 
     }

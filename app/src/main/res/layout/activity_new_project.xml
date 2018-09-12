@@ -112,7 +112,6 @@
             </LinearLayout>
 
 
-
             <Button
                 android:id="@+id/createbtn"
                 android:layout_width="match_parent"
@@ -127,7 +126,7 @@
                 android:background="@drawable/btn_gd"
                 android:fontFamily="@font/gothic"
                 android:onClick="onCreateClicked"
-                android:text="프로젝트 생성"
+                android:text="다음"
                 android:textColor="#FFFFFF" />
 
 

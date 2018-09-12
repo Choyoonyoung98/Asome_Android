@@ -17,7 +17,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="72dp"
         android:fontFamily="@font/abril"
-        android:text="ASOME"
+        android:text="A-CHAT"
         android:textColor="#FFFFFF"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -160,10 +160,9 @@
             android:id="@+id/GoogleSign_Btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_bg"
             android:fontFamily="@font/gothic"
-            android:text="구글 계정으로 회원가입"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:text="구글 계정으로 회원가입"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
