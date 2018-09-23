@@ -17,7 +17,7 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.INSERT_JOIN;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.INSERT_USER_INFO;
 
 /**[OUTLINE]
  * 쪽지를 보낸다
@@ -56,7 +56,7 @@ PHP
  $user_profile_image = $_POST['$user_profile_image'];   //skip
 *
 * */
-            URL url = new URL(INSERT_JOIN); // here is your URL path
+            URL url = new URL(INSERT_USER_INFO); // here is your URL path
             JSONObject postDataParams = new JSONObject();
             postDataParams.put("user_name", user_name);
             postDataParams.put("user_pwd", user_pwd);

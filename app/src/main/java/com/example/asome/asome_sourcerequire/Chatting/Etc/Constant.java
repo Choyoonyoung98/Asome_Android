@@ -1,8 +1,9 @@
 package com.example.asome.asome_sourcerequire.Chatting.Etc;
 
 public class Constant {
-    public static final String SOCKET_URL = "ws://172.30.1.7:8090/websocket/?request=";
-    //public static final String SOCKET_URL = "ws://206.189.84.207:8090/websocket/?request=";
+    //public static final String SOCKET_URL = "ws://172.30.1.7:8090/websocket/?request=";
+    public static final String SOCKET_URL = "ws://192.168.0.9:8090/websocket/?request=";
+  //  public static final String SOCKET_URL = "ws://206.189.84.207:8090/websocket/?request=";
     public static final String URL= "http://206.189.84.207/asome/";
 
     //일반 상수
@@ -31,21 +32,22 @@ public class Constant {
 
     //
 
-        public static final String ACTION_START = "start";
+    public static final String ACTION_START = "start";
     public static final String ACTION_SCHEDULE_MY = "schedulemy";
     public static final String ACTION_SCHEDULE_OTHER = "scheduleother";
     public static final String ACTION_CALL = "call";
     public static final String ACTION_DONE = "done";
     public static final String ACTION_ALARM= "alarm";
 
-    /*    public static final String ACTION_DONE = "done";
-        public static final String ACTION_DONE = "done";*/
-    public static final String INSERT_JOIN = URL+"login/insert_user_info.php";
-    public static final String GET_CHAT_ROOM_URL = URL+"project/select_proj_info.php";
-    public static final String SELECT_PROJ = URL+"project/select_proj.php";
-    public static final String SELECT_ROLE= URL+"role/select_role.php";
+    //회원가입 관련 URL
+    public static final String INSERT_USER_INFO = URL+"login/insert_user_info.php";
+    public static final String SELECT_USER_INFO = URL+"login/select_user_info.php";
+
+    //프로젝트 관련 URL
     public static final String INSERT_PROJ = URL+"project/insert_proj.php";
+    public static final String SELECT_PROJ = URL+"project/select_proj.php";
     public static final String INSERT_ROLE = URL+"project/insert_role.php";
+    public static final String SELECT_ROLE= URL+"role/select_role.php";
 
     //쪽지 관련 URL
     public static final String INSERT_MSG_CONTENT = "http://www.giljabee.com/api/android_api/message/INSERT/msg_content.php";
