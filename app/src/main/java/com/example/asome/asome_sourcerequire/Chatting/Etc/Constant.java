@@ -1,8 +1,8 @@
 package com.example.asome.asome_sourcerequire.Chatting.Etc;
 
 public class Constant {
-    //public static final String SOCKET_URL = "ws://172.30.1.7:8090/websocket/?request=";
-    public static final String SOCKET_URL = "ws://206.189.84.207:8090/websocket/?request=";
+    public static final String SOCKET_URL = "ws://172.30.1.54:8083/websocket/?request=";
+    //public static final String SOCKET_URL = "ws://206.189.84.207:8083/websocket/?request=";
     public static final String URL= "http://206.189.84.207/asome/";
 
     //일반 상수

@@ -171,7 +171,7 @@ public class ChatActivity extends AppCompatActivity {
                         //해당 메시지 구조를 완성하고 메시지를 전송한다
                         chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), getMessage(), true, ACTION_TEXT);
                         mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
-                        chats.add(chat);
+                       // chats.add(chat);
 
 
                         if (getMessage().contains(ACTION_START)) {

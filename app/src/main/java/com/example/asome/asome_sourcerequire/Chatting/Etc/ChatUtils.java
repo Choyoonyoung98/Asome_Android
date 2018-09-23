@@ -200,7 +200,7 @@ public class ChatUtils {
                         }
 */
 
-                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신 오늘 스케줄은 ~~~이다.", false, ACTION_SCHEDULE_MY);
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신의 오늘 스케줄은 안드로이드 클라이언트 최적화 작업이다.", false, ACTION_SCHEDULE_MY);
 
                     }
 
