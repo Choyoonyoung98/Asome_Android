@@ -238,7 +238,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 for(int i =0;i<roles.size();i++) {
                     ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(i).getRole_name(), ACTION_SCHEDULE_MY));
                 }
-               /* 
+               /*
                 ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(0).getRole_name(), ACTION_SCHEDULE_MY ));
                 ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(1).getRole_name(), ACTION_ALARM ));
                 ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(2).getRole_name(), ACTION_DONE ));

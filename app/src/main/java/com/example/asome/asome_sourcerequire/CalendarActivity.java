@@ -9,7 +9,7 @@ import com.example.asome.asome_sourcerequire.Project.Role;
 import com.riontech.calendar.CustomCalendar;
 import com.riontech.calendar.dao.EventData;
 import com.riontech.calendar.dao.dataAboutDate;
-import com.riontech.calendar.utils.CalendarUtils;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,13 +25,16 @@ public class CalendarActivity extends AppCompatActivity {
     private CustomCalendar customCalendar;
     ArrayList<Role> arr_role;
     List<String> allDatesString;
-int member_id=0;
+    int member_id = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         customCalendar = (CustomCalendar) findViewById(R.id.customCalendar);
-        Intent intent = getIntent();
+
+
+     /* Intent intent = getIntent();
         arr_role = (ArrayList<Role>) intent.getSerializableExtra("arr_role");
         Log.e("calendar", String.valueOf(arr_role.size()));
 
@@ -71,8 +74,8 @@ int member_id=0;
         for (int i = 0; i < dates.size(); i++) {
 
             // int index_role = i;
-    /*        if(i<3)
-                eventCount=i+1;*/
+    *//*        if(i<3)
+                eventCount=i+1;*//*
             customCalendar.addAnEvent(dates.get(i), eventCount, getEventDataList(eventCount, member_id));
 
         }
@@ -107,5 +110,38 @@ int member_id=0;
         cal.setTime(d1);
         cal.add(Calendar.DATE, 1);
         return cal.getTime();
+    }
+
+*/
+
+
+        String[] arr = {"2018-09-10", "2018-09-11", "2018-09-15", "2018-09-16", "2018-09-25"};
+        for (int i = 0; i < 5; i++) {
+            int eventCount = 3;
+            customCalendar.addAnEvent(arr[i], eventCount, getEventDataList(eventCount));
+        }
+    }
+
+    public ArrayList<EventData> getEventDataList(int count) {
+        ArrayList<EventData> eventDataList = new ArrayList();
+
+        for (int i = 0; i < count; i++) {
+            EventData dateData = new EventData();
+            ArrayList<dataAboutDate> dataAboutDates = new ArrayList();
+
+            dateData.setSection(CalendarUtils.getNAMES()[new Random().nextInt(CalendarUtils.getNAMES().length)]);
+            dataAboutDate dataAboutDate = new dataAboutDate();
+
+            int index = new Random().nextInt(CalendarUtils.getEVENTS().length);
+
+            dataAboutDate.setTitle(CalendarUtils.getEVENTS()[index]);
+            dataAboutDate.setSubject(CalendarUtils.getEventsDescription()[index]);
+            dataAboutDates.add(dataAboutDate);
+
+            dateData.setData(dataAboutDates);
+            eventDataList.add(dateData);
+        }
+
+        return eventDataList;
     }
 }

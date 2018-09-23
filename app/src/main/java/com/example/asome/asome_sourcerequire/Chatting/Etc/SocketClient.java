@@ -42,6 +42,8 @@ public class SocketClient {
     //만약 한 방에 같은 클라이언트가 두번 접속하려거든 막아야 함..
     //주어진 방번호로 소켓에 연결
     public void connectWebSocket(String roomId) {
+        Log.i("Websocket", "connectWebSocket");
+
         try {
             if (hori_id == null)
                 return;

@@ -1,5 +1,6 @@
 package com.example.asome.asome_sourcerequire.Chatting.Fragment;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -55,9 +56,15 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
 
         switch (view.getId()){
             case R.id.ll_my_schedule:
-                Intent intent1 = new Intent(getContext(), MyScheduleActivity.class);
-                startActivity(intent1);
+                Intent i = new Intent();
 
+//Froyo or greater (mind you I just tested this on CM7 and the less than froyo one worked so it depends on the phone...)
+                //cn = new ComponentName("com.google.android.calendar", "com.android.calendar.LaunchActivity");
+
+//less than Froyo
+                ComponentName  cn = new ComponentName(  "com.android.calendar", "com.android.calendar.LaunchActivity");
+                i.setComponent(cn);
+                startActivity(i);
                 break;
             case R.id.ll_team_schedule:
                 Intent intent2 = new Intent(getContext(), CalendarActivity.class);
