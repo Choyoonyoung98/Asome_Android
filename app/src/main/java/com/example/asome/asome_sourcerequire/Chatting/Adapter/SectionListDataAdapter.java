@@ -85,10 +85,17 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
                     Toast.makeText(v.getContext(), tvCode.getText(), Toast.LENGTH_SHORT).show();
 
                     Chat chat_mine = new Chat("11", current_room_no, DateFormat.date_apm(), tvTitle.getText().toString(), true, ACTION_TEXT);
-                    mWebSocketClient.send(ChatUtils.chat_to_json_text(chat_mine));
-                    Chat chat = new Chat("11", current_room_no, DateFormat.date_apm(), tvTitle.getText().toString(), true, tvCode.getText().toString());
-                    mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
-                    messages_adapter.notifyDataSetChanged();
+                   try {
+
+                       mWebSocketClient.send(ChatUtils.chat_to_json_text(chat_mine));
+                       Chat chat = new Chat("11", current_room_no, DateFormat.date_apm(), tvTitle.getText().toString(), true, tvCode.getText().toString());
+                       mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
+                       messages_adapter.notifyDataSetChanged();
+                   }catch (Exception e){
+
+
+                   }
+
 
                 }
             });

@@ -1,22 +1,14 @@
 package com.example.asome.asome_sourcerequire;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.example.asome.asome_sourcerequire.Project.Role;
 import com.riontech.calendar.CustomCalendar;
 import com.riontech.calendar.dao.EventData;
 import com.riontech.calendar.dao.dataAboutDate;
 
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Random;
 
@@ -115,7 +107,7 @@ public class CalendarActivity extends AppCompatActivity {
 */
 
 
-        String[] arr = {"2018-09-10", "2018-09-11", "2018-09-15", "2018-09-16", "2018-09-25"};
+        String[] arr = {"2018-11-13", "2018-11-14", "2018-11-15", "2018-11-11", "2018-11-12"};
         for (int i = 0; i < 5; i++) {
             int eventCount = 3;
             customCalendar.addAnEvent(arr[i], eventCount, getEventDataList(eventCount));

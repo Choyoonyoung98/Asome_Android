@@ -52,10 +52,12 @@ public class RoleAdapter extends BaseAdapter {
         role = role_arr_list.get(position);
        // ImageView profile_img = (ImageView) view.findViewById(R.id.imageView);
         TextView tv_role_name = (TextView) view.findViewById(R.id.tv_role_name);
+        TextView tv_role_role = (TextView) view.findViewById(R.id.tv_role_role);
         TextView tv_start_date = (TextView) view.findViewById(R.id.tv_start_date);
         TextView tv_end_date = (TextView) view.findViewById(R.id.tv_end_date);
        //  GlideUtil.setBitmapToViewRound(this.role_arr_list.get(position).getProfileUrl(), profile_img);
         tv_role_name.setText(role.getRole_name());
+        tv_role_role.setText(role.getRole_role());
         tv_end_date.setText(role.getRole_end_date());
      //   chat_roomid_hidden.setText(this.role_arr_list.get(position).getRoom_name());
         tv_start_date.setText(role.getRole_start_date());

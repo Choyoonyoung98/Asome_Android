@@ -17,8 +17,8 @@ import com.example.asome.asome_sourcerequire.R;
 import java.util.ArrayList;
 
 import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity.roles;
-import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_ALARM;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_DONE;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_ERR;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_MY;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_SCHEDULE_OTHER;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_START;
@@ -183,9 +183,10 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 txtTime.setText(chat.getTimestamp());
                 dateLine.setVisibility(View.GONE);
 
-                 rv_choice_card.setVisibility(View.GONE);
+                rv_choice_card.setVisibility(View.GONE);
 
                 break;
+
             case ACTION_DONE:
 
                 // container_img.setVisibility(View.GONE);
@@ -216,7 +217,67 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 rv_choice_card.setAdapter(adapter11);
 
                 break;
+            case ACTION_ERR:
 
+                // container_img.setVisibility(View.GONE);
+                container_txt.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+                rv_choice_card.setVisibility(View.VISIBLE);
+
+                ArrayList<SectionDataModel> array_action_yn_2 = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> singleItem_yn_2 = new ArrayList<SingleItemModel>();
+                SectionDataModel dm_yn_2 = new SectionDataModel();
+
+
+
+                singleItem_yn_2.add(new SingleItemModel("메뉴", ACTION_START ));
+
+                dm_yn_2.setAllItemsInSection(singleItem_yn_2);
+                array_action_yn_2.add(dm_yn_2);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewDataAdapter adapter11_2 = new RecyclerViewDataAdapter(context, array_action_yn_2);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter11_2);
+
+
+                break;
+
+            case "teammate":
+
+                // container_img.setVisibility(View.GONE);
+                container_txt.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+                rv_choice_card.setVisibility(View.VISIBLE);
+
+                ArrayList<SectionDataModel> array_action_yn_teammate = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> singleItem_yn_teammate = new ArrayList<SingleItemModel>();
+                SectionDataModel dm_yn_teammate = new SectionDataModel();
+
+
+                singleItem_yn_teammate.add(new SingleItemModel("더보기", ACTION_START ));
+                singleItem_yn_teammate.add(new SingleItemModel("메뉴", ACTION_START ));
+
+                dm_yn_teammate.setAllItemsInSection(singleItem_yn_teammate);
+                array_action_yn_teammate.add(dm_yn_teammate);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewDataAdapter adapter11_teammate = new RecyclerViewDataAdapter(context, array_action_yn_teammate);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter11_teammate);
+
+
+                break;
             case ACTION_SCHEDULE_OTHER:
 
 //txt + 물음상자
@@ -236,7 +297,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 SectionDataModel ACTION_STARTdm2 = new SectionDataModel();
 
                 for(int i =0;i<roles.size();i++) {
-                    ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(i).getRole_name(), ACTION_SCHEDULE_MY));
+                    ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(i).getRole_name(), "teammate"));
                 }
                /*
                 ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(0).getRole_name(), ACTION_SCHEDULE_MY ));
@@ -266,10 +327,25 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 txtMessage.setText(chat.getMessage());
                 txtTime.setText(chat.getTimestamp());
                 dateLine.setVisibility(View.GONE);
+                rv_choice_card.setVisibility(View.VISIBLE);
 
+                ArrayList<SectionDataModel> array_action_yn_3 = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> singleItem_yn_3 = new ArrayList<SingleItemModel>();
+                SectionDataModel dm_yn_3 = new SectionDataModel();
+
+
+
+                singleItem_yn_3.add(new SingleItemModel("메뉴", ACTION_START ));
+
+                dm_yn_3.setAllItemsInSection(singleItem_yn_3);
+                array_action_yn_3.add(dm_yn_3);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewDataAdapter adapter11_3 = new RecyclerViewDataAdapter(context, array_action_yn_3);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter11_3);
 
                 break;
-
 
             //날짜선 케이스
             //쓰는 뷰

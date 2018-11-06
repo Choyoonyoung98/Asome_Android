@@ -49,6 +49,8 @@ public class SocketClient {
                 return;
             String url_full = SOCKET_URL + "connect/" + hori_id + "/" + roomId + "/c";
             uri = new URI(url_full);
+            Log.i("Websocket", url_full+"connectWebSocket");
+
         } catch (URISyntaxException e) {
             e.printStackTrace();
             return;

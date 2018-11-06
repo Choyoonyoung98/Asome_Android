@@ -1,10 +1,12 @@
 package com.example.asome.asome_sourcerequire.Project;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -14,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asome.asome_sourcerequire.R;
-import com.example.asome.asome_sourcerequire.RangePicker;
+import com.example.asome.asome_sourcerequire.TestDialog_add_sch;
 import com.example.asome.asome_sourcerequire.Utils.HTTP.ProjInsert;
 import com.example.asome.asome_sourcerequire.Utils.HTTP.RoleInsert;
 
@@ -36,7 +38,7 @@ public class RoleDetailDialogActivity extends Activity {
     Button setStartBtn, setEndBtn, selectBtn, selectBtn2, showBtn, btn_role_add, btn_complete;
 
 
-    EditText et_role_name;
+    EditText et_role_name,et_role;
     String name, about, final_end_date, final_start_date;
     ListView lv_role;
     Role role;
@@ -44,7 +46,7 @@ public class RoleDetailDialogActivity extends Activity {
     RoleAdapter roleAdapter;
 
 
-    String role_name;
+    String role_name,role_role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,7 @@ public class RoleDetailDialogActivity extends Activity {
         about = intent.getStringExtra("about");
 
         et_role_name = (EditText) findViewById(R.id.et_role_name);
+        et_role = (EditText) findViewById(R.id.et_role);
 
         dp_start_date = findViewById(R.id.datePicker);
         dp_end_date = findViewById(R.id.datePicker2);
@@ -83,11 +86,16 @@ public class RoleDetailDialogActivity extends Activity {
             @Override
             public void onClick(View view) {
                 role_name = et_role_name.getText().toString();
+                role_role = et_role.getText().toString();
 
-                role = new Role(role_name, final_start_date, final_end_date);
+                role = new Role(role_name,role_role ,final_start_date, final_end_date);
 
                 role_arr_list.add(role);
                 Toast.makeText(getApplicationContext(), "complete", Toast.LENGTH_LONG).show();
+                et_role_name.setText("");
+                et_role.setText("");
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                 roleAdapter = new RoleAdapter(getApplicationContext(), role_arr_list);
                 lv_role.setAdapter(roleAdapter);
                 roleAdapter.notifyDataSetChanged();
@@ -115,7 +123,12 @@ public class RoleDetailDialogActivity extends Activity {
                 }
                 overridePendingTransition(R.anim.anim_slide_out_right, R.anim.anim_slide_in_left);
                 projectAdapter.addItem(new ProjectItem(name, about, proj_id));
-                finish();
+                TestDialog_add_sch customDialog = new TestDialog_add_sch(RoleDetailDialogActivity.this);
+
+                // 커스텀 다이얼로그를 호출한다.
+                // 커스텀 다이얼로그의 결과를 출력할 TextView를 매개변수로 같이 넘겨준다.
+                customDialog.callFunction();
+               // finish();
 
             }
         });

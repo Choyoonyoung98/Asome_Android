@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity;
 import com.example.asome.asome_sourcerequire.Chatting.Model.Chat;
+import com.example.asome.asome_sourcerequire.TestDialog_error;
 import com.example.asome.asome_sourcerequire.Utils.SQLite.DBHelperChatting;
 
 import org.json.JSONException;
@@ -14,6 +15,7 @@ import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivi
 import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity.current_room_no;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_CONNECTED;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_DONE;
+import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_ERR;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_IMG;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_RECEIVED;
 import static com.example.asome.asome_sourcerequire.Chatting.Etc.Constant.ACTION_RECONNECTED;
@@ -121,15 +123,15 @@ public class ChatUtils {
                         dbHelperChattingRoom.update_room_sequence(jsonObject.getString(TAG_ROOM_NO));
 
                     } else if (!jsonObject.get(TAG_USER_NO).equals(chatUtilmyName)) {
-                        dbHelperChattingChat.insert_chat(
+                  /*      dbHelperChattingChat.insert_chat(
                                 dbHelperChattingRoom.get_guide_real_name(jsonObject.getString(TAG_ROOM_NO)),
                                 jsonObject.getString(TAG_ROOM_NO),
                                 jsonObject.getString(TAG_MESSAGE),
                                 read_or_unread,
                                 DateFormat.date_month_day_time(),
                                 "false",
-                                ACTION_TEXT, 0, 0);
-                        dbHelperChattingRoom.update_room_sequence(jsonObject.getString(TAG_ROOM_NO));
+                                ACTION_TEXT, 0, 0);*/
+             //           dbHelperChattingRoom.update_room_sequence(jsonObject.getString(TAG_ROOM_NO));
                     }
                     return message_no;
 
@@ -200,7 +202,7 @@ public class ChatUtils {
                         }
 */
 
-                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신의 오늘 스케줄은 안드로이드 클라이언트 최적화 작업이다.", false, ACTION_SCHEDULE_MY);
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신의 오늘 스케줄은 안드로이드 클라이언트 최적화 작업입니다.", false, ACTION_SCHEDULE_MY);
 
                     }
 
@@ -211,8 +213,19 @@ public class ChatUtils {
 
                 case ACTION_SCHEDULE_OTHER:
                     if (jsonObject.getString(TAG_ROOM_NO).equals(current_room_no)) {
-                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "누구 스케쥴 보시겠습니까?<Listview>", false, ACTION_SCHEDULE_OTHER);
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "어떤팀원의 스케줄을 보시겠습니까?", false, ACTION_SCHEDULE_OTHER);
 
+                    }
+                    return chat;
+
+                case ACTION_ERR:
+                    if (jsonObject.getString(TAG_ROOM_NO).equals(current_room_no)) {
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "비상 상황이군요...팀장에게 알림이 갔어요!!", false, ACTION_ERR);
+                        TestDialog_error customDialog = new TestDialog_error(context);
+
+                        // 커스텀 다이얼로그를 호출한다.
+                        // 커스텀 다이얼로그의 결과를 출력할 TextView를 매개변수로 같이 넘겨준다.
+                        customDialog.callFunction();
                     }
                     return chat;
                 case ACTION_DONE:
@@ -255,7 +268,12 @@ public class ChatUtils {
                         }
                     }
                     return null;
+                case "teammate":
+                    if (jsonObject.getString(TAG_ROOM_NO).equals(current_room_no)) {
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), jsonObject.getString("message")+"님의 스케줄은 개발입니다.기간은 [11월 14일]-[11월 15일]이고 현재 [진행중]인 상태 입니다.", false, "teammate");
 
+                    }
+                    return chat;
 
                 default:
                     return null;

@@ -1,17 +1,11 @@
 package com.example.asome.asome_sourcerequire.Main;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.asome.asome_sourcerequire.R;
-import com.example.asome.asome_sourcerequire.TestDialog;
-import com.example.asome.asome_sourcerequire.TestDialog_add_sch;
-import com.example.asome.asome_sourcerequire.TestDialog_error;
 import com.example.asome.asome_sourcerequire.Utils.HTTP.ProjSelect;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setListener();
 
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+/*        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("AlertDialog Title");
         builder.setMessage("AlertDialog Content");
         builder.setNegativeButton("테스트1: 추가",
@@ -63,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         customDialog.callFunction();
                     }
                 });
-        builder.show();
+        builder.show();*/
      //여기 테스트 코드 넣자
         //1
         //‘ASOME’ 프로젝트에서

@@ -3,7 +3,7 @@ package com.example.asome.asome_sourcerequire.Project;
 import java.io.Serializable;
 
 public class Role implements Serializable{
-    String role_name,role_end_date, role_start_date,role_status,role_real_name;
+    String role_name,role_end_date, role_start_date,role_status,role_real_name,role_role;
 
     public Role(String role_name, String role_start_date, String role_end_date, String role_status, String role_real_name) {
         this.role_name = role_name;
@@ -13,8 +13,9 @@ public class Role implements Serializable{
         this.role_real_name = role_real_name;
     }
 
-    public Role(String role_name, String role_start_date,String role_end_date) {
+    public Role(String role_name,String role_role, String role_start_date,String role_end_date) {
         this.role_name = role_name;
+        this.role_role = role_role;
         this.role_end_date = role_end_date;
         this.role_start_date = role_start_date;
     }
@@ -22,7 +23,9 @@ public class Role implements Serializable{
     public String getRole_name() {
         return role_name;
     }
-
+    public String getRole_role() {
+        return role_role;
+    }
     public void setRole_name(String role_name) {
         this.role_name = role_name;
     }
