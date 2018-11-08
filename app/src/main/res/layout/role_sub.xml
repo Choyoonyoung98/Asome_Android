@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/showePage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<!--        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/resultUser"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:background="#BDBDBD"
+                android:gravity="right"
+                android:padding="5dp"
+                android:text="이름"
+                android:fontFamily="@font/gothic"
+                android:textColor="#111111"
+                android:textSize="20sp"
+                 />
+
+            <TextView
+                android:id="@+id/resultStartDay"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:background="#BDBDBD"
+                android:padding="5dp"
+                android:text="시작일"
+                android:fontFamily="@font/gothic"
+                android:textColor="#111111"
+                android:textSize="20sp"
+                 />
+
+            <TextView
+                android:id="@+id/resultEndDay"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:background="#BDBDBD"
+                android:padding="5dp"
+                android:text="마감일"
+                android:fontFamily="@font/gothic"
+                android:textColor="#111111"
+                android:textSize="20sp"
+                 />
+        </LinearLayout>-->
+    </LinearLayout>
+
+</LinearLayout>
