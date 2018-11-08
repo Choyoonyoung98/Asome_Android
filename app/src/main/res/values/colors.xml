@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
 
     <color name="colorPrimary">#04723C</color>
     <color name="colorPrimaryDark">#04723C</color>
@@ -12,17 +11,10 @@
     <color name="colorPrimaryDark">#3F51B5</color>
     <color name="colorAccent">#3F51B5</color>
     <color name="primary">#E43F3F</color> -->
-=======
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#3F51B5</color>
-    <color name="colorAccent">#3F51B5</color>
-    <color name="primary">#E43F3F</color>
->>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
     <color name="milk">#f7f7f7</color>
 
-<<<<<<< HEAD
     <color name="violet">#04723C</color>
     <color name="lightViolet">#04723C</color>
     <color name="skin">#04723C</color>
@@ -30,17 +22,11 @@
     <color name="violet2">#04723C</color>
 
     <!--
-=======
->>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
     <color name="violet">#3F51B5</color>
     <color name="lightViolet">#7986cb</color>
     <color name="skin">#fff8e1</color>
     <color name="lavender">#f3e5f5</color>
-<<<<<<< HEAD
     <color name="violet2">#5C6BC0</color> -->
-=======
-    <color name="violet2">#5C6BC0</color>
->>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
 
     <color name="bgGradStart">#f3e5f5</color>
     <color name="bgGradCenter">#7986CB</color>
@@ -70,7 +56,7 @@
     <color name="txt_color">#39455C</color>
 
 
-//ex
+    //ex
     <color name="teal_050">#e0f2f1</color> <!-- Use with black text -->
     <color name="teal_100">#b2dfdb</color> <!-- Use with black text -->
     <color name="teal_200">#80cbc4</color> <!-- Use with black text -->

@@ -19,10 +19,7 @@ import com.example.asome.asome_sourcerequire.Project.NewProjectActivity;
 import com.example.asome.asome_sourcerequire.Project.ProjectItem;
 import com.example.asome.asome_sourcerequire.Project.ProjectItemView;
 import com.example.asome.asome_sourcerequire.R;
-<<<<<<< HEAD
-=======
-import com.example.asome.asome_sourcerequire.TestDialog_add_sch;
->>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
+
 import com.example.asome.asome_sourcerequire.Utils.HTTP.ProjSelect;
 
 import java.util.ArrayList;

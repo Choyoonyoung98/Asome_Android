@@ -59,11 +59,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-<<<<<<< HEAD
             app:srcCompat="@drawable/echat_bird" />
-=======
-            app:srcCompat="@drawable/chatabird" />
->>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
 
         <LinearLayout
             android:id="@+id/msg_container"

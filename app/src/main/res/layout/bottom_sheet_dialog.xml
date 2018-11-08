@@ -18,11 +18,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:padding="12dp"
-<<<<<<< HEAD
             android:src="@drawable/eproject_cal"
-=======
-            android:src="@drawable/project_cal"
->>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
             android:textAlignment="center" />
 
         <TextView
@@ -48,11 +44,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:padding="12dp"
-<<<<<<< HEAD
             android:src="@drawable/epersonal_cal" />
-=======
-            android:src="@drawable/personal_cal" />
->>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
 
         <TextView
             android:layout_width="match_parent"

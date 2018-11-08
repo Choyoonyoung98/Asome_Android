@@ -1,22 +1,15 @@
 package com.example.asome.asome_sourcerequire;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
 
 import com.example.asome.asome_sourcerequire.Project.Role;
 import com.riontech.calendar.CustomCalendar;
 import com.riontech.calendar.dao.EventData;
 import com.riontech.calendar.dao.dataAboutDate;
 
-
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import java.util.List;
 import java.util.Random;
 

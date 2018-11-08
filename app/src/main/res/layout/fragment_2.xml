@@ -24,20 +24,11 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-<<<<<<< HEAD
         android:background="@drawable/eaddbtn"
-=======
-        android:background="@drawable/addbtn"
->>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.974"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.982" />
-=======
-        app:layout_constraintVertical_bias="0.982"
-        />
->>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
 </android.support.constraint.ConstraintLayout>
