@@ -49,7 +49,10 @@ dependencies {
 
     implementation 'com.jakewharton:butterknife:8.8.1'
 
+<<<<<<< HEAD
     implementation 'com.archit.calendar:awesome-calendar:1.1.1'
+=======
+>>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.riontech:calendar:1.0'
     implementation 'com.archit.calendar:awesome-calendar:1.1.1'

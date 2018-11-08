@@ -6,24 +6,49 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="100dp"
+=======
+        android:layout_height="170dp"
+>>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
         android:layout_margin="10dp"
         android:background="@drawable/rounded"
         android:orientation="vertical"
         android:paddingBottom="5dp">
 
         <TextView
+<<<<<<< HEAD
+=======
+            android:id="@+id/textAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:background="@drawable/btn_gd"
+            android:fontFamily="@font/gothic"
+            android:gravity="center"
+            android:text="AboutEx"
+            android:textColor="@color/skin"
+            android:textSize="15sp"
+            android:lineSpacingExtra="8dip"/>
+
+        <TextView
+>>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
             android:id="@+id/textTitle"
             android:layout_width="match_parent"
             android:layout_height="40dp"
 
             android:layout_margin="5dp"
             android:layout_weight="1"
+<<<<<<< HEAD
             android:background="@color/colorPrimary"
+=======
+            android:background="@color/white"
+>>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
             android:fontFamily="@font/songm"
             android:gravity="center_vertical"
             android:padding="10dp"
             android:text="TitleEx"
+<<<<<<< HEAD
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -39,6 +64,10 @@
             android:text="AboutEx"
             android:textColor="@color/colorPrimary"
             android:textSize="15sp" />
+=======
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+>>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
 
     </LinearLayout>
 </LinearLayout>

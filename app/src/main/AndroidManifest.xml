@@ -44,11 +44,7 @@
         <activity
             android:name=".Main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Login.JoinActivity"
@@ -73,7 +69,8 @@
         <activity android:name=".Chatting.Activity.MyScheduleActivity" />
         <activity android:name=".Chatting.Activity.TeamScheduleActivity" />
         <activity android:name=".Timeline.TimeLineActivity" />
-        <activity android:name=".CalendarActivity"/>
+        <activity android:name=".CalendarActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -1,7 +1,6 @@
 package com.example.asome.asome_sourcerequire;
 
 import android.app.Dialog;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -9,7 +8,9 @@ import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
 
 public class TestDialog_error {
 
@@ -42,16 +43,6 @@ public class TestDialog_error {
                 .setSound(uri)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-        try {
-            // 스레드에게 수행시킬 동작들 구현
-            Thread.sleep(5000); // 1초간 Thread를 잠재운다
-            NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-            mNotificationManager.notify(003, mBuilder.build());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            ;
-        }
 
 /*        new Thread(new Runnable() {
             @Override
@@ -79,14 +70,21 @@ public class TestDialog_error {
         final Button okButton = (Button) dlg.findViewById(R.id.okButton);
         final Button cancelButton = (Button) dlg.findViewById(R.id.cancelButton);
 
+        final TextView textView =(TextView)dlg.findViewById(R.id.title);
+        textView.setText("[김연지]님이 [기획]  업무에서 에러가 생겼습니다.");
+        okButton.setText("확인");
+        cancelButton.setText("취소");
+
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // '확인' 버튼 클릭시 메인 액티비티에서 설정한 main_label에
                 // 커스텀 다이얼로그에서 입력한 메시지를 대입한다.
-                // main_label.setText(message.getText().toString());
+
+
                 //    Toast.makeText(context, "\"" +  message.getText().toString() + "\" 을 입력하였습니다.", Toast.LENGTH_SHORT).show();
-                Toast.makeText(context, "추가했습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "확인했습니다.", Toast.LENGTH_SHORT).show();
+
 
                 // 커스텀 다이얼로그를 종료한다.
                 dlg.dismiss();

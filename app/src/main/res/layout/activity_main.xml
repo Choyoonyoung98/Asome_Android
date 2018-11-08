@@ -23,23 +23,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+<<<<<<< HEAD
             android:fontFamily="@font/gothic"
             android:icon="@drawable/eusers"
             android:text="사용자 목록" />
+=======
+            android:icon="@drawable/users"
+            android:text="사용자 목록"
+            android:fontFamily="@font/gothic"/>
+>>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:fontFamily="@font/gothic"
             android:icon="@drawable/eprojects"
             android:text="프로젝트 관리" />
+=======
+            android:icon="@drawable/projects"
+            android:text="프로젝트 관리"
+            android:fontFamily="@font/gothic" />
+>>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:fontFamily="@font/gothic"
             android:icon="@drawable/esettings"
             android:text="설정" />
+=======
+            android:icon="@drawable/settings"
+            android:text="설정"
+            android:fontFamily="@font/gothic" />
+>>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
     </android.support.design.widget.TabLayout>
 
 

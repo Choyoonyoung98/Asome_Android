@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+=======
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"><![CDATA[
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    ]]>
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+>>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d
 
     <GridView
         android:id="@+id/gridView"
@@ -14,5 +32,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
+=======
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+</LinearLayout>
+>>>>>>> 464ba3a278d50236dae483fbbf4f1352fd24be1d

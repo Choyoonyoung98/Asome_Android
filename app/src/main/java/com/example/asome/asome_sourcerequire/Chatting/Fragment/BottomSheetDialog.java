@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.asome.asome_sourcerequire.CalendarActivity;
-import com.example.asome.asome_sourcerequire.Chatting.Activity.MyScheduleActivity;
 import com.example.asome.asome_sourcerequire.R;
 
 import static com.example.asome.asome_sourcerequire.Chatting.Activity.ChatActivity.roles;
@@ -63,6 +62,8 @@ public class BottomSheetDialog extends BottomSheetDialogFragment implements View
 
 //less than Froyo
                 ComponentName  cn = new ComponentName(  "com.android.calendar", "com.android.calendar.LaunchActivity");
+                cn = new ComponentName("com.google.android.calendar", "com.android.calendar.LaunchActivity");
+
                 i.setComponent(cn);
                 startActivity(i);
                 break;
