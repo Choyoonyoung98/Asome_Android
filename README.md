@@ -26,7 +26,7 @@ Google Calendar와 연동하여 개인 일정을 ChatBot으로 관리하고 주�
 
 ## [ Architecture ]             
 
-![workflow]()
+![workflow](https://github.com/Choyoonyoung98/Haniem2018/blob/master/Asome_Architecture.png)
 
 ## [ App Image ]             
 
