@@ -30,7 +30,7 @@ Google Calendar와 연동하여 개인 일정을 ChatBot으로 관리하고 주�
 
 ## [ App Image ]             
 
-![appImage]()
+![appImage](https://github.com/Choyoonyoung98/Haniem2018/blob/master/appImg.png)
 
 
 ## [ Develop Environment ]
